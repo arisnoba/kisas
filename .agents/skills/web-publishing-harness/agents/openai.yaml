@@ -1,0 +1,6 @@
+interface:
+  display_name: "Web Publishing Harness"
+  short_description: "Website pre-publish QA and release workflow"
+  default_prompt: "Use $web-publishing-harness to prepare this website for publishing and report validation results."
+policy:
+  allow_implicit_invocation: true
