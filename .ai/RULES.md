@@ -11,7 +11,7 @@
 ## 검증 우선순위
 
 1. 하네스 자체 점검: `npm run harness:smoke`
-2. 하네스 리포트 생성: `npm run harness:report`
+2. 하네스 리포트 확인: `npm run harness:report`
 3. 정적 검증: `npm run lint`
 4. 빌드 검증: `npm run build`
 5. UI 변경이 있으면 브라우저 확인: 데스크톱/모바일 주요 화면

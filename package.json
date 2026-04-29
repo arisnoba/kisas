@@ -9,8 +9,9 @@
     "lint": "eslint",
     "harness:smoke": "node scripts/publish-smoke.mjs",
     "harness:report": "node scripts/publish-report.mjs",
+    "harness:report:write": "node scripts/publish-report.mjs --write",
     "publish:smoke": "node scripts/publish-smoke.mjs",
-    "publish:report": "node scripts/publish-report.mjs"
+    "publish:report": "node scripts/publish-report.mjs --write"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
@@ -31,6 +32,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.4",
+    "sass": "^1.99.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

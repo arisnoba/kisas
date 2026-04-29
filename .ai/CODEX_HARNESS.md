@@ -15,9 +15,11 @@
 | 코드리뷰 실행 | 코드, UI, 빌드 산출물 점검 |
 | 리뷰 반영 + QA | 수정 반영 후 smoke/report/앱 검증 반복 |
 
-## 기본 산출물
+## 산출물 정책
 
-- `.publish-artifacts/{branch-name}/publish-report.md`
+- 기본 검증은 `npm run harness:smoke`로 실행한다.
+- `npm run harness:report`는 터미널에만 리포트를 출력하며 파일을 갱신하지 않는다.
+- `.publish-artifacts/{branch-name}/publish-report.md`는 `npm run harness:report:write` 또는 `npm run publish:report`를 명시적으로 실행할 때만 갱신한다.
 - 필요 시 `.publish-artifacts/{branch-name}/publishing-intent.md`
 - 필요 시 `.publish-artifacts/{branch-name}/review-checklist.md`
 - 필요 시 `.publish-artifacts/{branch-name}/pr-body.md`

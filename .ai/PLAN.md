@@ -11,7 +11,7 @@
 - Codex 진입 지침을 `AGENTS.md`에 둔다.
 - 작업 기억, 규칙, 계획을 `.ai/` 아래에 둔다.
 - 재사용 워크플로를 `.agents/skills/web-publishing-harness/` Skill로 둔다.
-- 의존성 없는 Node 스크립트로 `harness:smoke`, `harness:report`를 제공한다.
+- 의존성 없는 Node 스크립트로 `harness:smoke`, 파일을 갱신하지 않는 `harness:report`, 명시적 산출물 생성용 `harness:report:write`를 제공한다.
 - `PRD.md`에 페이지 구조, 사용자 흐름, 콘텐츠 모델, 백엔드 연동 경계를 정리했다.
 - Next.js App Router와 Tailwind CSS v4 프로젝트를 스캐폴딩했다.
 - shadcn/ui는 preset `bIm4yi8`로 초기화했다.

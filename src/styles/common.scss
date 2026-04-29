@@ -1,0 +1,27 @@
+@use "./mixins" as *;
+
+h1.display-title {
+  @include fluid-prop(font-size, 44px, 80px);
+
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+h2.section-title {
+  @include fluid-prop(font-size, 36px, 80px);
+
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.section-kicker {
+  @include fluid-prop(font-size, 13px, 15px);
+
+  line-height: 1.4;
+}
+
+.section-copy {
+  @include fluid-prop(font-size, 16px, 20px);
+
+  line-height: 1.6;
+}

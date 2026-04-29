@@ -1,0 +1,25 @@
+@use "sass:math";
+
+/// Returns a CSS clamp() expression that scales linearly between two viewport widths.
+/// Based on Christian May's "Easy CSS Clamp SCSS Mixin" approach:
+/// https://dev.to/christianmay21/easy-css-clamp-scss-mixin-1225
+@function fluid-clamp($min-vw, $max-vw, $min-value, $max-value) {
+  $slope: math.div($max-value - $min-value, $max-vw - $min-vw);
+  $intercept: $min-value - $slope * $min-vw;
+
+  @return clamp(
+    #{$min-value},
+    calc(#{$intercept} + #{$slope * 100}vw),
+    #{$max-value}
+  );
+}
+
+@mixin fluid-prop(
+  $property,
+  $min-value,
+  $max-value,
+  $min-vw: 390px,
+  $max-vw: 1440px
+) {
+  #{$property}: fluid-clamp($min-vw, $max-vw, $min-value, $max-value);
+}

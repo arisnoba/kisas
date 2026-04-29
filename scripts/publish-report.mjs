@@ -7,6 +7,7 @@ import path from "node:path";
 
 const execFileAsync = promisify(execFile);
 const root = process.cwd();
+const shouldWrite = process.argv.includes("--write");
 
 async function exists(relativePath) {
   try {
@@ -65,7 +66,6 @@ for (const [name, signals] of frameworkSignals) {
 
 const scripts = Object.keys(packageJson.scripts ?? {}).sort();
 const artifactDir = path.join(root, ".publish-artifacts", safeBranch);
-await mkdir(artifactDir, { recursive: true });
 
 const generatedAt = new Date().toISOString();
 const report = `# Publishing Harness Report
@@ -81,13 +81,19 @@ ${status ? `Changed files:\n\n\`\`\`txt\n${status}\n\`\`\`` : "Working tree has 
 
 - Framework signals: ${detected.length > 0 ? detected.join("; ") : "not detected yet"}
 - Package scripts: ${scripts.length > 0 ? scripts.join(", ") : "none"}
+- Styling: Tailwind CSS v4 + SCSS page files
+- Locale routes: English default \`/\`, Chinese \`/zh\`
+- Asset convention: \`public/assets/images/{pageURL}\`
 
 ## Harness Checks
 
-- AGENTS.md: ${await exists("AGENTS.md") ? "present" : "missing"}
+- AGENTS.md: ${await exists("AGENTS.md") ? "present locally" : "not present; optional local-only file"}
 - .ai docs: ${await exists(".ai/MEMORY.md") && await exists(".ai/RULES.md") && await exists(".ai/PLAN.md") ? "present" : "incomplete"}
 - Skill: ${await exists(".agents/skills/web-publishing-harness/SKILL.md") ? "present" : "missing"}
 - Smoke command: ${packageJson.scripts?.["harness:smoke"] ? packageJson.scripts["harness:smoke"] : "missing"}
+- SCSS mixins: ${await exists("src/styles/_mixins.scss") ? "present" : "missing"}
+- Home page SCSS: ${await exists("src/styles/pages/home.scss") ? "present" : "missing"}
+- Home assets: ${await exists("public/assets/images/home/README.md") ? "present" : "missing"}
 
 ## Publishing Status
 
@@ -101,10 +107,18 @@ ${status ? `Changed files:\n\n\`\`\`txt\n${status}\n\`\`\`` : "Working tree has 
 ## Notes
 
 - This report verifies the harness structure only.
-- Add actual app code and project-specific build commands before treating this as deploy-ready evidence.
+- By default this command prints a report only and does not update files.
+- Use \`npm run harness:report:write\` only when a durable artifact is explicitly useful.
+- Run project-specific lint/build commands before treating this as deploy-ready evidence.
 `;
 
-const reportPath = path.join(artifactDir, "publish-report.md");
-await writeFile(reportPath, report, "utf8");
+if (shouldWrite) {
+  await mkdir(artifactDir, { recursive: true });
 
-console.log(`Publishing report written: ${path.relative(root, reportPath)}`);
+  const reportPath = path.join(artifactDir, "publish-report.md");
+  await writeFile(reportPath, report, "utf8");
+
+  console.log(`Publishing report written: ${path.relative(root, reportPath)}`);
+} else {
+  console.log(report);
+}

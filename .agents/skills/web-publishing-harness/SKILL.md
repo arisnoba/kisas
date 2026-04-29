@@ -13,11 +13,12 @@ Use this skill when the user asks to prepare, review, publish, or QA a website w
 2. Identify the project type, package manager, app entry points, and deploy target from local files.
 3. State a short plan before non-trivial edits.
 4. Make the smallest change that satisfies the publishing goal.
-5. Run the harness checks:
-   - `npm run harness:smoke`
-   - `npm run harness:report`
+5. Run the harness checks appropriate to the work:
+   - Use `npm run harness:smoke` as the default structural check.
+   - Use `npm run harness:report` when a read-only report is useful in the terminal.
+   - Use `npm run harness:report:write` only when the user explicitly wants a durable report artifact.
 6. If a real app exists, also run its local verification commands such as lint, typecheck, tests, and build.
-7. Save durable publishing findings under `.publish-artifacts/{branch-name}/` when useful.
+7. Save durable publishing findings under `.publish-artifacts/{branch-name}/` only when useful.
 8. Report completed changes, validation results, and any unverified risk.
 
 ## Reference Selection

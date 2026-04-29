@@ -1,0 +1,13 @@
+@use "../mixins" as *;
+
+.home-hero {
+  @include fluid-prop(padding-block, 80px, 160px);
+
+  .home-hero-title {
+    @include fluid-prop(font-size, 44px, 80px);
+  }
+}
+
+.home-scaffold-card-grid {
+  @include fluid-prop(margin-top, 32px, 48px);
+}
