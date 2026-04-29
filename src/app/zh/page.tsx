@@ -17,5 +17,5 @@ export const metadata: Metadata = {
 };
 
 export default function ChineseHome() {
-  return <HomeScaffold dictionary={homeDictionaries.zh} />;
+  return <HomeScaffold dictionary={homeDictionaries.zh} locale="zh" />;
 }

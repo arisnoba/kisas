@@ -9,7 +9,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-kisas-sans);
   --font-mono: var(--font-kisas-mono);
-  --font-heading: var(--font-sans);
+  --font-heading: var(--font-kisas-heading);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -46,11 +46,36 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
 }
 
 :root {
-  --font-kisas-sans: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo",
-    "Malgun Gothic", system-ui, sans-serif;
+  --font-kisas-sans: "Helvetica Neue", var(--font-noto-sans), Arial,
+    "Apple SD Gothic Neo", "Noto Sans SC", "Noto Sans CJK SC", system-ui,
+    sans-serif;
+  --font-kisas-heading: var(--font-newsreader), Georgia, "Times New Roman",
+    serif;
+  --font-kisas-zh-sans: var(--font-noto-sans-sc), "Noto Sans SC",
+    "Noto Sans CJK SC", system-ui, sans-serif;
+  --font-kisas-zh-serif: var(--font-noto-serif-sc), "Noto Serif SC",
+    "Noto Serif CJK SC", serif;
   --font-kisas-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
