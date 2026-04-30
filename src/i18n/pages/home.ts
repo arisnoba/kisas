@@ -70,8 +70,12 @@ export type HomeDictionary = {
 		cta: string;
 	};
 	footer: {
-		line1: string;
-		line2: string;
+		links: {
+			label: string;
+			href: string;
+		}[];
+		organizationLines: string[];
+		copyright: string;
 	};
 };
 
@@ -213,8 +217,12 @@ export const homeDictionaries = {
 			cta: 'Get a Consultation',
 		},
 		footer: {
-			line1: 'KISAS International Arts Study Abroad Center | www.kisas.kr | China Operations Center | © 2026',
-			line2: 'Wireframe v3.0 | 2026-04-20 | design-skill clean-info',
+			links: [
+				{ label: 'Terms of Service', href: '/terms-of-service' },
+				{ label: 'Privacy Policy', href: '/privacy-policy' },
+			],
+			organizationLines: ['Korea International Space for Arts and Science', 'KISAS Plus · Directly Operated Campus'],
+			copyright: '© 2026 KISAS Plus. All rights reserved.',
 		},
 	},
 	zh: {
@@ -351,8 +359,12 @@ export const homeDictionaries = {
 			cta: '预约咨询',
 		},
 		footer: {
-			line1: 'KISAS 国际艺术留学中心 | www.kisas.kr | 中国运营中心 | © 2026',
-			line2: 'Wireframe v3.0 | 2026-04-20 | design-skill clean-info',
+			links: [
+				{ label: '服务条款', href: '/zh/terms-of-service' },
+				{ label: '隐私政策', href: '/zh/privacy-policy' },
+			],
+			organizationLines: ['Korea International Space for Arts and Science', 'KISAS Plus · Directly Operated Campus'],
+			copyright: '© 2026 KISAS Plus. All rights reserved.',
 		},
 	},
 } satisfies Record<Locale, HomeDictionary>;

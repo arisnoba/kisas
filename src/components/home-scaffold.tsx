@@ -92,13 +92,14 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 
 			<section className="home-why-kisas" id="why">
 				<div className="home-why-inner">
-					<div className="home-why-sticky">
+					<div className="home-why-copy">
 						<h2 className="home-section-title section-title">
 							<TextLines className="block" lines={dictionary.why.titleLines} />
 						</h2>
-						<Image src={assets.whyLogo} alt="" width={760} height={760} className="home-why-logo" />
 					</div>
-
+					<div className="home-why-sticky">
+						<Image src={assets.whyLogo} alt="" width={760} height={760} className="home-why-logo -z-1" />
+					</div>
 					<div className="home-why-grid">
 						{dictionary.why.items.map((item, index) => (
 							<article className={`home-why-item home-why-item-${index + 1}`} key={item.number}>
@@ -116,7 +117,7 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 				</div>
 			</section>
 
-			<section className="home-universities" id="universities">
+			<section className="home-universities z-10" id="universities">
 				<div className="home-universities-copy">
 					<h2>
 						<span>{dictionary.universities.eyebrow}</span>
@@ -134,7 +135,7 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 					{dictionary.universities.marqueeRows.map((row, index) => (
 						<Marquee className="home-university-marquee" key={row.join('-')} repeat={3} reverse={index % 2 === 1}>
 							{row.map(name => (
-								<span className="home-university-name" key={name}>
+								<span className="home-university-name pointer-events-none select-none" key={name}>
 									{name}
 								</span>
 							))}
@@ -214,9 +215,30 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 				</div>
 			</section>
 
-			<footer className="home-footer">
-				<p>{dictionary.footer.line1}</p>
-				<p>{dictionary.footer.line2}</p>
+			<footer className="home-footer grid grid-cols-1 gap-12 bg-[#1e1e1e] px-6 py-16 md:px-[52px] md:py-[100px] min-[1101px]:grid-cols-[minmax(280px,383px)_minmax(320px,415px)_minmax(240px,374px)] min-[1101px]:items-start min-[1101px]:gap-[52px] min-[1440px]:gap-[120px]">
+				<div className="home-footer-brand flex w-full max-w-[383px] items-center gap-[18px]">
+					<Image src={assets.logo} alt="KISAS" width={177} height={55} />
+					<p>
+						International
+						<br />
+						Art Study Center
+					</p>
+				</div>
+
+				<div className="flex w-full max-w-[415px] flex-col gap-4 min-[1101px]:py-2">
+					<nav className="home-footer-links flex flex-wrap items-center gap-4" aria-label="Footer navigation">
+						{dictionary.footer.links.map(link => (
+							<Link href={link.href} key={link.label}>
+								{link.label}
+							</Link>
+						))}
+					</nav>
+					<p className="home-footer-organization">
+						<TextLines className="block" lines={dictionary.footer.organizationLines} />
+					</p>
+				</div>
+
+				<p className="home-footer-copyright min-[1101px]:py-2">{dictionary.footer.copyright}</p>
 			</footer>
 		</main>
 	);

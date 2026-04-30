@@ -7,7 +7,7 @@
 	--home-dark: #111;
 	--home-soft: #f6f6f2;
 
-	overflow-x: hidden;
+	overflow-x: clip;
 	font-family: var(--font-kisas-sans);
 }
 
@@ -287,9 +287,10 @@ body.home-menu-open {
 }
 
 .home-section-title {
-	width: min-content;
-	min-width: 310px;
+	@include fluid-prop(font-size, 28px, 80px);
+	font-family: var(--font-kisas-heading);
 	font-weight: 600;
+	line-height: 1.1;
 }
 
 .home-why-logo {
@@ -299,7 +300,6 @@ body.home-menu-open {
 	width: min(56vw, 760px);
 	height: auto;
 	transform: translateX(-50%);
-	opacity: 0.08;
 }
 
 .home-why-grid {
@@ -310,14 +310,16 @@ body.home-menu-open {
 	justify-content: center;
 	gap: 180px 210px;
 	padding-top: 220px;
+	direction: rtl;
 }
 
 .home-why-item {
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
+	direction: ltr;
 
-	&:nth-child(odd) {
+	&:nth-child(even) {
 		transform: translateY(130px);
 	}
 
@@ -588,11 +590,59 @@ body.home-menu-open {
 }
 
 .home-footer {
-	padding: 56px 40px;
-	background: #1e1e1e;
-	color: rgba(255, 255, 255, 0.58);
 	font-family: var(--font-kisas-sans);
-	@include fluid-prop(font-size, 14px, 16px);
+	color: #fff;
+}
+
+.home-footer-brand {
+	opacity: 0.6;
+
+	p {
+		font-family: var(--font-kisas-sans);
+		@include fluid-prop(font-size, 16px, 18px);
+		line-height: 1.1;
+		white-space: nowrap;
+	}
+}
+
+.home-footer-links {
+	a {
+		position: relative;
+		color: #fff;
+		font-family: var(--font-kisas-sans);
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 1;
+
+		& + a {
+			padding-left: 17px;
+
+			&::before {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				width: 1px;
+				background: rgba(217, 217, 217, 0.2);
+				content: '';
+			}
+		}
+	}
+}
+
+.home-footer-organization,
+.home-footer-copyright {
+	color: rgba(255, 255, 255, 0.6);
+	font-family: var(--font-kisas-sans);
+	@include fluid-prop(font-size, 16px, 18px);
+	font-weight: 400;
+}
+
+.home-footer-organization {
+	line-height: 1.8;
+}
+
+.home-footer-copyright {
 	line-height: 2;
 }
 
@@ -652,9 +702,10 @@ body.home-menu-open {
 		grid-template-columns: 1fr;
 		gap: 72px;
 		padding-top: 0;
+		direction: ltr;
 	}
 
-	.home-why-item:nth-child(odd),
+	.home-why-item:nth-child(even),
 	.home-student-card:nth-child(even) {
 		transform: none;
 	}
@@ -664,10 +715,6 @@ body.home-menu-open {
 	}
 
 	.home-final-cta {
-		padding-inline: 24px;
-	}
-
-	.home-footer {
 		padding-inline: 24px;
 	}
 }
