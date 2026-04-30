@@ -115,9 +115,13 @@ for (const forbiddenPath of forbiddenPaths) {
 }
 
 const sourceFiles = await listFiles("src");
+const koreanTextAllowedFiles = new Set(["src/i18n/pages/legal.ts"]);
 const koreanTextFiles = [];
 for (const file of sourceFiles) {
   if (!/\.(ts|tsx|scss|css)$/.test(file)) {
+    continue;
+  }
+  if (koreanTextAllowedFiles.has(file)) {
     continue;
   }
 
