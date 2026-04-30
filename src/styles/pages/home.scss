@@ -77,12 +77,20 @@ body.home-menu-open {
 	white-space: nowrap;
 
 	a {
+		display: inline-flex;
+		align-items: center;
+		border-bottom: 2px solid transparent;
+		padding-block: 10px;
 		transition: color 180ms ease;
 
 		&:hover {
 			color: rgba(255, 255, 255, 0.72);
 		}
 	}
+}
+
+.home-nav-link-active {
+	border-bottom-color: currentcolor !important;
 }
 
 .home-consultation-link,
@@ -138,6 +146,12 @@ body.home-menu-open {
 	@include fluid-prop(font-size, 36px, 54px);
 	font-weight: 600;
 	line-height: 1.04;
+}
+
+.home-mobile-nav-link-active {
+	text-decoration: underline;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 8px;
 }
 
 .home-mobile-consultation-link,

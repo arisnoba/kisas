@@ -12,9 +12,10 @@ type HomeHeaderProps = {
 	logo: string;
 	nav: HomeDictionary['nav'];
 	locale: Locale;
+	activeHref?: string;
 };
 
-export function HomeHeader({ logo, nav, locale }: HomeHeaderProps) {
+export function HomeHeader({ logo, nav, locale, activeHref }: HomeHeaderProps) {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [hasScrolled, setHasScrolled] = useState(false);
 	const homeHref = locale === 'zh' ? '/zh' : '/';
@@ -71,7 +72,7 @@ export function HomeHeader({ logo, nav, locale }: HomeHeaderProps) {
 
 			<nav className="home-nav relative z-10 hidden items-center gap-[clamp(24px,4.16vw,80px)] min-[1101px]:flex" aria-label="Primary navigation">
 				{nav.links.map(link => (
-					<Link href={link.href} key={link.label}>
+					<Link className={link.href === activeHref ? 'home-nav-link-active' : undefined} href={link.href} key={link.label}>
 						{link.label}
 					</Link>
 				))}
@@ -101,7 +102,7 @@ export function HomeHeader({ logo, nav, locale }: HomeHeaderProps) {
 				<div className="home-mobile-menu fixed inset-0 z-0 flex flex-col justify-between px-6 pb-8 pt-28 min-[1101px]:hidden" id="home-mobile-menu">
 					<nav className="flex flex-col gap-5" aria-label="Mobile navigation">
 						{nav.links.map(link => (
-							<Link className="home-mobile-nav-link" href={link.href} key={link.label} onClick={closeMenu}>
+							<Link className={`home-mobile-nav-link ${link.href === activeHref ? 'home-mobile-nav-link-active' : ''}`} href={link.href} key={link.label} onClick={closeMenu}>
 								{link.label}
 							</Link>
 						))}

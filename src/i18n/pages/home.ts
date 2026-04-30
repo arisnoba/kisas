@@ -89,7 +89,7 @@ export const homeDictionaries = {
 		},
 		nav: {
 			links: [
-				{ label: 'About', href: '#why' },
+				{ label: 'About', href: '/about' },
 				{ label: 'Partner Universities', href: '#universities' },
 				{ label: 'Apply', href: '/apply' },
 				{ label: 'Student Life', href: '#students' },
@@ -232,7 +232,7 @@ export const homeDictionaries = {
 		},
 		nav: {
 			links: [
-				{ label: '关于', href: '#why' },
+				{ label: '关于', href: '/zh/about' },
 				{ label: '合作院校', href: '#universities' },
 				{ label: '申请', href: '/zh/apply' },
 				{ label: '学生生活', href: '#students' },
