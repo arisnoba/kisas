@@ -18,59 +18,6 @@
 	font-family: var(--font-kisas-zh-sans);
 }
 
-.home-button {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	gap: 10px;
-	min-height: 54px;
-	padding: 15px 24px;
-	border: 1px solid currentcolor;
-	font-family: var(--font-kisas-sans);
-	@include fluid-prop(font-size, 16px, 18px);
-	font-weight: 700;
-	line-height: 1.2;
-	white-space: nowrap;
-	transition:
-		background-color 180ms ease,
-		color 180ms ease,
-		border-color 180ms ease;
-
-	&:focus-visible {
-		outline: 2px solid currentcolor;
-		outline-offset: 4px;
-	}
-}
-
-.home-button-light {
-	border-color: #fff;
-	background: #fff;
-	color: var(--home-blue);
-
-	&:hover {
-		background: rgba(255, 255, 255, 0.86);
-	}
-}
-
-.home-button-outline {
-	background: transparent;
-	color: currentcolor;
-
-	&:hover {
-		background: rgba(255, 255, 255, 0.12);
-	}
-}
-
-.home-button-solid {
-	border-color: var(--home-blue);
-	background: var(--home-blue);
-	color: #fff;
-
-	&:hover {
-		background: #0b2a63;
-	}
-}
-
 .home-hero {
 	position: relative;
 	min-height: min(1080px, 100svh);

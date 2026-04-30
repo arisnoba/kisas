@@ -3,6 +3,7 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { HomeHeader } from '@/components/home-header';
+import { KisasButton } from '@/components/ui/kisas-button';
 import { Marquee } from '@/components/ui/marquee';
 import { NumberTicker } from '@/components/ui/number-ticker';
 import type { HomeDictionary } from '@/i18n/pages/home';
@@ -35,10 +36,9 @@ function TextLines({ lines, className }: { lines: string[]; className?: string }
 
 function ArrowButton({ href, children, variant = 'solid' }: { href: string; children: ReactNode; variant?: 'solid' | 'outline' | 'light' }) {
 	return (
-		<Link className={`home-button home-button-${variant}`} href={href}>
-			<span>{children}</span>
-			<ChevronRight aria-hidden="true" size={18} strokeWidth={1.8} />
-		</Link>
+		<KisasButton href={href} icon={<ChevronRight aria-hidden="true" size={18} strokeWidth={1.8} />} variant={variant}>
+			{children}
+		</KisasButton>
 	);
 }
 

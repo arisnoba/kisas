@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { KisasButton } from '@/components/ui/kisas-button';
 import type { HomeDictionary } from '@/i18n/pages/home';
 import type { Locale } from '@/i18n/config';
 
@@ -77,12 +78,12 @@ export function HomeHeader({ logo, nav, locale }: HomeHeaderProps) {
 			</nav>
 
 			<div className="home-header-actions relative z-10 hidden items-center justify-end gap-3 min-[1101px]:flex">
-				<Link className="home-consultation-link" href={consultationHref}>
+				<KisasButton href={consultationHref} shape="rect" size="nav" variant="header">
 					{nav.consultation}
-				</Link>
-				<Link className="home-locale-link" href={nav.localeSwitch.href}>
+				</KisasButton>
+				<KisasButton href={nav.localeSwitch.href} shape="rect" size="nav" variant="locale">
 					{nav.localeSwitch.label}
-				</Link>
+				</KisasButton>
 			</div>
 
 			<button
@@ -107,12 +108,12 @@ export function HomeHeader({ logo, nav, locale }: HomeHeaderProps) {
 					</nav>
 
 					<div className="flex flex-col gap-3">
-						<Link className="home-mobile-consultation-link" href={consultationHref} onClick={closeMenu}>
+						<KisasButton href={consultationHref} onClick={closeMenu} shape="rect" size="mobile" variant="mobile-solid">
 							{nav.consultation}
-						</Link>
-						<Link className="home-mobile-locale-link" href={nav.localeSwitch.href} onClick={closeMenu}>
+						</KisasButton>
+						<KisasButton href={nav.localeSwitch.href} onClick={closeMenu} shape="rect" size="mobile" variant="mobile-outline">
 							{nav.localeSwitch.label}
-						</Link>
+						</KisasButton>
 					</div>
 				</div>
 			) : null}
