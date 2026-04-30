@@ -1,5 +1,7 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import { HomeFooter } from '@/components/home-footer';
+import { HomeHeader } from '@/components/home-header';
+import { homeDictionaries } from '@/i18n/pages/home';
 import type { LegalBlock, LegalDictionary, LegalDocument } from '@/i18n/pages/legal';
 import type { Locale } from '@/i18n/config';
 
@@ -15,12 +17,25 @@ function getHomeHref(locale: Locale) {
 	return locale === 'zh' ? '/zh' : '/';
 }
 
-function getLegalHref(locale: Locale, slug: LegalDocument['slug']) {
-	return locale === 'zh' ? `/zh/${slug}` : `/${slug}`;
-}
-
 function getLocaleSwitchHref(locale: Locale, slug: LegalDocument['slug']) {
 	return locale === 'zh' ? `/${slug}` : `/zh/${slug}`;
+}
+
+function getLegalPageNav(locale: Locale, slug: LegalDocument['slug']) {
+	const homeHref = getHomeHref(locale);
+	const nav = homeDictionaries[locale].nav;
+
+	return {
+		...nav,
+		links: nav.links.map(link => ({
+			...link,
+			href: link.href.startsWith('#') ? `${homeHref}${link.href}` : link.href,
+		})),
+		localeSwitch: {
+			...nav.localeSwitch,
+			href: getLocaleSwitchHref(locale, slug),
+		},
+	};
 }
 
 function LegalBlockRenderer({ block, index }: { block: LegalBlock; index: number }) {
@@ -81,37 +96,14 @@ function LegalBlockRenderer({ block, index }: { block: LegalBlock; index: number
 }
 
 export function LegalPage({ dictionary, document, locale }: LegalPageProps) {
+	const siteDictionary = homeDictionaries[locale];
+	const legalPageNav = getLegalPageNav(locale, document.slug);
+
 	return (
-		<main className="min-h-screen bg-[#f7f8fb] text-slate-950" lang={locale}>
-			<header className="sticky top-0 z-40 border-b border-slate-200 bg-white/92 backdrop-blur">
-				<div className="mx-auto flex w-[min(1120px,calc(100%_-_32px))] flex-wrap items-center justify-between gap-4 py-4">
-					<Link className="flex items-center gap-3" href={getHomeHref(locale)}>
-						<Image src={logo} alt="KISAS" width={128} height={40} priority />
-						<span className="hidden text-sm font-semibold leading-tight text-[#10367d] sm:inline">
-							International
-							<br />
-							Art Study Center
-						</span>
-					</Link>
+		<main className="home-page min-h-screen bg-[#f7f8fb] text-slate-950" lang={locale}>
+			<HomeHeader logo={logo} locale={locale} nav={legalPageNav} />
 
-					<nav className="flex flex-wrap items-center justify-end gap-2 text-sm font-semibold text-slate-700" aria-label="Legal navigation">
-						<Link className="px-3 py-2 transition hover:text-[#10367d]" href={getHomeHref(locale)}>
-							{dictionary.nav.home}
-						</Link>
-						<Link className="px-3 py-2 transition hover:text-[#10367d]" href={getLegalHref(locale, 'terms-of-service')}>
-							{dictionary.nav.terms}
-						</Link>
-						<Link className="px-3 py-2 transition hover:text-[#10367d]" href={getLegalHref(locale, 'privacy-policy')}>
-							{dictionary.nav.privacy}
-						</Link>
-						<Link className="border border-slate-300 px-3 py-2 transition hover:border-[#10367d] hover:text-[#10367d]" href={getLocaleSwitchHref(locale, document.slug)}>
-							{dictionary.nav.localeSwitch}
-						</Link>
-					</nav>
-				</div>
-			</header>
-
-			<section className="border-b border-slate-200 bg-white">
+			<section className="border-b border-slate-200 bg-white pt-24 md:pt-28">
 				<div className="mx-auto grid w-[min(980px,calc(100%_-_32px))] gap-5 py-14 md:py-20">
 					<p className="text-sm font-bold uppercase tracking-[0.18em] text-[#10367d]">{dictionary.page.kicker}</p>
 					<div className="grid gap-4">
@@ -142,6 +134,8 @@ export function LegalPage({ dictionary, document, locale }: LegalPageProps) {
 					{dictionary.page.backToHome}
 				</Link>
 			</div>
+
+			<HomeFooter footer={siteDictionary.footer} logo={logo} />
 		</main>
 	);
 }
