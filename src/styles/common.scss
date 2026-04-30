@@ -31,6 +31,23 @@ h2.section-title {
 	line-height: 1.6;
 }
 
+.container,
+.container-fulid,
+.container-fluid {
+	width: 100%;
+	margin-inline: auto;
+}
+
+.container {
+	max-width: 1120px;
+	padding-inline: 24px;
+}
+
+.container-fulid,
+.container-fluid {
+	max-width: none;
+}
+
 .kisas-button {
 	--kisas-button-bg: var(--home-blue, #10367d);
 	--kisas-button-bg-opacity: 1;

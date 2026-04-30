@@ -170,7 +170,7 @@ body.home-menu-open {
 	grid-template-columns: minmax(0, 525px) minmax(0, 520px);
 	justify-content: center;
 	gap: clamp(64px, 7vw, 160px);
-	padding: 128px 40px 120px;
+	padding-block: 128px 120px;
 }
 
 .home-hero-title {
@@ -223,8 +223,6 @@ body.home-menu-open {
 .home-why-inner {
 	position: relative;
 	min-height: inherit;
-	width: min(1120px, calc(100% - 48px));
-	margin-inline: auto;
 }
 
 .home-why-sticky {
@@ -325,10 +323,8 @@ body.home-menu-open {
 
 .home-universities-copy {
 	display: grid;
-	width: min(100%, calc(100% - 80px));
 	grid-template-columns: 1fr 1fr;
 	gap: 80px;
-	margin-inline: auto;
 
 	h2 {
 		font-family: var(--font-kisas-heading);
@@ -353,6 +349,7 @@ body.home-menu-open {
 	display: flex;
 	flex-direction: column;
 	gap: 22px;
+	width: 100%;
 	margin-top: clamp(80px, 10vw, 160px);
 }
 
@@ -440,11 +437,9 @@ body.home-menu-open {
 
 .home-students-heading {
 	display: grid;
-	width: min(1120px, calc(100% - 48px));
 	grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
 	gap: 120px;
 	align-items: start;
-	margin-inline: auto;
 
 	p {
 		margin-bottom: 28px;
@@ -457,10 +452,10 @@ body.home-menu-open {
 
 .home-student-track {
 	display: grid;
-	width: min(1520px, calc(100% - 40px));
 	grid-template-columns: repeat(4, minmax(220px, 1fr));
 	gap: 28px;
-	margin: clamp(70px, 8vw, 130px) auto 0;
+	padding-inline: 20px;
+	margin-top: clamp(70px, 8vw, 130px);
 }
 
 .home-student-card {
@@ -515,12 +510,15 @@ body.home-menu-open {
 }
 
 .home-final-cta {
+	background: #222;
+	color: #fff;
+}
+
+.home-final-cta-inner {
 	display: grid;
 	grid-template-columns: minmax(0, 1fr) minmax(280px, 640px);
 	gap: 80px;
-	padding: clamp(70px, 8vw, 120px) 40px;
-	background: #222;
-	color: #fff;
+	padding-block: clamp(70px, 8vw, 120px);
 
 	h2 {
 		font-family: var(--font-kisas-heading);
@@ -598,7 +596,7 @@ body.home-menu-open {
 @media (max-width: 1100px) {
 	.home-hero-content,
 	.home-students-heading,
-	.home-final-cta,
+	.home-final-cta-inner,
 	.home-universities-copy {
 		grid-template-columns: 1fr;
 	}
@@ -624,7 +622,7 @@ body.home-menu-open {
 
 	.home-hero-content {
 		gap: 48px;
-		padding: 92px 24px 84px;
+		padding-block: 92px 84px;
 	}
 
 	.home-hero-copy {
@@ -663,7 +661,7 @@ body.home-menu-open {
 		grid-template-columns: 1fr;
 	}
 
-	.home-final-cta {
+	.home-final-cta-inner {
 		padding-inline: 24px;
 	}
 }

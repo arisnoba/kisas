@@ -70,7 +70,7 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 
 				<HomeHeader logo={assets.logo} locale={locale} nav={dictionary.nav} />
 
-				<div className="home-hero-content">
+				<div className="container home-hero-content">
 					<h1 className="home-hero-title display-title">
 						<TextLines className="block" lines={dictionary.hero.titleLines} />
 					</h1>
@@ -91,7 +91,7 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 			</section>
 
 			<section className="home-why-kisas" id="why">
-				<div className="home-why-inner">
+				<div className="container home-why-inner">
 					<div className="home-why-copy">
 						<h2 className="home-section-title section-title">
 							<TextLines className="block" lines={dictionary.why.titleLines} />
@@ -118,7 +118,7 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 			</section>
 
 			<section className="home-universities z-10" id="universities">
-				<div className="home-universities-copy">
+				<div className="container home-universities-copy">
 					<h2>
 						<span>{dictionary.universities.eyebrow}</span>
 						<TextLines className="block" lines={dictionary.universities.titleLines} />
@@ -131,7 +131,7 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 					</div>
 				</div>
 
-				<div className="home-university-marquees" aria-label="Partner universities">
+				<div className="container-fulid home-university-marquees" aria-label="Partner universities">
 					{dictionary.universities.marqueeRows.map((row, index) => (
 						<Marquee className="home-university-marquee" key={row.join('-')} repeat={3} reverse={index % 2 === 1}>
 							{row.map(name => (
@@ -147,7 +147,7 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 			<section className="home-roi relative min-h-[980px] overflow-hidden bg-[#050505] text-white max-[720px]:min-h-0">
 				<Image src={assets.roiBackground} alt="" fill className="home-roi-background" sizes="100vw" />
 				<div className="home-roi-overlay absolute inset-0" />
-				<div className="home-roi-inner relative z-[1] mx-auto w-[min(1120px,calc(100%_-_48px))] py-[clamp(110px,12vw,210px)]">
+				<div className="container home-roi-inner relative z-[1] py-[clamp(110px,12vw,210px)]">
 					<div className="home-roi-heading grid grid-cols-1 items-start gap-10 min-[1101px]:grid-cols-[minmax(0,1fr)_minmax(280px,360px)] min-[1101px]:gap-[120px]">
 						<h2 className="section-title">
 							<TextLines className="block" lines={dictionary.roi.titleLines} />
@@ -175,7 +175,7 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 			</section>
 
 			<section className="home-students" id="students">
-				<div className="home-students-heading">
+				<div className="container home-students-heading">
 					<h2 className="section-title">
 						<TextLines className="block" lines={dictionary.students.titleLines} />
 					</h2>
@@ -187,7 +187,7 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 					</div>
 				</div>
 
-				<div className="home-student-track">
+				<div className="container-fulid home-student-track">
 					{dictionary.students.cases.map((student, index) => (
 						<article className={`home-student-card home-student-card-${index + 1}`} key={student.name}>
 							<div className="home-student-image">
@@ -204,14 +204,16 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 			</section>
 
 			<section className="home-final-cta">
-				<h2>
-					<TextLines className="block" lines={dictionary.finalCta.titleLines} />
-				</h2>
-				<div>
-					<p>{dictionary.finalCta.description}</p>
-					<ArrowButton href="/apply" variant="outline">
-						{dictionary.finalCta.cta}
-					</ArrowButton>
+				<div className="container home-final-cta-inner">
+					<h2>
+						<TextLines className="block" lines={dictionary.finalCta.titleLines} />
+					</h2>
+					<div>
+						<p>{dictionary.finalCta.description}</p>
+						<ArrowButton href="/apply" variant="outline">
+							{dictionary.finalCta.cta}
+						</ArrowButton>
+					</div>
 				</div>
 			</section>
 

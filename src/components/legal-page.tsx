@@ -104,7 +104,7 @@ export function LegalPage({ dictionary, document, locale }: LegalPageProps) {
 			<HomeHeader logo={logo} locale={locale} nav={legalPageNav} />
 
 			<section className="border-b border-slate-200 bg-white pt-24 md:pt-28">
-				<div className="mx-auto grid w-[min(980px,calc(100%_-_32px))] gap-5 py-14 md:py-20">
+				<div className="container grid gap-5 py-14 md:py-20">
 					<p className="text-sm font-bold uppercase tracking-[0.18em] text-[#10367d]">{dictionary.page.kicker}</p>
 					<div className="grid gap-4">
 						<h1 className="max-w-4xl font-heading text-[clamp(36px,6vw,64px)] font-semibold leading-[1.08] tracking-normal text-slate-950">{document.title}</h1>
@@ -116,7 +116,7 @@ export function LegalPage({ dictionary, document, locale }: LegalPageProps) {
 				</div>
 			</section>
 
-			<div className="mx-auto grid w-[min(980px,calc(100%_-_32px))] gap-8 py-10 md:py-16">
+			<div className="container grid gap-8 py-10 md:py-16">
 				<article className="grid gap-10 bg-white px-5 py-8 shadow-sm ring-1 ring-slate-200 md:px-10 md:py-12" lang="ko">
 					{document.sections.map(section => (
 						<section className="grid gap-5" key={section.heading}>
