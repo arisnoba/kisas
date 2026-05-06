@@ -94,7 +94,7 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 						</h2>
 					</div>
 					<div className="home-why-sticky">
-						<Image src={assets.whyLogo} alt="" width={760} height={760} className="home-why-logo -z-1" />
+						<Image src={assets.whyLogo} alt="" width={685} height={854} className="home-why-logo -z-1" />
 					</div>
 					<div className="home-why-grid">
 						{dictionary.why.items.map((item, index) => (
@@ -184,9 +184,9 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 					</div>
 				</div>
 
-				<div className="container-fulid flex flex-row items-center justify-center home-student-track">
+				<div className="container-fluid home-student-track">
 					{dictionary.students.cases.map((student, index) => (
-						<article className={`home-student-card px-5 md:px-10 home-student-card-${index + 1}`} key={student.name}>
+						<article className={`home-student-card px-10 max-w-full md:max-w-[360px] home-student-card-${index + 1}`} key={student.name}>
 							<div className="home-student-image">
 								<Image src={student.image} alt="" fill sizes="360px" />
 							</div>
@@ -202,10 +202,10 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 
 			<section className="home-final-cta">
 				<div className="container-fluid home-final-cta-inner px-10">
-					<h2>
-						<TextLines className="block" lines={dictionary.finalCta.titleLines} />
+					<h2 className="text-balance">
+						<TextLines className="home-final-cta-title-line" lines={dictionary.finalCta.titleLines} />
 					</h2>
-					<div>
+					<div className="home-final-cta-copy">
 						<p>{dictionary.finalCta.description}</p>
 						<ArrowButton href="/apply" variant="outline">
 							{dictionary.finalCta.cta}

@@ -264,7 +264,7 @@ body.home-menu-open {
 	position: absolute;
 	top: 60px;
 	left: 50%;
-	width: min(56vw, 760px);
+	width: min(56vw, 685px);
 	height: auto;
 	transform: translateX(-50%);
 }
@@ -516,16 +516,41 @@ body.home-menu-open {
 }
 
 .home-student-track {
-	// display: grid;
-	// grid-template-columns: repeat(4, minmax(220px, 1fr));
+	--home-student-line-offset: clamp(64px, 7vw, 138px);
+	--home-student-line-height: clamp(240px, 22vw, 400px);
+
+	position: relative;
+	isolation: isolate;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 360px));
+	justify-content: center;
 	gap: 28px;
-	padding-inline: 20px;
-	margin-top: clamp(70px, 8vw, 130px);
+	min-height: 584px;
+	margin-top: clamp(90px, 10vw, 190px);
+	padding: 0 20px 56px;
+
+	&::before {
+		position: absolute;
+		z-index: -1;
+		top: var(--home-student-line-offset);
+		left: 0;
+		width: 100%;
+		height: var(--home-student-line-height);
+		background:
+			linear-gradient(rgba(16, 54, 125, 0.22), rgba(16, 54, 125, 0.22)) 0 0 / 100% 1px no-repeat,
+			linear-gradient(rgba(16, 54, 125, 0.22), rgba(16, 54, 125, 0.22)) 0 25% / 100% 1px no-repeat,
+			linear-gradient(rgba(16, 54, 125, 0.22), rgba(16, 54, 125, 0.22)) 0 50% / 100% 1px no-repeat,
+			linear-gradient(rgba(16, 54, 125, 0.22), rgba(16, 54, 125, 0.22)) 0 75% / 100% 1px no-repeat,
+			linear-gradient(rgba(16, 54, 125, 0.22), rgba(16, 54, 125, 0.22)) 0 100% / 100% 1px no-repeat;
+		content: '';
+	}
 }
 
 .home-student-card {
 	display: flex;
-	max-width: 360px;
+	position: relative;
+	z-index: 1;
+	// width: min(100%, 360px);home-why-logo
 	min-height: 500px;
 	flex-direction: column;
 	background: var(--home-blue);
@@ -554,7 +579,7 @@ body.home-menu-open {
 	flex: 1;
 	flex-direction: column;
 	gap: 12px;
-	padding-block: 32px;
+	padding-block: 40px;
 
 	h3 {
 		font-family: var(--font-kisas-sans);
@@ -582,11 +607,12 @@ body.home-menu-open {
 
 .home-final-cta-inner {
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) minmax(280px, 640px);
-	gap: 80px;
+	grid-template-columns: minmax(0, 3fr) minmax(280px, 2fr);
+	gap: clamp(48px, 6vw, 96px);
 	padding-block: clamp(70px, 8vw, 120px);
 
 	h2 {
+		max-width: 920px;
 		font-family: var(--font-kisas-heading);
 		@include fluid-prop(font-size, 34px, 56px);
 		font-weight: 600;
@@ -600,6 +626,18 @@ body.home-menu-open {
 		@include fluid-prop(font-size, 18px, 22px);
 		line-height: 1.5;
 	}
+}
+
+.home-final-cta-title-line {
+	display: inline;
+}
+
+.home-final-cta-title-line:not(:last-child)::after {
+	content: ' ';
+}
+
+.home-final-cta-copy {
+	max-width: 560px;
 }
 
 .home-footer {
@@ -708,6 +746,15 @@ body.home-menu-open {
 		.home-universities-title-line:not(:last-child)::after {
 			content: ' ';
 		}
+	}
+
+	.home-student-track {
+		grid-template-columns: minmax(0, 360px);
+		min-height: auto;
+	}
+
+	.home-student-card:nth-child(even) {
+		transform: none;
 	}
 
 	.home-why-kisas {
