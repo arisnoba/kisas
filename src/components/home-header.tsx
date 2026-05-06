@@ -58,7 +58,7 @@ export function HomeHeader({ logo, nav, locale, activeHref, tone = 'dark' }: Hom
 
 	return (
 		<header
-			className={`home-header fixed inset-x-0 top-0 z-50 grid grid-cols-[minmax(170px,1fr)_auto] items-center gap-4 px-5 py-4 min-[1101px]:grid-cols-[minmax(190px,1fr)_auto_minmax(190px,1fr)] min-[1101px]:gap-6 min-[1101px]:px-10 min-[1101px]:py-5 ${
+			className={`home-header fixed inset-x-0 top-0 z-50 grid grid-cols-[minmax(170px,1fr)_auto] items-center gap-4 px-5 py-3.5 min-[1101px]:grid-cols-[minmax(190px,1fr)_auto_minmax(190px,1fr)] min-[1101px]:gap-6 min-[1101px]:px-10 min-[1101px]:py-4 ${
 				hasScrolled ? 'home-header-scrolled' : ''
 			} ${tone === 'light' ? 'home-header-light' : ''}`}>
 			<Link className="home-brand relative z-30 flex items-center gap-4" href={homeHref} onClick={closeMenu}>
@@ -70,7 +70,7 @@ export function HomeHeader({ logo, nav, locale, activeHref, tone = 'dark' }: Hom
 				</span>
 			</Link>
 
-			<nav className="home-nav relative z-30 hidden items-center gap-[clamp(24px,4.16vw,80px)] min-[1101px]:flex" aria-label="Primary navigation">
+			<nav className="home-nav relative z-30 hidden items-center gap-[clamp(16px,4vw,80px)] min-[1101px]:flex" aria-label="Primary navigation">
 				{nav.links.map(link => (
 					<Link className={link.href === activeHref ? 'home-nav-link-active' : undefined} href={link.href} key={link.label}>
 						{link.label}
