@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import { ConsultationForm } from '@/components/consultation-form';
 import { HomeFooter } from '@/components/home-footer';
-import { HomeHeader } from '@/components/home-header';
+import { SubPageHero } from '@/components/sub-page-hero';
+import { TextLines } from '@/components/text-lines';
 import type { Locale } from '@/i18n/config';
 import type { ConsultationDictionary } from '@/i18n/pages/consultation';
 import { homeDictionaries } from '@/i18n/pages/home';
@@ -16,18 +17,6 @@ const assets = {
 	mark: '/assets/images/consultation/hero-mark.svg',
 	wechatQr: '/assets/images/contact/wechat-qr.png',
 };
-
-function TextLines({ lines, className }: { lines: string[]; className?: string }) {
-	return (
-		<>
-			{lines.map(line => (
-				<span className={className} key={line}>
-					{line}
-				</span>
-			))}
-		</>
-	);
-}
 
 function getConsultationNav(locale: Locale) {
 	const nav = homeDictionaries[locale].nav;
@@ -47,18 +36,16 @@ export function ConsultationScaffold({ dictionary, locale }: ConsultationScaffol
 
 	return (
 		<main className="consultation-page home-page bg-white text-[#10367d]" lang={locale}>
-			<section className="consultation-hero">
-				<HomeHeader logo={assets.logo} locale={locale} nav={nav} />
-				<Image src={assets.mark} alt="" width={519} height={646} className="consultation-hero-mark" priority />
-				<div className="container consultation-hero-inner">
-					<div className="consultation-hero-heading">
-						<h1>
-							<TextLines className="block" lines={dictionary.hero.titleLines} />
-						</h1>
-					</div>
-					<p className="consultation-hero-description">{dictionary.hero.description}</p>
-				</div>
-			</section>
+			<SubPageHero
+				decorative={<Image src={assets.mark} alt="" width={519} height={646} className="consultation-hero-mark" priority />}
+				description={dictionary.hero.description}
+				descriptionClassName="consultation-hero-description"
+				header={{ logo: assets.logo, locale, nav }}
+				headingClassName="consultation-hero-heading"
+				innerClassName="consultation-hero-inner"
+				sectionClassName="consultation-hero"
+				titleLines={dictionary.hero.titleLines}
+			/>
 
 			<section className="consultation-application" aria-labelledby="consultation-form-title">
 				<div className="container consultation-application-inner">

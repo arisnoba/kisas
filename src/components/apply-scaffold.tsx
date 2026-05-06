@@ -2,7 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Check, ChevronRight } from 'lucide-react';
 import { HomeFooter } from '@/components/home-footer';
-import { HomeHeader } from '@/components/home-header';
+import { SubPageHero } from '@/components/sub-page-hero';
+import { TextLines } from '@/components/text-lines';
 import type { Locale } from '@/i18n/config';
 import type { ApplyDictionary } from '@/i18n/pages/apply';
 import { homeDictionaries } from '@/i18n/pages/home';
@@ -17,18 +18,6 @@ const assets = {
 	heroBackground: '/assets/images/apply/hero-background.png',
 	beginnerBackground: '/assets/images/apply/beginner-background.png',
 };
-
-function TextLines({ lines, className }: { lines: string[]; className?: string }) {
-	return (
-		<>
-			{lines.map(line => (
-				<span className={className} key={line}>
-					{line}
-				</span>
-			))}
-		</>
-	);
-}
 
 function getApplyNav(locale: Locale) {
 	const nav = homeDictionaries[locale].nav;
@@ -50,18 +39,15 @@ export function ApplyScaffold({ dictionary, locale }: ApplyScaffoldProps) {
 
 	return (
 		<main className="apply-page home-page bg-white text-[#10367d]" lang={locale}>
-			<section className="apply-hero">
-				<Image priority src={assets.heroBackground} alt="" fill className="apply-hero-background" sizes="100vw" />
-				<div className="apply-hero-overlay" />
-				<HomeHeader activeHref={activeHref} logo={assets.logo} locale={locale} nav={nav} />
-
-				<div className="container apply-hero-inner">
-					<h1>
-						<TextLines className="block" lines={dictionary.hero.titleLines} />
-					</h1>
-					<p>{dictionary.hero.description}</p>
-				</div>
-			</section>
+			<SubPageHero
+				backgroundImage={{ src: assets.heroBackground, className: 'apply-hero-background' }}
+				description={dictionary.hero.description}
+				header={{ activeHref, logo: assets.logo, locale, nav }}
+				innerClassName="apply-hero-inner"
+				overlayClassName="apply-hero-overlay"
+				sectionClassName="apply-hero"
+				titleLines={dictionary.hero.titleLines}
+			/>
 
 			<section className="apply-timeline" aria-labelledby="apply-timeline-title">
 				<div className="container apply-timeline-inner">

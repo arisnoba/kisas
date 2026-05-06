@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import { Clapperboard, Languages, Music, ChevronRight } from 'lucide-react';
 import { HomeFooter } from '@/components/home-footer';
-import { HomeHeader } from '@/components/home-header';
+import { SubPageHero } from '@/components/sub-page-hero';
+import { TextLines } from '@/components/text-lines';
 import { KisasButton } from '@/components/ui/kisas-button';
 import type { AboutDictionary } from '@/i18n/pages/about';
 import { homeDictionaries } from '@/i18n/pages/home';
@@ -17,18 +18,6 @@ const assets = {
 	pricingBackground: '/assets/images/about/pricing-background.png',
 	logo: '/assets/images/home/kisas-logo.svg',
 };
-
-function TextLines({ lines, className }: { lines: string[]; className?: string }) {
-	return (
-		<>
-			{lines.map(line => (
-				<span className={className} key={line}>
-					{line}
-				</span>
-			))}
-		</>
-	);
-}
 
 function getAboutNav(locale: Locale) {
 	const nav = homeDictionaries[locale].nav;
@@ -55,23 +44,18 @@ export function AboutScaffold({ dictionary, locale }: AboutScaffoldProps) {
 
 	return (
 		<main className="about-page home-page bg-white text-[#10367d]" lang={locale}>
-			<section className="about-hero">
-				<Image priority src={assets.heroBackground} alt="" fill className="about-hero-background" sizes="100vw" />
-				<div className="about-hero-overlay" />
-				<HomeHeader activeHref={activeHref} logo={assets.logo} locale={locale} nav={nav} />
-
-				<div className="container about-hero-inner">
-					<div className="about-hero-heading">
-						<h1>
-							<TextLines className="block" lines={dictionary.hero.titleLines} />
-						</h1>
-						<p>
-							<TextLines className="block" lines={dictionary.hero.subtitleLines} />
-						</p>
-					</div>
-					<p className="about-hero-description">{dictionary.hero.description}</p>
-				</div>
-			</section>
+			<SubPageHero
+				backgroundImage={{ src: assets.heroBackground, className: 'about-hero-background' }}
+				description={dictionary.hero.description}
+				descriptionClassName="about-hero-description"
+				header={{ activeHref, logo: assets.logo, locale, nav }}
+				headingClassName="about-hero-heading"
+				innerClassName="about-hero-inner"
+				overlayClassName="about-hero-overlay"
+				sectionClassName="about-hero"
+				subtitleLines={dictionary.hero.subtitleLines}
+				titleLines={dictionary.hero.titleLines}
+			/>
 
 			<section className="about-steps" aria-labelledby="about-steps-title">
 				<div className="container about-steps-inner">

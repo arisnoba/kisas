@@ -4,7 +4,8 @@ import Image from 'next/image';
 import { ChevronRight } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { HomeFooter } from '@/components/home-footer';
-import { HomeHeader } from '@/components/home-header';
+import { SubPageHero } from '@/components/sub-page-hero';
+import { TextLines } from '@/components/text-lines';
 import { KisasButton } from '@/components/ui/kisas-button';
 import type { Locale } from '@/i18n/config';
 import { homeDictionaries } from '@/i18n/pages/home';
@@ -19,18 +20,6 @@ const assets = {
 	hero: '/assets/images/universities/hero-foreground.png',
 	logo: '/assets/images/home/kisas-logo.svg',
 };
-
-function TextLines({ lines, className }: { lines: string[]; className?: string }) {
-	return (
-		<>
-			{lines.map(line => (
-				<span className={className} key={line}>
-					{line}
-				</span>
-			))}
-		</>
-	);
-}
 
 function getUniversitiesNav(locale: Locale) {
 	const nav = homeDictionaries[locale].nav;
@@ -108,23 +97,18 @@ export function UniversitiesScaffold({ dictionary, locale }: UniversitiesScaffol
 
 	return (
 		<main className="universities-page home-page bg-white text-[#10367d]" lang={locale}>
-			<section className="universities-hero">
-				<Image priority src={assets.hero} alt="" fill className="universities-hero-image" sizes="100vw" />
-				<div className="universities-hero-overlay" />
-				<HomeHeader activeHref={activeHref} logo={assets.logo} locale={locale} nav={nav} />
-
-				<div className="container universities-hero-inner">
-					<div className="universities-hero-heading">
-						<h1>
-							<TextLines className="block" lines={dictionary.hero.titleLines} />
-						</h1>
-						<p>
-							<TextLines className="block" lines={dictionary.hero.subtitleLines} />
-						</p>
-					</div>
-					<p className="universities-hero-description">{dictionary.hero.description}</p>
-				</div>
-			</section>
+			<SubPageHero
+				backgroundImage={{ src: assets.hero, className: 'universities-hero-image' }}
+				description={dictionary.hero.description}
+				descriptionClassName="universities-hero-description"
+				header={{ activeHref, logo: assets.logo, locale, nav }}
+				headingClassName="universities-hero-heading"
+				innerClassName="universities-hero-inner"
+				overlayClassName="universities-hero-overlay"
+				sectionClassName="universities-hero"
+				subtitleLines={dictionary.hero.subtitleLines}
+				titleLines={dictionary.hero.titleLines}
+			/>
 
 			<section className="universities-list-section" aria-labelledby="universities-list-title">
 				<h2 className="sr-only" id="universities-list-title">

@@ -1,8 +1,9 @@
 import Image from 'next/image';
 import { ChevronRight } from 'lucide-react';
 import { HomeFooter } from '@/components/home-footer';
-import { HomeHeader } from '@/components/home-header';
 import { StudentLifeActivityMarquee } from '@/components/student-life-activity-marquee';
+import { SubPageHero } from '@/components/sub-page-hero';
+import { TextLines } from '@/components/text-lines';
 import { KisasButton } from '@/components/ui/kisas-button';
 import type { Locale } from '@/i18n/config';
 import { homeDictionaries } from '@/i18n/pages/home';
@@ -17,18 +18,6 @@ const assets = {
 	hero: '/assets/images/student-life/hero-opera.png',
 	logo: '/assets/images/home/kisas-logo.svg',
 };
-
-function TextLines({ lines, className }: { lines: string[]; className?: string }) {
-	return (
-		<>
-			{lines.map(line => (
-				<span className={className} key={line}>
-					{line}
-				</span>
-			))}
-		</>
-	);
-}
 
 function getStudentLifeNav(locale: Locale) {
 	const nav = homeDictionaries[locale].nav;
@@ -68,18 +57,15 @@ export function StudentLifeScaffold({ dictionary, locale }: StudentLifeScaffoldP
 
 	return (
 		<main className="student-life-page home-page bg-white text-[#10367d]" lang={locale}>
-			<section className="student-life-hero">
-				<Image priority src={assets.hero} alt="" fill className="student-life-hero-image" sizes="100vw" />
-				<div className="student-life-hero-overlay" />
-				<HomeHeader activeHref={activeHref} logo={assets.logo} locale={locale} nav={nav} />
-
-				<div className="container student-life-hero-inner">
-					<h1>
-						<TextLines className="block" lines={dictionary.hero.titleLines} />
-					</h1>
-					<p>{dictionary.hero.privacyNote}</p>
-				</div>
-			</section>
+			<SubPageHero
+				backgroundImage={{ src: assets.hero, className: 'student-life-hero-image' }}
+				description={dictionary.hero.privacyNote}
+				header={{ activeHref, logo: assets.logo, locale, nav }}
+				innerClassName="student-life-hero-inner"
+				overlayClassName="student-life-hero-overlay"
+				sectionClassName="student-life-hero"
+				titleLines={dictionary.hero.titleLines}
+			/>
 
 			<section className="student-life-outcomes" aria-labelledby="student-life-outcomes-title">
 				<div className="container student-life-outcomes-inner">
