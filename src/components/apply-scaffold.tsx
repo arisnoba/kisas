@@ -17,7 +17,7 @@ type ApplyScaffoldProps = {
 const assets = {
 	logo: '/assets/images/home/kisas-logo.svg',
 	heroBackground: '/assets/images/apply/hero-background.jpg',
-	beginnerBackground: '/assets/images/apply/beginner-background.png',
+	beginnerBackground: '/assets/images/apply/beginner-background.jpg',
 };
 
 function getApplyNav(locale: Locale) {
@@ -158,7 +158,7 @@ export function ApplyScaffold({ dictionary, locale }: ApplyScaffoldProps) {
 			</section>
 
 			<section className="apply-beginner" aria-labelledby="apply-beginner-title">
-				<Image src={assets.beginnerBackground} alt="" fill className="apply-beginner-background" sizes="100vw" />
+				<Image src={assets.beginnerBackground} alt="" fill className="apply-beginner-background" loading="eager" sizes="100vw" />
 				<div className="apply-beginner-overlay" />
 				<div className="container apply-beginner-inner">
 					<div className="apply-beginner-copy">

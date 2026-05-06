@@ -51,13 +51,13 @@ h2.section-title {
 .subpage-hero-background {
 	position: absolute;
 	inset: 0;
-	animation: subpage-hero-image-reveal 3400ms cubic-bezier(0.16, 1, 0.3, 1) both;
+	animation: subpage-hero-image-reveal 4800ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes subpage-hero-image-reveal {
 	from {
 		filter: blur(3px);
-		transform: scale(1.12);
+		transform: scale(1.08);
 	}
 
 	to {
