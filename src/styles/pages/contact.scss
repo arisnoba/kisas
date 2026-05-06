@@ -168,62 +168,59 @@
 	width: 100%;
 }
 
+.consultation-form-fields {
+	gap: 12px;
+}
+
 .consultation-field {
 	position: relative;
-	display: flex;
-	min-height: 60px;
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	background: #fff;
+	gap: 0;
 
-	input,
-	select,
-	textarea {
+	[data-slot='input'],
+	[data-slot='textarea'],
+	[data-slot='select-trigger'] {
+		min-height: 60px;
 		width: 100%;
-		border: 0;
-		background: transparent;
+		border-radius: 0;
+		background: #fff;
 		padding: 20px;
 		color: #222;
 		font-family: var(--font-kisas-sans);
 		font-size: 16px;
 		font-weight: 500;
 		line-height: 1.2;
-		outline: 0;
+		box-shadow: none;
 	}
 
-	input::placeholder,
-	textarea::placeholder,
-	select:invalid {
+	[data-slot='input']::placeholder,
+	[data-slot='textarea']::placeholder,
+	[data-placeholder] {
 		color: var(--contact-muted);
 	}
 
-	textarea {
+	[data-slot='input']:hover,
+	[data-slot='textarea']:hover,
+	[data-slot='select-trigger']:hover {
+		border-color: rgba(16, 54, 125, 0.38);
+	}
+
+	[data-slot='textarea'] {
 		min-height: 194px;
 		resize: vertical;
 	}
-
-	svg {
-		position: absolute;
-		top: 50%;
-		right: 20px;
-		transform: translateY(-50%);
-		pointer-events: none;
-	}
 }
 
-.consultation-field-select select {
-	appearance: none;
-	padding-right: 52px;
+.consultation-field-select [data-slot='select-trigger'] {
 	cursor: pointer;
+	text-align: left;
 }
 
-.consultation-field-date input {
-	position: relative;
-	z-index: 1;
+.consultation-field-date [data-slot='input'] {
 	color-scheme: light;
 }
 
-.consultation-field-date input::-webkit-calendar-picker-indicator {
-	opacity: 0;
+.consultation-field-date [data-slot='input']::-webkit-calendar-picker-indicator {
+	cursor: pointer;
 }
 
 .consultation-submit {
@@ -263,15 +260,6 @@
 
 .consultation-form-note::before {
 	content: '· ';
-}
-
-.consultation-form-note-error {
-	color: #b3261e;
-}
-
-.consultation-form-note-success {
-	color: var(--contact-blue);
-	font-weight: 500;
 }
 
 @media (max-width: 1100px) {

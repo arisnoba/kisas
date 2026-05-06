@@ -123,7 +123,6 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 				<Image src={assets.roiBackground} alt="" fill className="home-roi-background" sizes="100vw" />
 				<div className="home-roi-overlay absolute inset-0" />
 				<div className="container home-roi-inner relative z-1 py-[clamp(110px,12vw,210px)]">
-					{/* <div className="home-roi-heading grid grid-cols-1 items-start gap-10 min-[1101px]:grid-cols-[minmax(0,1fr)_minmax(280px,360px)] min-[1101px]:gap-[120px]"> */}
 					<div className="home-roi-heading grid grid-cols-1 items-start gap-4 md:grid-cols-3">
 						<h2 className="section-title col-span-1 md:col-span-2">
 							<TextLines className="block" lines={dictionary.roi.titleLines} />

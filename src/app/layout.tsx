@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Toaster } from "@/components/ui/toaster";
 import {
   Newsreader,
   Noto_Sans,
@@ -59,7 +60,10 @@ export default function RootLayout({
       lang="en"
       className={`${newsreader.variable} ${notoSans.variable} ${notoSansSc.variable} ${notoSerifSc.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        {children}
+        <Toaster />
+      </body>
     </html>
   );
 }
