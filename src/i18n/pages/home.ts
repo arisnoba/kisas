@@ -43,7 +43,7 @@ export type HomeDictionary = {
 	roi: {
 		titleLines: string[];
 		description: string;
-		verificationNote: string;
+		verificationNote?: string;
 		cta: string;
 		stats: {
 			prefix?: string;
@@ -154,8 +154,7 @@ export const homeDictionaries = {
 		},
 		roi: {
 			titleLines: ['See Your ROI in', 'Numbers'],
-			description: 'A standard scenario comparing net tuition, expected salary after returning home, and estimated payback period.',
-			verificationNote: 'Sample planning figures. Final tuition, scholarship, salary, and ROI values are pending client verification.',
+			description: 'From Tier 1 institutions to regionally specialized universities, we match each student with the right school based on their skills and goals.',
 			cta: 'Career & Salary',
 			stats: [
 				{

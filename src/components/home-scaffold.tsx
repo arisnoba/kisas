@@ -59,8 +59,6 @@ function RoiNumber({ value }: { value: string }) {
 }
 
 export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
-	const hasUnverifiedRoiStats = dictionary.roi.stats.some(stat => !stat.isVerified);
-
 	return (
 		<main className="home-page bg-white text-[#10367d]" lang={locale}>
 			<HomeHeader logo={assets.logo} locale={locale} nav={dictionary.nav} />
@@ -119,7 +117,7 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 				<div className="container-fluid home-universities-copy px-10">
 					<h2>
 						<span>{dictionary.universities.eyebrow}</span>
-						<TextLines className="block" lines={dictionary.universities.titleLines} />
+						<TextLines className="home-universities-title-line" lines={dictionary.universities.titleLines} />
 					</h2>
 					<div className="w-full md:max-w-1/2">
 						<p>{dictionary.universities.description}</p>
@@ -145,13 +143,12 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 			<section className="home-roi relative min-h-[980px] overflow-hidden bg-[#050505] text-white max-[720px]:min-h-0">
 				<Image src={assets.roiBackground} alt="" fill className="home-roi-background" sizes="100vw" />
 				<div className="home-roi-overlay absolute inset-0" />
-				<div className="container home-roi-inner relative z-[1] py-[clamp(110px,12vw,210px)]">
+				<div className="container home-roi-inner relative z-1 py-[clamp(110px,12vw,210px)]">
 					<div className="home-roi-heading grid grid-cols-1 items-start gap-10 min-[1101px]:grid-cols-[minmax(0,1fr)_minmax(280px,360px)] min-[1101px]:gap-[120px]">
 						<h2 className="section-title">
 							<TextLines className="block" lines={dictionary.roi.titleLines} />
 						</h2>
 						<div>
-							{hasUnverifiedRoiStats ? <p className="home-roi-verification mb-4">{dictionary.roi.verificationNote}</p> : null}
 							<p className="home-roi-description mb-7">{dictionary.roi.description}</p>
 							<ArrowButton href="/majors-career" variant="outline">
 								{dictionary.roi.cta}
@@ -159,13 +156,15 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 						</div>
 					</div>
 
-					<div className="home-roi-stats mt-20 grid grid-cols-1 gap-14 md:mt-[clamp(150px,18vw,300px)] md:grid-cols-3 md:gap-20">
+					<div className="home-roi-stats mt-20 grid grid-cols-1 gap-14 md:mt-[clamp(150px,18vw,300px)] md:grid-cols-3 md:gap-x-20 md:gap-y-0">
 						{dictionary.roi.stats.map(stat => (
-							<article className="home-roi-stat flex flex-col justify-end" key={`${stat.value}-${stat.unit}`}>
-								{stat.prefix ? <div className="home-roi-prefix">{stat.prefix}</div> : null}
-								<RoiNumber value={stat.value} />
-								<div className="home-roi-unit mt-[18px]">{stat.unit}</div>
-								<p className="home-roi-label mt-7 text-balance">{stat.label}</p>
+							<article className="home-roi-stat" key={`${stat.value}-${stat.unit}`}>
+								<div className="home-roi-metric">
+									{stat.prefix ? <div className="home-roi-prefix">{stat.prefix}</div> : null}
+									<RoiNumber value={stat.value} />
+								</div>
+								<div className="home-roi-unit">{stat.unit}</div>
+								<p className="home-roi-label text-balance">{stat.label}</p>
 							</article>
 						))}
 					</div>
@@ -173,11 +172,11 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 			</section>
 
 			<section className="home-students" id="students">
-				<div className="container home-students-heading">
-					<h2 className="section-title">
+				<div className="container home-students-heading grid-cols-1 md:grid-cols-3">
+					<h2 className="section-title col-span-1 md:col-span-2">
 						<TextLines className="block" lines={dictionary.students.titleLines} />
 					</h2>
-					<div>
+					<div className="col-span-1 md:col-span-1">
 						<p>{dictionary.students.description}</p>
 						<ArrowButton href="/students" variant="solid">
 							{dictionary.students.cta}

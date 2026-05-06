@@ -358,6 +358,10 @@ body.home-menu-open {
 		display: block;
 	}
 
+	.home-universities-title-line {
+		display: block;
+	}
+
 	p {
 		margin-bottom: 28px;
 		font-family: var(--font-kisas-sans);
@@ -409,6 +413,18 @@ body.home-menu-open {
 	}
 }
 
+.home-roi-stat {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.home-roi-metric {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
 .home-roi-prefix {
 	font-family: var(--font-kisas-heading);
 	@include fluid-prop(font-size, 64px, 92px);
@@ -428,6 +444,7 @@ body.home-menu-open {
 	font-family: var(--font-kisas-heading);
 	@include fluid-prop(font-size, 24px, 32px);
 	font-weight: 800;
+	margin-top: 18px;
 	text-transform: uppercase;
 }
 
@@ -439,6 +456,10 @@ body.home-menu-open {
 	line-height: 1.5;
 }
 
+.home-roi-label {
+	margin-top: 28px;
+}
+
 .home-roi-verification {
 	color: rgba(255, 255, 255, 0.56);
 	font-family: var(--font-kisas-sans);
@@ -446,6 +467,29 @@ body.home-menu-open {
 	font-weight: 700;
 	line-height: 1.45;
 	text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+	.home-roi-stats {
+		grid-template-rows: auto auto auto;
+		align-items: stretch;
+		row-gap: 0;
+	}
+
+	.home-roi-stat {
+		display: grid;
+		grid-row: span 3;
+		grid-template-rows: subgrid;
+	}
+
+	.home-roi-metric {
+		align-self: end;
+	}
+
+	.home-roi-unit,
+	.home-roi-label {
+		align-self: start;
+	}
 }
 
 .home-students {
@@ -458,8 +502,8 @@ body.home-menu-open {
 
 .home-students-heading {
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
-	gap: 120px;
+	// grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+	gap: 24px;
 	align-items: start;
 
 	p {
@@ -652,6 +696,18 @@ body.home-menu-open {
 
 	.home-hero-copy {
 		padding-top: 40px;
+	}
+
+	.home-universities-copy {
+		h2 span:first-child,
+		.home-universities-title-line {
+			display: inline;
+		}
+
+		h2 span:first-child::after,
+		.home-universities-title-line:not(:last-child)::after {
+			content: ' ';
+		}
 	}
 
 	.home-why-kisas {
