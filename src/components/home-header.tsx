@@ -13,9 +13,10 @@ type HomeHeaderProps = {
 	nav: HomeDictionary['nav'];
 	locale: Locale;
 	activeHref?: string;
+	tone?: 'dark' | 'light';
 };
 
-export function HomeHeader({ logo, nav, locale, activeHref }: HomeHeaderProps) {
+export function HomeHeader({ logo, nav, locale, activeHref, tone = 'dark' }: HomeHeaderProps) {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [hasScrolled, setHasScrolled] = useState(false);
 	const homeHref = locale === 'zh' ? '/zh' : '/';
@@ -59,9 +60,9 @@ export function HomeHeader({ logo, nav, locale, activeHref }: HomeHeaderProps) {
 		<header
 			className={`home-header fixed inset-x-0 top-0 z-50 grid grid-cols-[minmax(170px,1fr)_auto] items-center gap-4 px-5 py-4 min-[1101px]:grid-cols-[minmax(190px,1fr)_auto_minmax(190px,1fr)] min-[1101px]:gap-6 min-[1101px]:px-10 min-[1101px]:py-5 ${
 				hasScrolled ? 'home-header-scrolled' : ''
-			}`}
+			} ${tone === 'light' ? 'home-header-light' : ''}`}
 		>
-			<Link className="home-brand relative z-10 flex items-center gap-4" href={homeHref} onClick={closeMenu}>
+			<Link className="home-brand relative z-30 flex items-center gap-4" href={homeHref} onClick={closeMenu}>
 				<Image src={logo} alt="KISAS" width={156} height={48} />
 				<span className="hidden min-[721px]:inline">
 					International
@@ -70,7 +71,7 @@ export function HomeHeader({ logo, nav, locale, activeHref }: HomeHeaderProps) {
 				</span>
 			</Link>
 
-			<nav className="home-nav relative z-10 hidden items-center gap-[clamp(24px,4.16vw,80px)] min-[1101px]:flex" aria-label="Primary navigation">
+			<nav className="home-nav relative z-30 hidden items-center gap-[clamp(24px,4.16vw,80px)] min-[1101px]:flex" aria-label="Primary navigation">
 				{nav.links.map(link => (
 					<Link className={link.href === activeHref ? 'home-nav-link-active' : undefined} href={link.href} key={link.label}>
 						{link.label}
@@ -78,7 +79,7 @@ export function HomeHeader({ logo, nav, locale, activeHref }: HomeHeaderProps) {
 				))}
 			</nav>
 
-			<div className="home-header-actions relative z-10 hidden items-center justify-end gap-3 min-[1101px]:flex">
+			<div className="home-header-actions relative z-30 hidden items-center justify-end gap-3 min-[1101px]:flex">
 				<KisasButton href={consultationHref} shape="rect" size="nav" variant="header">
 					{nav.consultation}
 				</KisasButton>
@@ -91,7 +92,7 @@ export function HomeHeader({ logo, nav, locale, activeHref }: HomeHeaderProps) {
 				aria-controls="home-mobile-menu"
 				aria-expanded={isMenuOpen}
 				aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-				className="home-menu-button relative z-10 ml-auto inline-flex size-11 items-center justify-center min-[1101px]:hidden"
+				className="home-menu-button relative z-30 ml-auto inline-flex size-11 items-center justify-center min-[1101px]:hidden"
 				onClick={() => setIsMenuOpen(current => !current)}
 				type="button"
 			>
@@ -99,7 +100,7 @@ export function HomeHeader({ logo, nav, locale, activeHref }: HomeHeaderProps) {
 			</button>
 
 			{isMenuOpen ? (
-				<div className="home-mobile-menu fixed inset-0 z-0 flex flex-col justify-between px-6 pb-8 pt-28 min-[1101px]:hidden" id="home-mobile-menu">
+				<div className="home-mobile-menu fixed inset-0 z-20 flex min-h-svh flex-col justify-between overflow-y-auto px-6 pb-8 pt-28 min-[1101px]:hidden" id="home-mobile-menu">
 					<nav className="flex flex-col gap-5" aria-label="Mobile navigation">
 						{nav.links.map(link => (
 							<Link className={`home-mobile-nav-link ${link.href === activeHref ? 'home-mobile-nav-link-active' : ''}`} href={link.href} key={link.label} onClick={closeMenu}>
@@ -108,7 +109,7 @@ export function HomeHeader({ logo, nav, locale, activeHref }: HomeHeaderProps) {
 						))}
 					</nav>
 
-					<div className="flex flex-col gap-3">
+					<div className="home-mobile-menu-actions flex flex-col gap-3">
 						<KisasButton href={consultationHref} onClick={closeMenu} shape="rect" size="mobile" variant="mobile-solid">
 							{nav.consultation}
 						</KisasButton>

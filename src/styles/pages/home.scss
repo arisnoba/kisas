@@ -58,8 +58,18 @@
 	transition: border-color 180ms ease;
 }
 
+.home-header-light {
+	color: #222;
+	background: rgba(243, 243, 243, 0.92);
+	border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+
 .home-header-scrolled {
 	border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.home-header-light.home-header-scrolled {
+	border-bottom-color: rgba(0, 0, 0, 0.1);
 }
 
 body.home-menu-open {
@@ -71,6 +81,10 @@ body.home-menu-open {
 	font-family: var(--font-kisas-sans);
 	@include fluid-prop(font-size, 14px, 16px);
 	line-height: 1.1;
+}
+
+.home-header-light .home-brand {
+	color: #222;
 }
 
 .home-nav {
@@ -138,23 +152,168 @@ body.home-menu-open {
 	}
 }
 
+.home-header-light .home-menu-button {
+	border-color: rgba(0, 0, 0, 0.18);
+	background: rgba(0, 0, 0, 0.04);
+	color: #222;
+
+	&:hover {
+		background: rgba(0, 0, 0, 0.08);
+		border-color: rgba(0, 0, 0, 0.28);
+	}
+
+	&:focus-visible {
+		outline-color: #222;
+	}
+}
+
 .home-mobile-menu {
-	background: rgba(3, 16, 47, 0.96);
+	isolation: isolate;
+	z-index: 20;
+	min-height: 100svh;
+	padding-top: clamp(92px, 14svh, 128px);
+	padding-bottom: calc(28px + env(safe-area-inset-bottom));
+	color: #fff;
+	background:
+		linear-gradient(150deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0) 38%),
+		linear-gradient(180deg, #07153a, #020819);
 	backdrop-filter: blur(20px);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+	animation: home-mobile-menu-enter 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+
+	&::before {
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+		background-size: 72px 100%;
+		content: '';
+		opacity: 0.12;
+	}
+
+	nav,
+	.home-mobile-menu-actions {
+		position: relative;
+		z-index: 1;
+		animation: home-mobile-menu-content-enter 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+	}
+
+	.home-mobile-menu-actions {
+		padding-top: 32px;
+		animation-delay: 90ms;
+	}
+}
+
+.home-header-light .home-mobile-menu {
+	color: #10245e;
+	background:
+		linear-gradient(150deg, rgba(16, 54, 125, 0.1), rgba(16, 54, 125, 0) 38%),
+		linear-gradient(180deg, #f8f7f1, #fff 54%, #eff3f8);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.76),
+		0 24px 80px rgba(16, 36, 94, 0.18);
+
+	&::before {
+		background-image: linear-gradient(90deg, rgba(16, 54, 125, 0.1) 1px, transparent 1px);
+		opacity: 0.18;
+	}
 }
 
 .home-mobile-nav-link {
+	display: block;
+	max-width: min(720px, 100%);
 	color: #fff;
 	font-family: var(--font-kisas-heading);
-	@include fluid-prop(font-size, 36px, 54px);
+	font-size: clamp(31px, 9.4vw, 52px);
 	font-weight: 600;
-	line-height: 1.04;
+	line-height: 1;
+	text-wrap: balance;
+	transition:
+		color 180ms ease,
+		transform 180ms ease;
+
+	&:hover {
+		transform: translateX(4px);
+	}
+
+	&:focus-visible {
+		outline: 2px solid currentcolor;
+		outline-offset: 6px;
+	}
+}
+
+.home-header-light .home-mobile-nav-link {
+	color: #10245e;
+}
+
+.home-header-light .kisas-button-locale,
+.home-header-light .kisas-button-mobile-outline {
+	--kisas-button-border: rgba(0, 0, 0, 0.28);
+	--kisas-button-fg: #222;
+	--kisas-button-hover-bg: rgba(0, 0, 0, 0.06);
+	--kisas-button-hover-border: rgba(0, 0, 0, 0.42);
+	--kisas-button-hover-fg: #222;
+}
+
+.home-header-light .kisas-button-mobile-solid {
+	--kisas-button-bg: var(--home-blue, #10367d);
+	--kisas-button-border: var(--home-blue, #10367d);
+	--kisas-button-fg: #fff;
+	--kisas-button-hover-bg: #0b2a63;
+	--kisas-button-hover-border: #0b2a63;
+	--kisas-button-hover-fg: #fff;
 }
 
 .home-mobile-nav-link-active {
 	text-decoration: underline;
 	text-decoration-thickness: 2px;
 	text-underline-offset: 8px;
+}
+
+@keyframes home-mobile-menu-enter {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes home-mobile-menu-content-enter {
+	from {
+		opacity: 0;
+		transform: translateY(18px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (max-height: 700px) {
+	.home-mobile-menu {
+		padding-top: 84px;
+	}
+
+	.home-mobile-nav-link {
+		font-size: clamp(28px, 8.4vw, 40px);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.home-mobile-menu,
+	.home-mobile-menu nav,
+	.home-mobile-menu .home-mobile-menu-actions {
+		animation: none;
+	}
+
+	.home-mobile-nav-link:hover {
+		transform: none;
+	}
 }
 
 .home-mobile-consultation-link,
