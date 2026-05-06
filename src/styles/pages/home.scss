@@ -19,8 +19,11 @@
 }
 
 .home-hero {
+	--home-hero-height: min(1080px, 100svh);
+
 	position: relative;
-	min-height: min(1080px, 100svh);
+	height: var(--home-hero-height);
+	min-height: var(--home-hero-height);
 	overflow: hidden;
 	color: #fff;
 	background: #03102f;
@@ -183,8 +186,11 @@ body.home-menu-open {
 	display: grid;
 	grid-template-columns: minmax(0, 525px) minmax(0, 520px);
 	justify-content: center;
-	gap: clamp(64px, 7vw, 160px);
-	padding-block: 128px 120px;
+	@include fluid-prop(gap, 64px, 120px);
+	@include fluid-prop(padding-top, 112px, 200px);
+	@include fluid-prop(padding-bottom, 112px, 200px);
+	height: var(--home-hero-height);
+	min-height: var(--home-hero-height);
 }
 
 .home-hero-title {
@@ -206,14 +212,14 @@ body.home-menu-open {
 
 .home-hero-subtitle {
 	font-family: var(--font-kisas-sans);
-	@include fluid-prop(font-size, 23px, 28px);
+	@include fluid-prop(font-size, 20px, 28px);
 	font-weight: 600;
 	line-height: 1.35;
 }
 
 .home-hero-description {
 	font-family: var(--font-kisas-sans);
-	@include fluid-prop(font-size, 15px, 16px);
+	@include fluid-prop(font-size, 14px, 16px);
 	line-height: 1.5;
 }
 
@@ -338,7 +344,8 @@ body.home-menu-open {
 .home-universities-copy {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 80px;
+	gap: 24px;
+	// @include fluid-prop(gap, 24px, 80px);
 
 	h2 {
 		font-family: var(--font-kisas-heading);
@@ -465,8 +472,8 @@ body.home-menu-open {
 }
 
 .home-student-track {
-	display: grid;
-	grid-template-columns: repeat(4, minmax(220px, 1fr));
+	// display: grid;
+	// grid-template-columns: repeat(4, minmax(220px, 1fr));
 	gap: 28px;
 	padding-inline: 20px;
 	margin-top: clamp(70px, 8vw, 130px);
@@ -474,6 +481,7 @@ body.home-menu-open {
 
 .home-student-card {
 	display: flex;
+	max-width: 360px;
 	min-height: 500px;
 	flex-direction: column;
 	background: var(--home-blue);
@@ -502,7 +510,7 @@ body.home-menu-open {
 	flex: 1;
 	flex-direction: column;
 	gap: 12px;
-	padding: 32px;
+	padding-block: 32px;
 
 	h3 {
 		font-family: var(--font-kisas-sans);
@@ -631,12 +639,15 @@ body.home-menu-open {
 
 @media (max-width: 720px) {
 	.home-hero {
+		--home-hero-height: auto;
+
+		height: auto;
 		min-height: auto;
 	}
 
 	.home-hero-content {
 		gap: 48px;
-		padding-block: 92px 84px;
+		// padding-block: 92px 84px;
 	}
 
 	.home-hero-copy {

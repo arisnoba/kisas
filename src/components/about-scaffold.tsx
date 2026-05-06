@@ -13,7 +13,6 @@ type AboutScaffoldProps = {
 };
 
 const assets = {
-	heroForeground: '/assets/images/about/hero-foreground.png',
 	heroBackground: '/assets/images/about/hero-background.png',
 	pricingBackground: '/assets/images/about/pricing-background.png',
 	logo: '/assets/images/home/kisas-logo.svg',
@@ -58,7 +57,6 @@ export function AboutScaffold({ dictionary, locale }: AboutScaffoldProps) {
 		<main className="about-page home-page bg-white text-[#10367d]" lang={locale}>
 			<section className="about-hero">
 				<Image priority src={assets.heroBackground} alt="" fill className="about-hero-background" sizes="100vw" />
-				<Image priority src={assets.heroForeground} alt="" fill className="about-hero-foreground" sizes="100vw" />
 				<div className="about-hero-overlay" />
 				<HomeHeader activeHref={activeHref} logo={assets.logo} locale={locale} nav={nav} />
 
@@ -126,9 +124,14 @@ export function AboutScaffold({ dictionary, locale }: AboutScaffoldProps) {
 						<h2 id="about-packages-title">
 							<TextLines className="block" lines={dictionary.packages.titleLines} />
 						</h2>
-						<p>
-							<TextLines className="block" lines={dictionary.packages.descriptionLines} />
-						</p>
+						<div className="about-packages-aside">
+							<p>
+								<TextLines className="block" lines={dictionary.packages.descriptionLines} />
+							</p>
+							<KisasButton href={locale === 'zh' ? '/zh/majors-career' : '/majors-career'} icon={<ChevronRight aria-hidden="true" size={18} strokeWidth={1.8} />} variant="outline">
+								{dictionary.packages.cta}
+							</KisasButton>
+						</div>
 					</div>
 					<div className="about-package-grid">
 						{dictionary.packages.items.map(item => (
@@ -141,9 +144,6 @@ export function AboutScaffold({ dictionary, locale }: AboutScaffoldProps) {
 							</article>
 						))}
 					</div>
-					<KisasButton href={locale === 'zh' ? '/zh/majors-career' : '/majors-career'} icon={<ChevronRight aria-hidden="true" size={18} strokeWidth={1.8} />} variant="outline">
-						{dictionary.packages.cta}
-					</KisasButton>
 				</div>
 			</section>
 

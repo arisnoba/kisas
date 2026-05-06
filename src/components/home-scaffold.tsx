@@ -55,7 +55,7 @@ function RoiNumber({ value }: { value: string }) {
 		return <div className="home-roi-value">{value}</div>;
 	}
 
-	return <NumberTicker aria-label={value} className="home-roi-value !text-white !tracking-normal" decimalPlaces={getDecimalPlaces(value)} value={numericValue} />;
+	return <NumberTicker aria-label={value} className="home-roi-value text-white! tracking-normal!" decimalPlaces={getDecimalPlaces(value)} value={numericValue} />;
 }
 
 export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
@@ -63,12 +63,10 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 
 	return (
 		<main className="home-page bg-white text-[#10367d]" lang={locale}>
+			<HomeHeader logo={assets.logo} locale={locale} nav={dictionary.nav} />
 			<section className="home-hero">
-				<Image priority src={assets.hero} alt="" fill className="home-hero-base" sizes="100vw" />
 				<Image priority src={assets.background} alt="" fill className="home-hero-background" sizes="100vw" />
 				<div className="home-hero-overlay" />
-
-				<HomeHeader logo={assets.logo} locale={locale} nav={dictionary.nav} />
 
 				<div className="container home-hero-content">
 					<h1 className="home-hero-title display-title">
@@ -118,7 +116,7 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 			</section>
 
 			<section className="home-universities z-10" id="universities">
-				<div className="container home-universities-copy">
+				<div className="container-fluid home-universities-copy px-10">
 					<h2>
 						<span>{dictionary.universities.eyebrow}</span>
 						<TextLines className="block" lines={dictionary.universities.titleLines} />
@@ -187,9 +185,9 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 					</div>
 				</div>
 
-				<div className="container-fulid home-student-track">
+				<div className="container-fulid flex flex-row items-center justify-center home-student-track">
 					{dictionary.students.cases.map((student, index) => (
-						<article className={`home-student-card home-student-card-${index + 1}`} key={student.name}>
+						<article className={`home-student-card px-5 md:px-10 home-student-card-${index + 1}`} key={student.name}>
 							<div className="home-student-image">
 								<Image src={student.image} alt="" fill sizes="360px" />
 							</div>
@@ -204,7 +202,7 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 			</section>
 
 			<section className="home-final-cta">
-				<div className="container home-final-cta-inner">
+				<div className="container-fluid home-final-cta-inner px-10">
 					<h2>
 						<TextLines className="block" lines={dictionary.finalCta.titleLines} />
 					</h2>
