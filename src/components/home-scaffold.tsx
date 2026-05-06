@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { ArrowButton } from '@/components/ui/arrow-button';
+import { HeroTitleEffect } from '@/components/hero-title-effect';
 import { HomeFooter } from '@/components/home-footer';
 import { HomeHeader } from '@/components/home-header';
 import { Marquee } from '@/components/ui/marquee';
@@ -47,7 +48,7 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 
 				<div className="container home-hero-content">
 					<h1 className="home-hero-title display-title">
-						<TextLines className="block" lines={dictionary.hero.titleLines} />
+						<HeroTitleEffect lines={dictionary.hero.titleLines} />
 					</h1>
 
 					<div className="home-hero-copy">

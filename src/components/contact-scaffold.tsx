@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { HomeFooter } from '@/components/home-footer';
 import { HomeHeader } from '@/components/home-header';
 import { ConsultationForm } from '@/components/consultation-form';
+import { HeroTitleEffect } from '@/components/hero-title-effect';
 import { TextLines } from '@/components/text-lines';
 import type { Locale } from '@/i18n/config';
 import type { ContactDictionary } from '@/i18n/pages/contact';
@@ -43,7 +44,7 @@ export function ContactScaffold({ dictionary, locale }: ContactScaffoldProps) {
 				<div className="container contact-reach-inner">
 					<div className="contact-reach-heading">
 						<h1 id="contact-reach-title">
-							<TextLines className="block" lines={dictionary.hero.titleLines} />
+							<HeroTitleEffect lines={dictionary.hero.titleLines} />
 						</h1>
 						<p>{dictionary.hero.description}</p>
 					</div>

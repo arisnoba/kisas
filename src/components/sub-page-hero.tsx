@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { HeroTitleEffect } from '@/components/hero-title-effect';
 import { TextLines } from '@/components/text-lines';
 
 type HeroImage = {
@@ -35,7 +36,7 @@ export function SubPageHero({
 	const heading = (
 		<>
 			<h1>
-				<TextLines className="block" lines={titleLines} />
+				<HeroTitleEffect lines={titleLines} />
 			</h1>
 			{subtitleLines ? (
 				<p>

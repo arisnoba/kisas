@@ -348,9 +348,9 @@ body.home-menu-open {
 	position: relative;
 	z-index: 2;
 	display: grid;
-	grid-template-columns: minmax(0, 525px) minmax(0, 520px);
+	grid-template-columns: repeat(2, 1fr);
 	justify-content: center;
-	@include fluid-prop(gap, 64px, 120px);
+	// @include fluid-prop(gap, 24px, 64px);
 	@include fluid-prop(padding-top, 112px, 200px);
 	@include fluid-prop(padding-bottom, 112px, 200px);
 	height: var(--home-hero-height);

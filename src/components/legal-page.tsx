@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { HeroTitleEffect } from '@/components/hero-title-effect';
 import { HomeFooter } from '@/components/home-footer';
 import { HomeHeader } from '@/components/home-header';
 import { homeDictionaries } from '@/i18n/pages/home';
@@ -108,7 +109,9 @@ export function LegalPage({ dictionary, document, locale }: LegalPageProps) {
 				<div className="container grid gap-5 py-14 md:py-20">
 					<p className="text-sm font-bold uppercase tracking-[0.18em] text-[#10367d]">{dictionary.page.kicker}</p>
 					<div className="grid gap-4">
-						<h1 className="max-w-4xl font-heading text-[clamp(36px,6vw,64px)] font-semibold leading-[1.08] tracking-normal text-slate-950">{document.title}</h1>
+						<h1 className="max-w-4xl font-heading text-[clamp(36px,6vw,64px)] font-semibold leading-[1.08] tracking-normal text-slate-950">
+							<HeroTitleEffect lines={[document.title]} />
+						</h1>
 						<p className="max-w-3xl text-base leading-7 text-slate-600 md:text-lg md:leading-8">{document.description}</p>
 					</div>
 					<p className="text-sm font-semibold text-slate-500">
