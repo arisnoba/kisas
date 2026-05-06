@@ -10,6 +10,9 @@ type StudentLifeActivityMarqueeProps = {
 	images: ActivityImage[];
 };
 
+const normalSpeed = 80;
+const hoverSpeed = 13;
+
 export function StudentLifeActivityMarquee({ images }: StudentLifeActivityMarqueeProps) {
 	const viewportRef = useRef<HTMLDivElement>(null);
 	const trackRef = useRef<HTMLDivElement>(null);
@@ -31,7 +34,7 @@ export function StudentLifeActivityMarquee({ images }: StudentLifeActivityMarque
 
 		let frameId = 0;
 		let offset = 0;
-		let speed = 44;
+		let speed = normalSpeed;
 		let previousTime = performance.now();
 
 		const getLoopDistance = () => {
@@ -45,7 +48,7 @@ export function StudentLifeActivityMarquee({ images }: StudentLifeActivityMarque
 			const deltaSeconds = Math.min((time - previousTime) / 1000, 0.05);
 			previousTime = time;
 
-			const targetSpeed = isHoveringRef.current ? 13 : 44;
+			const targetSpeed = isHoveringRef.current ? hoverSpeed : normalSpeed;
 			speed += (targetSpeed - speed) * Math.min(deltaSeconds * 7, 1);
 
 			const loopDistance = getLoopDistance();
