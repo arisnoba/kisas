@@ -66,7 +66,7 @@
 .tuition-comparison-inner {
 	display: grid;
 	grid-template-columns: minmax(0, 454px) minmax(360px, 580px);
-	align-items: center;
+	align-items: start;
 	justify-content: space-between;
 	gap: 86px;
 	padding-block: 120px;
@@ -114,7 +114,7 @@
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 1.3;
-	letter-spacing: 0;
+	letter-spacing: -0.02em;
 }
 
 .tuition-comparison-bar-track {
@@ -174,7 +174,7 @@
 		font-family: var(--font-kisas-heading);
 		@include fluid-prop(font-size, 42px, 60px);
 		font-weight: 600;
-		line-height: 1.3;
+		line-height: 1.2;
 		letter-spacing: 0;
 	}
 
@@ -328,7 +328,7 @@
 	ul {
 		display: flex;
 		flex-direction: column;
-		gap: 2px;
+		gap: 6px;
 		color: rgba(16, 54, 125, 0.7);
 		font-family: var(--font-kisas-sans);
 		font-size: 16px;
@@ -336,8 +336,20 @@
 		letter-spacing: 0;
 	}
 
+	li {
+		display: grid;
+		grid-template-columns: 6px minmax(0, 1fr);
+		gap: 8px;
+		align-items: start;
+	}
+
 	li::before {
-		content: '· ';
+		width: 4px;
+		height: 4px;
+		margin-top: 11px;
+		border-radius: 999px;
+		background: currentcolor;
+		content: '';
 	}
 }
 
@@ -380,7 +392,7 @@
 		font-family: var(--font-kisas-heading);
 		@include fluid-prop(font-size, 42px, 60px);
 		font-weight: 600;
-		line-height: 1.3;
+		line-height: 1.2;
 		letter-spacing: 0;
 	}
 }
@@ -424,13 +436,16 @@
 	font-weight: 700;
 	white-space: nowrap;
 
-	span:first-child {
+	> .tuition-payback-number {
+		color: #fff;
+		font-family: inherit;
 		font-size: 92px;
+		font-weight: inherit;
 		line-height: 1;
 		letter-spacing: 0;
 	}
 
-	span:last-child {
+	> span:last-child {
 		font-size: 28px;
 		line-height: 2.47;
 	}

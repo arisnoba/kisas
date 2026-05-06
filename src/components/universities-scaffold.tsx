@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Image from 'next/image';
 import { ChevronRight } from 'lucide-react';
@@ -87,6 +87,7 @@ export function UniversitiesScaffold({ dictionary, locale }: UniversitiesScaffol
 	const nav = getUniversitiesNav(locale);
 	const activeHref = locale === 'zh' ? '/zh/universities' : '/universities';
 	const consultationHref = locale === 'zh' ? '/zh/consultation' : '/consultation';
+	const tuitionHref = locale === 'zh' ? '/zh/tuition' : '/tuition';
 	const filteredCards = useMemo(() => {
 		if (activeCategory === 'all') {
 			return dictionary.cards;
@@ -117,14 +118,7 @@ export function UniversitiesScaffold({ dictionary, locale }: UniversitiesScaffol
 				<div className="container universities-list-inner">
 					<div className="universities-tabs" role="tablist" aria-label="University filters">
 						{dictionary.filters.map(filter => (
-							<button
-								aria-selected={activeCategory === filter.value}
-								className="universities-tab"
-								key={filter.value}
-								onClick={() => setActiveCategory(filter.value)}
-								role="tab"
-								type="button"
-							>
+							<button aria-selected={activeCategory === filter.value} className="universities-tab" key={filter.value} onClick={() => setActiveCategory(filter.value)} role="tab" type="button">
 								{filter.label}
 							</button>
 						))}
@@ -156,14 +150,16 @@ export function UniversitiesScaffold({ dictionary, locale }: UniversitiesScaffol
 
 			<section className="universities-spectrum" aria-labelledby="universities-spectrum-title">
 				<div className="container universities-spectrum-inner">
-					<div className="universities-spectrum-heading">
-						<h2 id="universities-spectrum-title">{dictionary.spectrum.title}</h2>
-						<div className="universities-spectrum-aside">
+					<div className="universities-spectrum-heading grid grid-cols-1 md:grid-cols-3">
+						<h2 id="universities-spectrum-title" className="col-span-1 md:col-span-2">
+							{dictionary.spectrum.title}
+						</h2>
+						<div className="universities-spectrum-aside col-span-1">
 							<p>
 								<TextLines className="block" lines={dictionary.spectrum.descriptionLines} />
 							</p>
 							<div className="universities-spectrum-actions">
-								<KisasButton href={consultationHref} icon={<ChevronRight aria-hidden="true" size={16} strokeWidth={1.8} />} shape="rect" size="nav" variant="outline">
+								<KisasButton href={tuitionHref} icon={<ChevronRight aria-hidden="true" size={16} strokeWidth={1.8} />} shape="rect" size="nav" variant="outline">
 									{dictionary.spectrum.primaryCta}
 								</KisasButton>
 								<KisasButton href={consultationHref} icon={<ChevronRight aria-hidden="true" size={16} strokeWidth={1.8} />} shape="rect" size="nav" variant="outline">

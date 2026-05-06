@@ -239,7 +239,7 @@
 	height: 304px;
 	background: #1b4696;
 	clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-	content: '';
+	// content: '';
 }
 
 .universities-spectrum::before {
@@ -261,15 +261,15 @@
 	min-height: 880px;
 	flex-direction: column;
 	justify-content: center;
-	gap: 132px;
+	@include fluid-prop(gap, 40px, 80px);
 	padding-block: 140px;
 }
 
 .universities-spectrum-heading {
-	display: grid;
-	grid-template-columns: minmax(0, 465px) minmax(280px, 360px);
+	// display: grid;
+	// grid-template-columns: minmax(0, 465px) minmax(280px, 360px);
 	justify-content: space-between;
-	gap: 80px;
+	// gap: 80px;
 
 	h2 {
 		font-family: var(--font-kisas-heading);

@@ -50,8 +50,7 @@ export const universitiesDictionaries = {
 		hero: {
 			titleLines: ['11 Prestigious', 'Art Universities'],
 			subtitleLines: ['Official Partnerships, Including', 'Top Tier 1 Institutions'],
-			description:
-				'We maintain relationships with leading art universities in Korea and guide each student toward the best-fit option based on budget, skills, language level, and intended major.',
+			description: 'We maintain relationships with leading art universities in Korea and guide each student toward the best-fit option based on budget, skills, language level, and intended major.',
 		},
 		filters: [
 			{ label: 'All', value: 'all' },
@@ -118,7 +117,7 @@ export const universitiesDictionaries = {
 		spectrum: {
 			title: 'Program Spectrum',
 			descriptionLines: ['Covering music, content, design, and entertainment.', 'Representative universities by major can be reviewed during consultation.'],
-			primaryCta: 'Consultation',
+			primaryCta: 'Tuition & Scholarships',
 			secondaryCta: 'Apply',
 			categories: [
 				{
@@ -215,8 +214,8 @@ export const universitiesDictionaries = {
 		spectrum: {
 			title: '专业覆盖',
 			descriptionLines: ['覆盖音乐、内容、设计与娱乐产业相关方向。', '各专业推荐院校可在咨询阶段进一步确认。'],
-			primaryCta: '咨询',
-			secondaryCta: '申请',
+			primaryCta: '学费与奖学金指南',
+			secondaryCta: '申请专业咨询',
 			categories: [
 				{
 					titleLines: ['音乐'],

@@ -4,6 +4,7 @@ import type { LucideIcon } from 'lucide-react';
 import { HomeFooter } from '@/components/home-footer';
 import { SubPageHero } from '@/components/sub-page-hero';
 import { TextLines } from '@/components/text-lines';
+import { TuitionComparisonBar, TuitionPaybackNumber } from '@/components/tuition-motion';
 import { KisasButton } from '@/components/ui/kisas-button';
 import type { Locale } from '@/i18n/config';
 import { homeDictionaries } from '@/i18n/pages/home';
@@ -68,15 +69,13 @@ export function TuitionScaffold({ dictionary, locale }: TuitionScaffoldProps) {
 						<p>{dictionary.comparison.description}</p>
 					</div>
 					<div className="tuition-comparison-chart">
-						{dictionary.comparison.rows.map(row => (
+						{dictionary.comparison.rows.map((row, index) => (
 							<div className="tuition-comparison-row" key={row.labelLines.join('-')}>
 								<p className="tuition-comparison-label">
 									<TextLines className="block" lines={row.labelLines} />
 								</p>
 								<div className="tuition-comparison-bar-track">
-									<div className={`tuition-comparison-bar ${row.emphasis ? 'tuition-comparison-bar-emphasis' : ''}`} style={{ width: `${row.percent}%` }}>
-										<span>{row.value}</span>
-									</div>
+									<TuitionComparisonBar className={row.emphasis ? 'tuition-comparison-bar-emphasis' : ''} delay={index * 0.08} percent={row.percent} value={row.value} />
 								</div>
 							</div>
 						))}
@@ -181,7 +180,7 @@ export function TuitionScaffold({ dictionary, locale }: TuitionScaffoldProps) {
 						{dictionary.payback.scenarios.map(scenario => (
 							<article className={`tuition-payback-card ${scenario.featured ? 'tuition-payback-card-featured' : ''}`} key={scenario.title}>
 								<div className="tuition-payback-value">
-									<span>{scenario.value}</span>
+									<TuitionPaybackNumber value={scenario.value} />
 									<span>{scenario.unit}</span>
 								</div>
 								<div className="tuition-payback-card-copy">
