@@ -98,8 +98,8 @@ export function HomeHeader({ logo, nav, locale, activeHref, tone = 'dark' }: Hom
 			</button>
 
 			{isMenuOpen ? (
-				<div className="home-mobile-menu fixed inset-0 z-20 flex min-h-svh flex-col justify-between overflow-y-auto px-6 pb-8 pt-32 min-[1101px]:hidden" id="home-mobile-menu">
-					<nav className="flex flex-col gap-5" aria-label="Mobile navigation">
+				<div className="home-mobile-menu fixed inset-0 z-20 flex min-h-svh flex-col justify-between overflow-y-auto px-6 pb-8 pt-30 min-[1101px]:hidden" id="home-mobile-menu">
+					<nav className="flex flex-col gap-8" aria-label="Mobile navigation">
 						{nav.links.map(link => (
 							<Link className={`home-mobile-nav-link ${link.href === activeHref ? 'home-mobile-nav-link-active' : ''}`} href={link.href} key={link.label} onClick={closeMenu}>
 								{link.label}

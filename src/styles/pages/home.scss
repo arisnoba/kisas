@@ -171,12 +171,10 @@ body.home-menu-open {
 	isolation: isolate;
 	z-index: 20;
 	min-height: 100svh;
-	padding-top: clamp(92px, 14svh, 128px);
+	// padding-top: clamp(92px, 14svh, 128px);
 	padding-bottom: calc(28px + env(safe-area-inset-bottom));
 	color: #fff;
-	background:
-		linear-gradient(150deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0) 38%),
-		linear-gradient(180deg, #07153a, #020819);
+	background: linear-gradient(150deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0) 38%), linear-gradient(180deg, #07153a, #020819);
 	backdrop-filter: blur(20px);
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
 	animation: home-mobile-menu-enter 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -206,9 +204,7 @@ body.home-menu-open {
 
 .home-header-light .home-mobile-menu {
 	color: #10245e;
-	background:
-		linear-gradient(150deg, rgba(16, 54, 125, 0.1), rgba(16, 54, 125, 0) 38%),
-		linear-gradient(180deg, #f8f7f1, #fff 54%, #eff3f8);
+	background: linear-gradient(150deg, rgba(16, 54, 125, 0.1), rgba(16, 54, 125, 0) 38%), linear-gradient(180deg, #f8f7f1, #fff 54%, #eff3f8);
 	box-shadow:
 		inset 0 1px 0 rgba(255, 255, 255, 0.76),
 		0 24px 80px rgba(16, 36, 94, 0.18);
@@ -295,10 +291,6 @@ body.home-menu-open {
 }
 
 @media (max-height: 700px) {
-	.home-mobile-menu {
-		padding-top: 84px;
-	}
-
 	.home-mobile-nav-link {
 		font-size: clamp(28px, 8.4vw, 40px);
 	}
