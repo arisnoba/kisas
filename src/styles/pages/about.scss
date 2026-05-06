@@ -87,7 +87,7 @@
 .about-steps-inner {
 	display: grid;
 	grid-template-columns: minmax(0, 465px) minmax(360px, 1fr);
-	gap: 120px;
+	gap: 24px;
 	align-items: start;
 }
 
@@ -98,7 +98,6 @@
 	flex-direction: column;
 	gap: 40px;
 	margin-top: 140px;
-	margin-bottom: 140px;
 
 	h2 {
 		font-family: var(--font-kisas-heading);
@@ -141,7 +140,8 @@
 	position: relative;
 	z-index: 1;
 	display: grid;
-	width: min(100%, 426px);
+	width: 100%;
+	max-width: 426px;
 	aspect-ratio: 1;
 	place-items: center;
 	background: var(--about-blue-soft);
@@ -176,13 +176,15 @@
 }
 
 .about-step-card-circle {
-	width: min(100%, 360px);
+	width: 100%;
+	max-width: 360px;
 	border-radius: 999px;
 }
 
 .about-step-card-content {
 	display: flex;
-	width: min(100%, 220px);
+	width: 100%;
+	max-width: 220px;
 	flex-direction: column;
 	align-items: center;
 	gap: 20px;
@@ -472,10 +474,6 @@
 	.about-audience-inner,
 	.about-packages-inner {
 		padding-block: 80px;
-	}
-
-	.about-step-card {
-		width: min(100%, 320px);
 	}
 
 	.about-audience-inner {

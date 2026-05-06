@@ -75,7 +75,7 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 						<p className="home-hero-subtitle">{dictionary.hero.subtitle}</p>
 						<p className="home-hero-description">{dictionary.hero.description}</p>
 						<div className="home-hero-buttons">
-							<ArrowButton href="/apply" variant="light">
+							<ArrowButton href={locale === 'zh' ? '/zh/consultation' : '/consultation'} variant="light">
 								{dictionary.hero.primaryCta}
 							</ArrowButton>
 							<ArrowButton href="/program" variant="outline">
@@ -207,7 +207,7 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 					</h2>
 					<div className="home-final-cta-copy">
 						<p>{dictionary.finalCta.description}</p>
-						<ArrowButton href="/apply" variant="outline">
+						<ArrowButton href={locale === 'zh' ? '/zh/consultation' : '/consultation'} variant="outline">
 							{dictionary.finalCta.cta}
 						</ArrowButton>
 					</div>

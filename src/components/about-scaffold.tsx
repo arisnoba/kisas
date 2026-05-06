@@ -75,7 +75,7 @@ export function AboutScaffold({ dictionary, locale }: AboutScaffoldProps) {
 
 			<section className="about-steps" aria-labelledby="about-steps-title">
 				<div className="container about-steps-inner">
-					<div className="about-steps-overview">
+					<div className="about-steps-overview lg:mb-40">
 						<h2 id="about-steps-title">
 							<TextLines className="block" lines={dictionary.steps.titleLines} />
 						</h2>
@@ -125,9 +125,7 @@ export function AboutScaffold({ dictionary, locale }: AboutScaffoldProps) {
 							<TextLines className="block" lines={dictionary.packages.titleLines} />
 						</h2>
 						<div className="about-packages-aside">
-							<p>
-								{dictionary.packages.descriptionLines.join(locale === 'zh' ? '' : ' ')}
-							</p>
+							<p>{dictionary.packages.descriptionLines.join(locale === 'zh' ? '' : ' ')}</p>
 							<KisasButton href={locale === 'zh' ? '/zh/majors-career' : '/majors-career'} icon={<ChevronRight aria-hidden="true" size={18} strokeWidth={1.8} />} variant="outline">
 								{dictionary.packages.cta}
 							</KisasButton>

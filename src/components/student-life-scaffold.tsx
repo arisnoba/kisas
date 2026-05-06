@@ -103,7 +103,12 @@ export function StudentLifeScaffold({ dictionary, locale }: StudentLifeScaffoldP
 						<p>
 							<TextLines className="block" lines={dictionary.activities.descriptionLines} />
 						</p>
-						<KisasButton href={locale === 'zh' ? '/zh/contact' : '/contact'} icon={<ChevronRight aria-hidden="true" size={16} strokeWidth={1.8} />} shape="rect" size="nav" variant="outline">
+						<KisasButton
+							href={locale === 'zh' ? '/zh/consultation' : '/consultation'}
+							icon={<ChevronRight aria-hidden="true" size={16} strokeWidth={1.8} />}
+							shape="rect"
+							size="nav"
+							variant="outline">
 							{dictionary.activities.cta}
 						</KisasButton>
 					</div>

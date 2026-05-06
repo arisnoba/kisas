@@ -681,7 +681,7 @@ body.home-menu-open {
 	position: relative;
 	isolation: isolate;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 360px));
+	grid-template-columns: repeat(auto-fit, minmax(260px, 360px));
 	justify-content: center;
 	gap: 28px;
 	min-height: 584px;
@@ -705,11 +705,16 @@ body.home-menu-open {
 	}
 }
 
+@media (max-width: 340px) {
+	.home-student-track {
+		grid-template-columns: 1fr;
+	}
+}
+
 .home-student-card {
 	display: flex;
 	position: relative;
 	z-index: 1;
-	// width: min(100%, 360px);home-why-logo
 	min-height: 500px;
 	flex-direction: column;
 	background: var(--home-blue);

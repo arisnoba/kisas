@@ -29,9 +29,11 @@ export type ContactDictionary = {
 			contact: string;
 			major: string;
 			date: string;
+			package: string;
 			message: string;
 		};
 		majorOptions: string[];
+		packageOptions: string[];
 		submit: string;
 		pending: string;
 		success: string;
@@ -70,9 +72,11 @@ export const contactDictionaries = {
 				contact: 'Phone / WeChat',
 				major: 'Intended Major',
 				date: 'Preferred Consultation Date',
+				package: 'Preferred Package',
 				message: 'Your Message',
 			},
 			majorOptions: ['Music', 'Media & Content', 'Film & Video', 'Design', 'Performing Arts', 'Other'],
+			packageOptions: ['1-Month Trial', '3-Month Intensive', '6-Month Regular', '1-Year Premium', 'Decide After Consultation'],
 			submit: 'Submit',
 			pending: 'Submitting',
 			success: 'Your inquiry has been saved locally for the demo. A backend adapter can connect this form later.',
@@ -109,9 +113,11 @@ export const contactDictionaries = {
 				contact: '手机 / 微信',
 				major: '意向专业',
 				date: '希望咨询日期',
+				package: '希望套餐',
 				message: '咨询内容',
 			},
 			majorOptions: ['音乐', '媒体与内容', '电影影像', '设计', '表演艺术', '其他'],
+			packageOptions: ['1个月体验', '3个月集中', '6个月常规', '1年高级', '咨询后决定'],
 			submit: '提交',
 			pending: '提交中',
 			success: '咨询内容已在演示环境中保存。本表单后续可连接后端接口。',

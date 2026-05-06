@@ -20,7 +20,7 @@ export function HomeHeader({ logo, nav, locale, activeHref, tone = 'dark' }: Hom
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [hasScrolled, setHasScrolled] = useState(false);
 	const homeHref = locale === 'zh' ? '/zh' : '/';
-	const consultationHref = locale === 'zh' ? '/zh/apply' : '/apply';
+	const consultationHref = locale === 'zh' ? '/zh/consultation' : '/consultation';
 
 	useEffect(() => {
 		const handleScroll = () => {

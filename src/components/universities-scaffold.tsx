@@ -97,7 +97,7 @@ export function UniversitiesScaffold({ dictionary, locale }: UniversitiesScaffol
 	const siteDictionary = homeDictionaries[locale];
 	const nav = getUniversitiesNav(locale);
 	const activeHref = locale === 'zh' ? '/zh/universities' : '/universities';
-	const consultationHref = locale === 'zh' ? '/zh/apply' : '/apply';
+	const consultationHref = locale === 'zh' ? '/zh/consultation' : '/consultation';
 	const filteredCards = useMemo(() => {
 		if (activeCategory === 'all') {
 			return dictionary.cards;

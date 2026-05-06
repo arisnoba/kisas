@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { HomeFooter } from '@/components/home-footer';
 import { HomeHeader } from '@/components/home-header';
-import { ContactInquiryForm } from '@/components/contact-inquiry-form';
+import { ConsultationForm } from '@/components/consultation-form';
 import type { Locale } from '@/i18n/config';
 import type { ContactDictionary } from '@/i18n/pages/contact';
 import { homeDictionaries } from '@/i18n/pages/home';
@@ -95,7 +95,7 @@ export function ContactScaffold({ dictionary, locale }: ContactScaffoldProps) {
 					<h2 id="contact-inquiry-title">
 						<TextLines className="block" lines={dictionary.form.titleLines} />
 					</h2>
-					<ContactInquiryForm dictionary={dictionary.form} />
+					<ConsultationForm dictionary={dictionary.form} />
 				</div>
 			</section>
 

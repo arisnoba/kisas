@@ -93,7 +93,7 @@ export const studentLifeDictionaries = {
 		activities: {
 			titleLines: ['Student Work &', 'Activities'],
 			descriptionLines: ['Performances, awards, and portfolios.', 'Only shared with the student’s consent.'],
-			cta: 'View All Stories',
+			cta: 'Get a Consultation',
 			images: [
 				{ src: `${assetPath}/activity-stage-dark.png`, alt: '', variant: 'wide' },
 				{ src: `${assetPath}/activity-standing.png`, alt: '', variant: 'tall' },
@@ -119,7 +119,7 @@ export const studentLifeDictionaries = {
 		activities: {
 			titleLines: ['学生作品与', '活动记录'],
 			descriptionLines: ['演出、获奖经历与作品集成果。', '仅在获得学生同意后展示。'],
-			cta: '查看全部案例',
+			cta: '获取免费咨询',
 			images: [
 				{ src: `${assetPath}/activity-stage-dark.png`, alt: '', variant: 'wide' },
 				{ src: `${assetPath}/activity-standing.png`, alt: '', variant: 'tall' },
