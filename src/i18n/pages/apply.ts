@@ -14,7 +14,7 @@ export type ApplyDictionary = {
 		items: {
 			labelLines: string[];
 			details: string[];
-			shape: 'star' | 'hexagon' | 'circle';
+			shape: 'star' | 'star-alt' | 'hexagon' | 'diamond' | 'rounded-diamond' | 'circle';
 		}[];
 	};
 	process: {
@@ -67,28 +67,28 @@ export const applyDictionaries = {
 					shape: 'star',
 				},
 				{
-					labelLines: ['T-8', 'Months'],
-					details: ['School shortlist', 'Portfolio direction'],
-					shape: 'hexagon',
-				},
-				{
 					labelLines: ['T-6', 'Months'],
-					details: ['University selection', 'Document checklist'],
-					shape: 'circle',
+					details: ['University selection', 'Portfolio'],
+					shape: 'star-alt',
 				},
 				{
 					labelLines: ['T-4', 'Months'],
-					details: ['Application package', 'Interview preparation'],
-					shape: 'star',
-				},
-				{
-					labelLines: ['T-2', 'Months'],
-					details: ['Submission tracking', 'Visa preparation'],
+					details: ['Document submission', 'TOPIK test'],
 					shape: 'hexagon',
 				},
 				{
-					labelLines: ['Arrival', 'Month'],
-					details: ['Dorm check-in', 'Settlement support'],
+					labelLines: ['T-3', 'Months'],
+					details: ['Interview & audition', 'Admission results'],
+					shape: 'diamond',
+				},
+				{
+					labelLines: ['T-1', 'Month'],
+					details: ['D-2 visa', 'Application submission'],
+					shape: 'rounded-diamond',
+				},
+				{
+					labelLines: ['T-0.5', 'Months'],
+					details: ['Dorm lottery', 'Arrival in Korea'],
 					shape: 'circle',
 				},
 			],
@@ -184,28 +184,28 @@ export const applyDictionaries = {
 					shape: 'star',
 				},
 				{
-					labelLines: ['提前 8', '个月'],
-					details: ['院校初筛', '作品集方向'],
-					shape: 'hexagon',
-				},
-				{
 					labelLines: ['提前 6', '个月'],
-					details: ['确定申请院校', '材料清单确认'],
-					shape: 'circle',
+					details: ['大学选择', '作品集'],
+					shape: 'star-alt',
 				},
 				{
 					labelLines: ['提前 4', '个月'],
-					details: ['申请材料整理', '面试准备'],
-					shape: 'star',
-				},
-				{
-					labelLines: ['提前 2', '个月'],
-					details: ['提交跟进', '签证准备'],
+					details: ['提交材料', '参加 TOPIK'],
 					shape: 'hexagon',
 				},
 				{
-					labelLines: ['入境', '月份'],
-					details: ['宿舍入住', '落地支持'],
+					labelLines: ['提前 3', '个月'],
+					details: ['面试与实技', '录取发表'],
+					shape: 'diamond',
+				},
+				{
+					labelLines: ['提前 1', '个月'],
+					details: ['D-2 签证', '申请受理'],
+					shape: 'rounded-diamond',
+				},
+				{
+					labelLines: ['提前半个', '月'],
+					details: ['宿舍抽签', '入境韩国'],
 					shape: 'circle',
 				},
 			],
