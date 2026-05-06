@@ -15,7 +15,7 @@ type AboutScaffoldProps = {
 };
 
 const assets = {
-	heroBackground: '/assets/images/about/hero-background.png',
+	heroBackground: '/assets/images/about/hero-background.jpg',
 	pricingBackground: '/assets/images/about/pricing-background.png',
 	logo: '/assets/images/home/kisas-logo.svg',
 };

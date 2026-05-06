@@ -170,8 +170,8 @@ export function ApplyScaffold({ dictionary, locale }: ApplyScaffoldProps) {
 					<div className="apply-beginner-universities">
 						{dictionary.beginner.universities.map(university => (
 							<article className="apply-beginner-card" key={university.title}>
-								<h3>{university.title}</h3>
-								<p>{university.description}</p>
+								<h3 className="text-balance">{university.title}</h3>
+								<p className="text-balance">{university.description}</p>
 							</article>
 						))}
 					</div>
