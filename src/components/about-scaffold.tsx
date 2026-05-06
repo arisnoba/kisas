@@ -126,7 +126,7 @@ export function AboutScaffold({ dictionary, locale }: AboutScaffoldProps) {
 						</h2>
 						<div className="about-packages-aside">
 							<p>
-								<TextLines className="block" lines={dictionary.packages.descriptionLines} />
+								{dictionary.packages.descriptionLines.join(locale === 'zh' ? '' : ' ')}
 							</p>
 							<KisasButton href={locale === 'zh' ? '/zh/majors-career' : '/majors-career'} icon={<ChevronRight aria-hidden="true" size={18} strokeWidth={1.8} />} variant="outline">
 								{dictionary.packages.cta}
