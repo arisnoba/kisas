@@ -110,6 +110,14 @@ body.home-menu-open {
 	border-bottom-color: currentcolor !important;
 }
 
+.home-header-light .home-nav a {
+	color: #222;
+
+	&:hover {
+		color: var(--home-blue);
+	}
+}
+
 .home-consultation-link,
 .home-locale-link {
 	display: inline-flex;
