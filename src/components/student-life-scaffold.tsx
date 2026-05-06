@@ -1,10 +1,10 @@
 import Image from 'next/image';
-import { ChevronRight } from 'lucide-react';
 import { HomeFooter } from '@/components/home-footer';
+import { HomeHeader } from '@/components/home-header';
 import { StudentLifeActivityMarquee } from '@/components/student-life-activity-marquee';
 import { SubPageHero } from '@/components/sub-page-hero';
 import { TextLines } from '@/components/text-lines';
-import { KisasButton } from '@/components/ui/kisas-button';
+import { ArrowButton } from '@/components/ui/arrow-button';
 import type { Locale } from '@/i18n/config';
 import { homeDictionaries } from '@/i18n/pages/home';
 import type { StudentLifeDictionary, StudentProfile } from '@/i18n/pages/student-life';
@@ -57,10 +57,10 @@ export function StudentLifeScaffold({ dictionary, locale }: StudentLifeScaffoldP
 
 	return (
 		<main className="student-life-page home-page bg-white text-[#10367d]" lang={locale}>
+			<HomeHeader activeHref={activeHref} logo={assets.logo} locale={locale} nav={nav} />
 			<SubPageHero
-				backgroundImage={{ src: assets.hero, className: 'student-life-hero-image' }}
+				backgroundImage={{ src: assets.hero, className: 'student-life-hero-image', backgroundPosition: 'center 45%' }}
 				description={dictionary.hero.privacyNote}
-				header={{ activeHref, logo: assets.logo, locale, nav }}
 				innerClassName="student-life-hero-inner"
 				overlayClassName="student-life-hero-overlay"
 				sectionClassName="student-life-hero"
@@ -89,14 +89,9 @@ export function StudentLifeScaffold({ dictionary, locale }: StudentLifeScaffoldP
 						<p>
 							<TextLines className="block" lines={dictionary.activities.descriptionLines} />
 						</p>
-						<KisasButton
-							href={locale === 'zh' ? '/zh/consultation' : '/consultation'}
-							icon={<ChevronRight aria-hidden="true" size={16} strokeWidth={1.8} />}
-							shape="rect"
-							size="nav"
-							variant="outline">
+						<ArrowButton href={locale === 'zh' ? '/zh/consultation' : '/consultation'} shape="rect" size="nav" variant="outline">
 							{dictionary.activities.cta}
-						</KisasButton>
+						</ArrowButton>
 					</div>
 				</div>
 

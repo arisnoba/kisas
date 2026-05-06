@@ -1,23 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { TextLines } from '@/components/text-lines';
 import type { HomeDictionary } from '@/i18n/pages/home';
 
 type HomeFooterProps = {
 	footer: HomeDictionary['footer'];
 	logo: string;
 };
-
-function TextLines({ lines, className }: { lines: string[]; className?: string }) {
-	return (
-		<>
-			{lines.map(line => (
-				<span className={className} key={line}>
-					{line}
-				</span>
-			))}
-		</>
-	);
-}
 
 export function HomeFooter({ footer, logo }: HomeFooterProps) {
 	return (

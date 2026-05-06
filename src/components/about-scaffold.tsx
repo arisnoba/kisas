@@ -1,9 +1,10 @@
 import Image from 'next/image';
-import { Clapperboard, Languages, Music, ChevronRight } from 'lucide-react';
+import { Clapperboard, Languages, Music } from 'lucide-react';
 import { HomeFooter } from '@/components/home-footer';
+import { HomeHeader } from '@/components/home-header';
 import { SubPageHero } from '@/components/sub-page-hero';
 import { TextLines } from '@/components/text-lines';
-import { KisasButton } from '@/components/ui/kisas-button';
+import { ArrowButton } from '@/components/ui/arrow-button';
 import type { AboutDictionary } from '@/i18n/pages/about';
 import { homeDictionaries } from '@/i18n/pages/home';
 import type { Locale } from '@/i18n/config';
@@ -44,11 +45,11 @@ export function AboutScaffold({ dictionary, locale }: AboutScaffoldProps) {
 
 	return (
 		<main className="about-page home-page bg-white text-[#10367d]" lang={locale}>
+			<HomeHeader activeHref={activeHref} logo={assets.logo} locale={locale} nav={nav} />
 			<SubPageHero
 				backgroundImage={{ src: assets.heroBackground, className: 'about-hero-background' }}
 				description={dictionary.hero.description}
 				descriptionClassName="about-hero-description"
-				header={{ activeHref, logo: assets.logo, locale, nav }}
 				headingClassName="about-hero-heading"
 				innerClassName="about-hero-inner"
 				overlayClassName="about-hero-overlay"
@@ -110,9 +111,9 @@ export function AboutScaffold({ dictionary, locale }: AboutScaffoldProps) {
 						</h2>
 						<div className="about-packages-aside">
 							<p>{dictionary.packages.descriptionLines.join(locale === 'zh' ? '' : ' ')}</p>
-							<KisasButton href={locale === 'zh' ? '/zh/majors-career' : '/majors-career'} icon={<ChevronRight aria-hidden="true" size={18} strokeWidth={1.8} />} variant="outline">
+							<ArrowButton href={locale === 'zh' ? '/zh/consultation' : '/consultation'} variant="outline">
 								{dictionary.packages.cta}
-							</KisasButton>
+							</ArrowButton>
 						</div>
 					</div>
 					<div className="about-package-grid">

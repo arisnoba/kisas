@@ -18,9 +18,6 @@
 }
 
 .apply-hero-background {
-	object-fit: cover;
-	object-position: center 54%;
-	transform: scale(1.88);
 }
 
 .apply-hero-overlay {
@@ -104,7 +101,7 @@
 	min-width: 0;
 	flex-direction: column;
 	align-items: flex-start;
-	gap: 20px;
+	// gap: 20px;
 	color: #fff;
 
 	h3 {
@@ -590,9 +587,6 @@
 		min-height: 620px;
 	}
 
-	.apply-hero-background {
-		transform: scale(2.1);
-	}
 
 	.apply-timeline-inner,
 	.apply-process-inner,
@@ -629,8 +623,6 @@
 		width: 100%;
 		max-width: none;
 		grid-template-columns: 80px minmax(0, 1fr);
-		column-gap: 24px;
-		row-gap: 18px;
 		align-items: start;
 
 		h3 {

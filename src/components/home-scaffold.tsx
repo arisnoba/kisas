@@ -1,11 +1,10 @@
 import Image from 'next/image';
-import type { ReactNode } from 'react';
-import { ChevronRight } from 'lucide-react';
+import { ArrowButton } from '@/components/ui/arrow-button';
 import { HomeFooter } from '@/components/home-footer';
 import { HomeHeader } from '@/components/home-header';
-import { KisasButton } from '@/components/ui/kisas-button';
 import { Marquee } from '@/components/ui/marquee';
 import { NumberTicker } from '@/components/ui/number-ticker';
+import { TextLines } from '@/components/text-lines';
 import type { HomeDictionary } from '@/i18n/pages/home';
 import type { Locale } from '@/i18n/config';
 
@@ -21,26 +20,6 @@ const assets = {
 	whyLogo: '/assets/images/home/feature-graphic.svg',
 	roiBackground: '/assets/images/home/logo-image.png',
 };
-
-function TextLines({ lines, className }: { lines: string[]; className?: string }) {
-	return (
-		<>
-			{lines.map(line => (
-				<span className={className} key={line}>
-					{line}
-				</span>
-			))}
-		</>
-	);
-}
-
-function ArrowButton({ href, children, variant = 'solid' }: { href: string; children: ReactNode; variant?: 'solid' | 'outline' | 'light' }) {
-	return (
-		<KisasButton href={href} icon={<ChevronRight aria-hidden="true" size={18} strokeWidth={1.8} />} variant={variant}>
-			{children}
-		</KisasButton>
-	);
-}
 
 function getDecimalPlaces(value: string) {
 	const decimalPart = value.split('.')[1];
@@ -144,11 +123,12 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 				<Image src={assets.roiBackground} alt="" fill className="home-roi-background" sizes="100vw" />
 				<div className="home-roi-overlay absolute inset-0" />
 				<div className="container home-roi-inner relative z-1 py-[clamp(110px,12vw,210px)]">
-					<div className="home-roi-heading grid grid-cols-1 items-start gap-10 min-[1101px]:grid-cols-[minmax(0,1fr)_minmax(280px,360px)] min-[1101px]:gap-[120px]">
-						<h2 className="section-title">
+					{/* <div className="home-roi-heading grid grid-cols-1 items-start gap-10 min-[1101px]:grid-cols-[minmax(0,1fr)_minmax(280px,360px)] min-[1101px]:gap-[120px]"> */}
+					<div className="home-roi-heading grid grid-cols-1 items-start gap-4 md:grid-cols-3">
+						<h2 className="section-title col-span-1 md:col-span-2">
 							<TextLines className="block" lines={dictionary.roi.titleLines} />
 						</h2>
-						<div>
+						<div className="col-span-1">
 							<p className="home-roi-description mb-7">{dictionary.roi.description}</p>
 							<div className="home-roi-actions">
 								{dictionary.roi.ctas.map(cta => (
@@ -182,7 +162,7 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 					</h2>
 					<div className="col-span-1 md:col-span-1">
 						<p>{dictionary.students.description}</p>
-						<ArrowButton href="/students" variant="solid">
+						<ArrowButton href="/student-life" variant="solid">
 							{dictionary.students.cta}
 						</ArrowButton>
 					</div>

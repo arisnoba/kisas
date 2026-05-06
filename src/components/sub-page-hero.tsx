@@ -1,18 +1,15 @@
-import Image from 'next/image';
-import type { ComponentProps, ReactNode } from 'react';
-import { HomeHeader } from '@/components/home-header';
+import type { ReactNode } from 'react';
 import { TextLines } from '@/components/text-lines';
 
 type HeroImage = {
 	src: string;
 	className: string;
-	sizes?: string;
+	backgroundPosition?: string;
 };
 
 type SubPageHeroProps = {
 	sectionClassName: string;
 	innerClassName: string;
-	header: ComponentProps<typeof HomeHeader>;
 	titleLines: string[];
 	backgroundImage?: HeroImage;
 	decorative?: ReactNode;
@@ -26,7 +23,6 @@ type SubPageHeroProps = {
 export function SubPageHero({
 	sectionClassName,
 	innerClassName,
-	header,
 	titleLines,
 	backgroundImage,
 	decorative,
@@ -51,9 +47,21 @@ export function SubPageHero({
 
 	return (
 		<section className={sectionClassName}>
-			{backgroundImage ? <Image priority src={backgroundImage.src} alt="" fill className={backgroundImage.className} sizes={backgroundImage.sizes ?? '100vw'} /> : null}
+			{backgroundImage ? (
+				<div
+					aria-hidden="true"
+					className={backgroundImage.className}
+					style={{
+						position: 'absolute',
+						inset: 0,
+						backgroundImage: `url(${backgroundImage.src})`,
+						backgroundAttachment: 'fixed',
+						backgroundSize: 'cover',
+						backgroundPosition: backgroundImage.backgroundPosition ?? 'center',
+					}}
+				/>
+			) : null}
 			{overlayClassName ? <div className={overlayClassName} /> : null}
-			<HomeHeader {...header} />
 			{decorative}
 
 			<div className={`container subpage-hero ${innerClassName}`}>

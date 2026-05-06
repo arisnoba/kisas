@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { HomeFooter } from '@/components/home-footer';
 import { HomeHeader } from '@/components/home-header';
 import { ConsultationForm } from '@/components/consultation-form';
+import { TextLines } from '@/components/text-lines';
 import type { Locale } from '@/i18n/config';
 import type { ContactDictionary } from '@/i18n/pages/contact';
 import { homeDictionaries } from '@/i18n/pages/home';
@@ -17,18 +18,6 @@ const assets = {
 	wechatIcon: '/assets/images/contact/wechat-icon.png',
 	wechatQr: '/assets/images/contact/wechat-qr.png',
 };
-
-function TextLines({ lines, className }: { lines: string[]; className?: string }) {
-	return (
-		<>
-			{lines.map(line => (
-				<span className={className} key={line}>
-					{line}
-				</span>
-			))}
-		</>
-	);
-}
 
 function getContactNav(locale: Locale) {
 	const nav = homeDictionaries[locale].nav;

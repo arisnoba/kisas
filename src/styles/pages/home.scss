@@ -52,23 +52,28 @@
 
 .home-header {
 	color: #fff;
-	background: linear-gradient(180deg, rgba(3, 16, 47, 0.82), rgba(3, 16, 47, 0.5));
-	backdrop-filter: blur(18px);
+	background: transparent;
 	border-bottom: 1px solid transparent;
-	transition: border-color 180ms ease;
+	transition:
+		background-color 180ms ease,
+		background-image 180ms ease,
+		backdrop-filter 180ms ease,
+		border-color 180ms ease;
 }
 
 .home-header-light {
 	color: #222;
-	background: rgba(243, 243, 243, 0.92);
-	border-bottom-color: rgba(0, 0, 0, 0.06);
 }
 
 .home-header-scrolled {
+	background: linear-gradient(180deg, rgba(3, 16, 47, 0.82), rgba(3, 16, 47, 0.5));
+	backdrop-filter: blur(18px);
 	border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .home-header-light.home-header-scrolled {
+	background: rgba(243, 243, 243, 0.92);
+	backdrop-filter: blur(18px);
 	border-bottom-color: rgba(0, 0, 0, 0.1);
 }
 

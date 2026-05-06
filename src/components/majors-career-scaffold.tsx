@@ -1,6 +1,7 @@
 import type { LucideIcon } from 'lucide-react';
 import { BriefcaseBusiness, Clapperboard, Cpu, Drama, Hotel, Lightbulb, Music, Paintbrush, Sparkles, Trophy, Video } from 'lucide-react';
 import { HomeFooter } from '@/components/home-footer';
+import { HomeHeader } from '@/components/home-header';
 import { CareerDistributionDonut, CareerSalaryBar } from '@/components/majors-career-motion';
 import { SubPageHero } from '@/components/sub-page-hero';
 import { TextLines } from '@/components/text-lines';
@@ -126,11 +127,11 @@ export function MajorsCareerScaffold({ dictionary, locale }: MajorsCareerScaffol
 
 	return (
 		<main className="majors-career-page home-page bg-white text-[#10367d]" lang={locale}>
+			<HomeHeader activeHref={activeHref} logo={assets.logo} locale={locale} nav={nav} />
 			<SubPageHero
 				backgroundImage={{ src: assets.hero, className: 'majors-career-hero-image' }}
 				description={heroDescription}
 				descriptionClassName="majors-career-hero-outcomes"
-				header={{ activeHref, logo: assets.logo, locale, nav }}
 				headingClassName="majors-career-hero-heading"
 				innerClassName="majors-career-hero-inner"
 				overlayClassName="majors-career-hero-overlay"

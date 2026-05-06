@@ -11,7 +11,8 @@ type LegalPageProps = {
 	locale: Locale;
 };
 
-const logo = '/assets/images/home/kisas-logo.svg';
+const headerLogo = '/assets/images/contact/kisas-logo-dark.svg';
+const footerLogo = '/assets/images/home/kisas-logo.svg';
 
 function getHomeHref(locale: Locale) {
 	return locale === 'zh' ? '/zh' : '/';
@@ -101,7 +102,7 @@ export function LegalPage({ dictionary, document, locale }: LegalPageProps) {
 
 	return (
 		<main className="home-page min-h-screen bg-[#f7f8fb] text-slate-950" lang={locale}>
-			<HomeHeader logo={logo} locale={locale} nav={legalPageNav} />
+			<HomeHeader logo={headerLogo} locale={locale} nav={legalPageNav} tone="light" />
 
 			<section className="border-b border-slate-200 bg-white pt-24 md:pt-28">
 				<div className="container grid gap-5 py-14 md:py-20">
@@ -135,7 +136,7 @@ export function LegalPage({ dictionary, document, locale }: LegalPageProps) {
 				</Link>
 			</div>
 
-			<HomeFooter footer={siteDictionary.footer} logo={logo} />
+			<HomeFooter footer={siteDictionary.footer} logo={footerLogo} />
 		</main>
 	);
 }

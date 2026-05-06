@@ -16,14 +16,12 @@
 	color: #fff;
 }
 
-.about-hero-background,
 .about-hero-foreground,
 .about-packages-background {
 	object-fit: cover;
 }
 
 .about-hero-background {
-	transform: scale(1.34) translateY(6%);
 	opacity: 0.78;
 }
 

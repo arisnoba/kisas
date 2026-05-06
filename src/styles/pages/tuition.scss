@@ -19,9 +19,6 @@
 }
 
 .tuition-hero-background {
-	object-fit: cover;
-	object-position: center 46%;
-	transform: scale(1.88) translateY(-3%);
 }
 
 .tuition-hero-overlay {
@@ -511,9 +508,6 @@
 		min-height: 620px;
 	}
 
-	.tuition-hero-background {
-		transform: scale(2.1);
-	}
 
 	.tuition-comparison-inner,
 	.tuition-overview-inner,

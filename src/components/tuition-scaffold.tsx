@@ -1,11 +1,12 @@
 import Image from 'next/image';
-import { ChevronRight, GraduationCap, Lightbulb, Medal, Palette } from 'lucide-react';
+import { GraduationCap, Lightbulb, Medal, Palette } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { HomeFooter } from '@/components/home-footer';
+import { HomeHeader } from '@/components/home-header';
 import { SubPageHero } from '@/components/sub-page-hero';
 import { TextLines } from '@/components/text-lines';
 import { TuitionComparisonBar, TuitionPaybackNumber } from '@/components/tuition-motion';
-import { KisasButton } from '@/components/ui/kisas-button';
+import { ArrowButton } from '@/components/ui/arrow-button';
 import type { Locale } from '@/i18n/config';
 import { homeDictionaries } from '@/i18n/pages/home';
 import type { TuitionDictionary } from '@/i18n/pages/tuition';
@@ -48,11 +49,11 @@ export function TuitionScaffold({ dictionary, locale }: TuitionScaffoldProps) {
 
 	return (
 		<main className="tuition-page home-page bg-white text-[#10367d]" lang={locale}>
+			<HomeHeader activeHref={activeHref} logo={assets.logo} locale={locale} nav={nav} />
 			<SubPageHero
-				backgroundImage={{ src: assets.heroBackground, className: 'tuition-hero-background' }}
+				backgroundImage={{ src: assets.heroBackground, className: 'tuition-hero-background', backgroundPosition: 'center 46%' }}
 				description={dictionary.hero.description}
 				descriptionClassName="tuition-hero-description"
-				header={{ activeHref, logo: assets.logo, locale, nav }}
 				headingClassName="tuition-hero-heading"
 				innerClassName="tuition-hero-inner"
 				overlayClassName="tuition-hero-overlay"
@@ -171,9 +172,9 @@ export function TuitionScaffold({ dictionary, locale }: TuitionScaffoldProps) {
 						</h2>
 						<div className="tuition-payback-aside">
 							<p>{dictionary.payback.description}</p>
-							<KisasButton href={consultationHref} icon={<ChevronRight aria-hidden="true" size={18} strokeWidth={1.8} />} variant="outline">
+							<ArrowButton href={consultationHref} variant="outline">
 								{dictionary.payback.cta}
-							</KisasButton>
+							</ArrowButton>
 						</div>
 					</div>
 					<div className="tuition-payback-grid">

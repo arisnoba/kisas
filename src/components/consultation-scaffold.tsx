@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { ConsultationForm } from '@/components/consultation-form';
 import { HomeFooter } from '@/components/home-footer';
+import { HomeHeader } from '@/components/home-header';
 import { SubPageHero } from '@/components/sub-page-hero';
 import { TextLines } from '@/components/text-lines';
 import type { Locale } from '@/i18n/config';
@@ -36,11 +37,11 @@ export function ConsultationScaffold({ dictionary, locale }: ConsultationScaffol
 
 	return (
 		<main className="consultation-page home-page bg-white text-[#10367d]" lang={locale}>
+			<HomeHeader logo={assets.logo} locale={locale} nav={nav} />
 			<SubPageHero
 				decorative={<Image src={assets.mark} alt="" width={519} height={646} className="consultation-hero-mark" priority />}
 				description={dictionary.hero.description}
 				descriptionClassName="consultation-hero-description"
-				header={{ logo: assets.logo, locale, nav }}
 				headingClassName="consultation-hero-heading"
 				innerClassName="consultation-hero-inner"
 				sectionClassName="consultation-hero"

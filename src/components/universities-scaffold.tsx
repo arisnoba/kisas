@@ -1,12 +1,12 @@
 'use client';
 
 import Image from 'next/image';
-import { ChevronRight } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { HomeFooter } from '@/components/home-footer';
+import { HomeHeader } from '@/components/home-header';
 import { SubPageHero } from '@/components/sub-page-hero';
 import { TextLines } from '@/components/text-lines';
-import { KisasButton } from '@/components/ui/kisas-button';
+import { ArrowButton } from '@/components/ui/arrow-button';
 import type { Locale } from '@/i18n/config';
 import { homeDictionaries } from '@/i18n/pages/home';
 import type { UniversitiesDictionary, UniversityCategory, UniversityCard } from '@/i18n/pages/universities';
@@ -98,11 +98,11 @@ export function UniversitiesScaffold({ dictionary, locale }: UniversitiesScaffol
 
 	return (
 		<main className="universities-page home-page bg-white text-[#10367d]" lang={locale}>
+			<HomeHeader activeHref={activeHref} logo={assets.logo} locale={locale} nav={nav} />
 			<SubPageHero
-				backgroundImage={{ src: assets.hero, className: 'universities-hero-image' }}
+				backgroundImage={{ src: assets.hero, className: 'universities-hero-image', backgroundPosition: 'center 42%' }}
 				description={dictionary.hero.description}
 				descriptionClassName="universities-hero-description"
-				header={{ activeHref, logo: assets.logo, locale, nav }}
 				headingClassName="universities-hero-heading"
 				innerClassName="universities-hero-inner"
 				overlayClassName="universities-hero-overlay"
@@ -159,12 +159,12 @@ export function UniversitiesScaffold({ dictionary, locale }: UniversitiesScaffol
 								<TextLines className="block" lines={dictionary.spectrum.descriptionLines} />
 							</p>
 							<div className="universities-spectrum-actions">
-								<KisasButton href={tuitionHref} icon={<ChevronRight aria-hidden="true" size={16} strokeWidth={1.8} />} shape="rect" size="nav" variant="outline">
+								<ArrowButton href={tuitionHref} shape="rect" size="nav" variant="outline">
 									{dictionary.spectrum.primaryCta}
-								</KisasButton>
-								<KisasButton href={consultationHref} icon={<ChevronRight aria-hidden="true" size={16} strokeWidth={1.8} />} shape="rect" size="nav" variant="outline">
+								</ArrowButton>
+								<ArrowButton href={consultationHref} shape="rect" size="nav" variant="outline">
 									{dictionary.spectrum.secondaryCta}
-								</KisasButton>
+								</ArrowButton>
 							</div>
 						</div>
 					</div>

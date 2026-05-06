@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Check, ChevronRight } from 'lucide-react';
 import { HomeFooter } from '@/components/home-footer';
+import { HomeHeader } from '@/components/home-header';
 import { SubPageHero } from '@/components/sub-page-hero';
 import { TextLines } from '@/components/text-lines';
 import type { Locale } from '@/i18n/config';
@@ -39,10 +40,10 @@ export function ApplyScaffold({ dictionary, locale }: ApplyScaffoldProps) {
 
 	return (
 		<main className="apply-page home-page bg-white text-[#10367d]" lang={locale}>
+			<HomeHeader activeHref={activeHref} logo={assets.logo} locale={locale} nav={nav} />
 			<SubPageHero
-				backgroundImage={{ src: assets.heroBackground, className: 'apply-hero-background' }}
+				backgroundImage={{ src: assets.heroBackground, className: 'apply-hero-background', backgroundPosition: 'center 54%' }}
 				description={dictionary.hero.description}
-				header={{ activeHref, logo: assets.logo, locale, nav }}
 				innerClassName="apply-hero-inner"
 				overlayClassName="apply-hero-overlay"
 				sectionClassName="apply-hero"
@@ -56,7 +57,7 @@ export function ApplyScaffold({ dictionary, locale }: ApplyScaffoldProps) {
 					</h2>
 					<div className="apply-timeline-track">
 						{dictionary.timeline.items.map(item => (
-							<article className="apply-timeline-item" key={`${item.labelLines.join('-')}-${item.details.join('-')}`}>
+							<article className="apply-timeline-item gap-x-6 gap-y-3" key={`${item.labelLines.join('-')}-${item.details.join('-')}`}>
 								<span aria-hidden="true" className={`apply-timeline-marker apply-timeline-marker-${item.shape}`} />
 								<h3>
 									<TextLines className="block" lines={item.labelLines} />

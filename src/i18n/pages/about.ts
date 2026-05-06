@@ -99,7 +99,7 @@ export const aboutDictionaries = {
 		packages: {
 			titleLines: ['4 Packages by', 'Duration & Scope'],
 			descriptionLines: ['Pricing is provided after', 'a pre-assessment', 'and tailored to each student.'],
-			cta: 'Career & Salary',
+			cta: 'Consultation',
 			items: [
 				{
 					label: 'Program A',
