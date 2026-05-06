@@ -1,0 +1,21 @@
+import type { Metadata } from 'next';
+import { StudentLifeScaffold } from '@/components/student-life-scaffold';
+import { studentLifeDictionaries } from '@/i18n/pages/student-life';
+
+const dictionary = studentLifeDictionaries.zh;
+
+export const metadata: Metadata = {
+	title: dictionary.metadata.title,
+	description: dictionary.metadata.description,
+	alternates: {
+		canonical: '/zh/student-life',
+		languages: {
+			en: '/student-life',
+			zh: '/zh/student-life',
+		},
+	},
+};
+
+export default function ChineseStudentLifePage() {
+	return <StudentLifeScaffold dictionary={dictionary} locale="zh" />;
+}

@@ -1,0 +1,315 @@
+@use '../mixins' as *;
+
+.student-life-page {
+	--student-life-blue: #10367d;
+	--student-life-ink: #222;
+	--student-life-muted: #666;
+
+	overflow-x: clip;
+}
+
+.student-life-hero {
+	position: relative;
+	min-height: 680px;
+	overflow: hidden;
+	background: #050505;
+	color: #fff;
+}
+
+.student-life-hero-image {
+	object-fit: cover;
+	object-position: center 45%;
+	opacity: 0.55;
+}
+
+.student-life-hero-overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(90deg, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.2) 54%, rgba(0, 0, 0, 0.55));
+}
+
+.student-life-hero-inner {
+	position: relative;
+	z-index: 2;
+	display: grid;
+	min-width: 0;
+	min-height: 680px;
+	grid-template-columns: minmax(0, 520px) minmax(280px, 360px);
+	align-items: center;
+	justify-content: space-between;
+	gap: 80px;
+	padding-top: 96px;
+
+	h1 {
+		max-width: 100%;
+		font-family: var(--font-kisas-heading);
+		@include fluid-prop(font-size, 44px, 60px);
+		font-weight: 600;
+		line-height: 1.2;
+		letter-spacing: 0;
+		overflow-wrap: break-word;
+	}
+
+	p {
+		max-width: 100%;
+		align-self: end;
+		padding-bottom: 104px;
+		font-family: var(--font-kisas-sans);
+		font-size: 16px;
+		line-height: 1.5;
+		overflow-wrap: break-word;
+	}
+}
+
+.student-life-outcomes {
+	background: #fff;
+	color: var(--student-life-ink);
+}
+
+.student-life-outcomes-inner {
+	display: flex;
+	min-width: 0;
+	flex-direction: column;
+	gap: 64px;
+	padding-block: 80px 120px;
+
+	h2 {
+		max-width: 100%;
+		color: var(--student-life-blue);
+		font-family: var(--font-kisas-heading);
+		@include fluid-prop(font-size, 44px, 60px);
+		font-weight: 600;
+		line-height: 1.3;
+		letter-spacing: 0;
+		overflow-wrap: break-word;
+	}
+}
+
+.student-life-profile-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 20px;
+}
+
+.student-life-profile-card {
+	display: flex;
+	min-width: 0;
+	min-height: 100%;
+	flex-direction: column;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	background: #fff;
+}
+
+.student-life-profile-image {
+	position: relative;
+	height: 220px;
+	overflow: hidden;
+	background: #002147;
+
+	img {
+		object-fit: cover;
+		object-position: center;
+		filter: grayscale(1);
+	}
+}
+
+.student-life-profile-body {
+	display: flex;
+	min-width: 0;
+	flex: 1;
+	flex-direction: column;
+	gap: 24px;
+	padding: 24px 24px 32px;
+
+	h3 {
+		color: var(--student-life-ink);
+		font-family: var(--font-kisas-sans);
+		font-size: 22px;
+		font-weight: 700;
+		line-height: 1.5;
+	}
+}
+
+.student-life-profile-program {
+	margin-top: 8px;
+	color: var(--student-life-blue);
+	font-family: var(--font-kisas-sans);
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 1.5;
+}
+
+.student-life-profile-story {
+	color: var(--student-life-ink);
+	font-family: var(--font-kisas-sans);
+	font-size: 16px;
+	line-height: 1.6;
+	overflow-wrap: break-word;
+}
+
+.student-life-activities {
+	position: relative;
+	overflow: hidden;
+	background: var(--student-life-blue);
+	color: #fff;
+}
+
+.student-life-activities-heading {
+	display: grid;
+	grid-template-columns: minmax(0, 465px) minmax(280px, 360px);
+	justify-content: space-between;
+	gap: 80px;
+	padding-top: 140px;
+
+	h2 {
+		font-family: var(--font-kisas-heading);
+		@include fluid-prop(font-size, 44px, 60px);
+		font-weight: 600;
+		line-height: 1.3;
+		letter-spacing: 0;
+	}
+}
+
+.student-life-activities-copy {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 28px;
+
+	p {
+		color: rgba(255, 255, 255, 0.8);
+		font-family: var(--font-kisas-sans);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+}
+
+.student-life-activity-marquee {
+	--gap: 40px;
+
+	width: 100%;
+	overflow: hidden;
+	padding-block: 150px 92px;
+}
+
+.student-life-activity-track,
+.student-life-activity-group {
+	display: flex;
+	align-items: center;
+	gap: var(--gap);
+	width: max-content;
+	will-change: transform;
+}
+
+.student-life-activity-track {
+	transform: translate3d(0, 0, 0);
+}
+
+.student-life-activity-frame {
+	position: relative;
+	flex: 0 0 auto;
+	overflow: hidden;
+	background: #fff;
+
+	img {
+		object-fit: cover;
+		object-position: center;
+		filter: grayscale(1);
+	}
+}
+
+.student-life-activity-frame-wide {
+	width: 450px;
+	height: 300px;
+}
+
+.student-life-activity-frame-tall {
+	width: 355px;
+	height: 444px;
+}
+
+.student-life-activity-frame-medium {
+	width: 450px;
+	height: 300px;
+}
+
+.student-life-activity-frame-portrait {
+	width: 355px;
+	height: 350px;
+}
+
+@media (max-width: 1100px) {
+	.student-life-hero-inner,
+	.student-life-activities-heading {
+		grid-template-columns: 1fr;
+	}
+
+	.student-life-hero-inner {
+		align-content: center;
+		gap: 48px;
+	}
+
+	.student-life-hero-inner p {
+		align-self: auto;
+		max-width: 540px;
+		padding-bottom: 0;
+	}
+
+	.student-life-profile-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 720px) {
+	.student-life-hero {
+		min-height: 620px;
+	}
+
+	.student-life-hero-inner {
+		min-height: 620px;
+	}
+
+	.student-life-outcomes-inner {
+		gap: 44px;
+		padding-block: 64px 84px;
+
+		h2 {
+			font-size: 40px;
+		}
+	}
+
+	.student-life-profile-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.student-life-profile-image {
+		height: 210px;
+	}
+
+	.student-life-activities-heading {
+		gap: 32px;
+		padding-top: 84px;
+	}
+
+	.student-life-activity-marquee {
+		--gap: 20px;
+
+		padding-block: 72px;
+	}
+
+	.student-life-activity-frame-wide,
+	.student-life-activity-frame-medium {
+		width: min(78vw, 360px);
+		height: 240px;
+	}
+
+	.student-life-activity-frame-tall {
+		width: min(72vw, 300px);
+		height: 374px;
+	}
+
+	.student-life-activity-frame-portrait {
+		width: min(72vw, 300px);
+		height: 296px;
+	}
+}
