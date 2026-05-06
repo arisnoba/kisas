@@ -1,0 +1,541 @@
+@use '../mixins' as *;
+
+.tuition-page {
+	--tuition-blue: #10367d;
+	--tuition-blue-dark: #002147;
+	--tuition-blue-bar: #103270;
+	--tuition-surface: #f3f3f3;
+	--tuition-ink: #002147;
+
+	overflow-x: clip;
+}
+
+.tuition-hero {
+	position: relative;
+	min-height: 680px;
+	overflow: hidden;
+	background: #050505;
+	color: #fff;
+}
+
+.tuition-hero-background {
+	object-fit: cover;
+	object-position: center 46%;
+	transform: scale(1.88) translateY(-3%);
+}
+
+.tuition-hero-overlay {
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.7);
+}
+
+.tuition-hero-inner {
+	position: relative;
+	z-index: 2;
+	display: grid;
+	min-height: 680px;
+	grid-template-columns: minmax(0, 480px) minmax(280px, 360px);
+	align-items: center;
+	justify-content: space-between;
+	gap: 80px;
+	padding-top: 96px;
+}
+
+.tuition-hero-heading h1 {
+	font-family: var(--font-kisas-heading);
+	@include fluid-prop(font-size, 44px, 60px);
+	font-weight: 600;
+	line-height: 1.2;
+	letter-spacing: 0;
+}
+
+.tuition-hero-description {
+	align-self: end;
+	padding-bottom: 96px;
+	font-family: var(--font-kisas-sans);
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+.tuition-comparison {
+	background: var(--tuition-blue);
+	color: #fff;
+}
+
+.tuition-comparison-inner {
+	display: grid;
+	grid-template-columns: minmax(0, 454px) minmax(360px, 580px);
+	align-items: center;
+	justify-content: space-between;
+	gap: 86px;
+	padding-block: 120px;
+}
+
+.tuition-comparison-heading {
+	display: flex;
+	flex-direction: column;
+	gap: 28px;
+
+	h2 {
+		font-family: var(--font-kisas-heading);
+		@include fluid-prop(font-size, 42px, 60px);
+		font-weight: 600;
+		line-height: 1.3;
+		letter-spacing: 0;
+	}
+
+	p {
+		max-width: 360px;
+		font-family: var(--font-kisas-sans);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+}
+
+.tuition-comparison-chart {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.tuition-comparison-row {
+	display: grid;
+	min-height: 98px;
+	grid-template-columns: 180px minmax(0, 1fr);
+	align-items: center;
+	gap: 16px;
+	background: rgba(255, 255, 255, 0.1);
+	padding: 24px;
+}
+
+.tuition-comparison-label {
+	font-family: var(--font-kisas-sans);
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.3;
+	letter-spacing: 0;
+}
+
+.tuition-comparison-bar-track {
+	position: relative;
+	height: 50px;
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.tuition-comparison-bar {
+	position: absolute;
+	inset-block: 0;
+	left: 0;
+	display: flex;
+	min-width: 64px;
+	align-items: center;
+	justify-content: flex-end;
+	background: var(--tuition-blue-bar);
+	padding-inline: 16px;
+
+	span {
+		color: rgba(255, 255, 255, 0.7);
+		font-family: var(--font-kisas-sans);
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 1.1;
+		white-space: nowrap;
+	}
+}
+
+.tuition-comparison-bar-emphasis {
+	background: var(--tuition-blue-dark);
+
+	span {
+		color: #fff;
+	}
+}
+
+.tuition-overview {
+	background: #fff;
+	color: var(--tuition-blue);
+}
+
+.tuition-overview-inner {
+	display: flex;
+	flex-direction: column;
+	gap: 80px;
+	padding-block: 120px;
+}
+
+.tuition-section-heading {
+	display: grid;
+	grid-template-columns: minmax(0, 550px) minmax(280px, 360px);
+	justify-content: space-between;
+	gap: 72px;
+
+	h2 {
+		font-family: var(--font-kisas-heading);
+		@include fluid-prop(font-size, 42px, 60px);
+		font-weight: 600;
+		line-height: 1.3;
+		letter-spacing: 0;
+	}
+
+	p {
+		color: var(--tuition-ink);
+		font-family: var(--font-kisas-sans);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+}
+
+.tuition-table-wrap {
+	overflow-x: auto;
+}
+
+.tuition-table {
+	min-width: 1060px;
+	font-family: var(--font-kisas-sans);
+	font-size: 14px;
+	line-height: 1.2;
+	letter-spacing: 0;
+}
+
+.tuition-table-row {
+	display: grid;
+	grid-template-columns: 220px 170px repeat(3, minmax(0, 1fr));
+	align-items: center;
+	gap: 12px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 28px 24px;
+	color: var(--tuition-blue);
+	font-weight: 500;
+
+	div:nth-child(2),
+	div:nth-child(3),
+	div:nth-child(4) {
+		text-align: center;
+	}
+
+	div:nth-child(5) {
+		text-align: right;
+	}
+}
+
+.tuition-table-head {
+	border-bottom: 0;
+	background: var(--tuition-blue);
+	color: #fff;
+	font-weight: 700;
+}
+
+.tuition-support {
+	background: var(--tuition-surface);
+	color: var(--tuition-blue);
+}
+
+.tuition-support-inner {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 20px;
+	padding-block: 120px;
+}
+
+.tuition-scholarships,
+.tuition-living {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+	padding: 40px;
+
+	h2 {
+		font-family: var(--font-kisas-heading);
+		font-size: 36px;
+		font-weight: 600;
+		line-height: 1.1;
+		letter-spacing: 0;
+	}
+}
+
+.tuition-scholarships {
+	background: var(--tuition-blue);
+	color: #fff;
+}
+
+.tuition-scholarship-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 12px;
+}
+
+.tuition-scholarship-card {
+	display: flex;
+	min-height: 229px;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 48px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 12px;
+	background: rgba(255, 255, 255, 0.1);
+	padding: 20px;
+
+	h3 {
+		margin-bottom: 16px;
+		font-family: var(--font-kisas-sans);
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 1.2;
+		letter-spacing: 0;
+	}
+
+	p {
+		color: rgba(255, 255, 255, 0.7);
+		font-family: var(--font-kisas-sans);
+		font-size: 16px;
+		line-height: 1.2;
+		letter-spacing: 0;
+	}
+}
+
+.tuition-living {
+	background: #fff;
+}
+
+.tuition-living-groups {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+}
+
+.tuition-living-group {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	justify-content: center;
+	gap: 20px;
+	border-top: 1px solid var(--tuition-blue);
+	padding-block: 24px;
+
+	&:last-child {
+		border-bottom: 0;
+	}
+
+	h3 {
+		font-family: var(--font-kisas-sans);
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 1.3;
+		letter-spacing: 0;
+	}
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+		color: rgba(16, 54, 125, 0.7);
+		font-family: var(--font-kisas-sans);
+		font-size: 16px;
+		line-height: 1.6;
+		letter-spacing: 0;
+	}
+
+	li::before {
+		content: '· ';
+	}
+}
+
+.tuition-payback {
+	position: relative;
+	overflow: hidden;
+	background: var(--tuition-blue-dark);
+	color: #fff;
+}
+
+.tuition-payback-background {
+	object-fit: cover;
+	opacity: 0.9;
+}
+
+.tuition-payback-overlay {
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.7);
+}
+
+.tuition-payback-inner {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	min-height: 906px;
+	flex-direction: column;
+	justify-content: center;
+	gap: 96px;
+	padding-block: 120px;
+}
+
+.tuition-payback-heading {
+	display: grid;
+	grid-template-columns: minmax(0, 500px) minmax(280px, 360px);
+	justify-content: space-between;
+	gap: 72px;
+
+	h2 {
+		font-family: var(--font-kisas-heading);
+		@include fluid-prop(font-size, 42px, 60px);
+		font-weight: 600;
+		line-height: 1.3;
+		letter-spacing: 0;
+	}
+}
+
+.tuition-payback-aside {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 28px;
+
+	p {
+		font-family: var(--font-kisas-sans);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+}
+
+.tuition-payback-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 20px;
+}
+
+.tuition-payback-card {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+	background: rgba(255, 255, 255, 0.1);
+	padding: 60px 40px;
+}
+
+.tuition-payback-card-featured {
+	background: var(--tuition-blue);
+}
+
+.tuition-payback-value {
+	display: flex;
+	align-items: flex-end;
+	gap: 4px;
+	font-family: var(--font-kisas-heading);
+	font-weight: 700;
+	white-space: nowrap;
+
+	span:first-child {
+		font-size: 92px;
+		line-height: 1;
+		letter-spacing: 0;
+	}
+
+	span:last-child {
+		font-size: 28px;
+		line-height: 2.47;
+	}
+}
+
+.tuition-payback-card-copy {
+	display: flex;
+	min-height: 106px;
+	flex-direction: column;
+	gap: 12px;
+
+	h3 {
+		font-family: var(--font-kisas-sans);
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 1.3;
+		letter-spacing: 0;
+	}
+
+	p {
+		color: rgba(255, 255, 255, 0.6);
+		font-family: var(--font-kisas-sans);
+		font-size: 16px;
+		line-height: 1.4;
+	}
+}
+
+@media (max-width: 1100px) {
+	.tuition-hero-inner,
+	.tuition-comparison-inner,
+	.tuition-section-heading,
+	.tuition-payback-heading {
+		grid-template-columns: 1fr;
+	}
+
+	.tuition-hero-inner {
+		align-content: center;
+		gap: 48px;
+	}
+
+	.tuition-hero-description {
+		align-self: auto;
+		max-width: 540px;
+		padding-bottom: 0;
+	}
+
+	.tuition-comparison-inner,
+	.tuition-overview-inner,
+	.tuition-support-inner,
+	.tuition-payback-inner {
+		padding-block: 96px;
+	}
+
+	.tuition-support-inner,
+	.tuition-payback-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 720px) {
+	.tuition-hero,
+	.tuition-hero-inner {
+		min-height: 620px;
+	}
+
+	.tuition-hero-background {
+		transform: scale(2.1);
+	}
+
+	.tuition-comparison-inner,
+	.tuition-overview-inner,
+	.tuition-support-inner,
+	.tuition-payback-inner {
+		gap: 56px;
+		padding-block: 72px;
+	}
+
+	.tuition-comparison-row {
+		grid-template-columns: 1fr;
+		gap: 14px;
+		padding: 20px;
+	}
+
+	.tuition-comparison-bar-track {
+		width: 100%;
+	}
+
+	.tuition-scholarships,
+	.tuition-living {
+		padding: 28px;
+	}
+
+	.tuition-scholarship-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.tuition-payback-grid {
+		gap: 12px;
+	}
+
+	.tuition-payback-card {
+		padding: 44px 28px;
+	}
+
+	.tuition-payback-value span:first-child {
+		font-size: 72px;
+	}
+}
