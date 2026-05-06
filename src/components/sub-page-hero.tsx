@@ -56,7 +56,7 @@ export function SubPageHero({
 			<HomeHeader {...header} />
 			{decorative}
 
-			<div className={`container ${innerClassName}`}>
+			<div className={`container subpage-hero ${innerClassName}`}>
 				{headingClassName ? <div className={headingClassName}>{heading}</div> : heading}
 				{description ? <p className={descriptionClassName}>{description}</p> : null}
 			</div>

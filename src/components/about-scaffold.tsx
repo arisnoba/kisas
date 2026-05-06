@@ -34,7 +34,7 @@ function getAboutNav(locale: Locale) {
 function AudienceIcon({ icon }: { icon: AboutDictionary['audience']['items'][number]['icon'] }) {
 	const Icon = icon === 'music' ? Music : icon === 'media' ? Clapperboard : Languages;
 
-	return <Icon aria-hidden="true" size={24} strokeWidth={1.8} />;
+	return <Icon aria-hidden="true" size={32} strokeWidth={1.8} />;
 }
 
 export function AboutScaffold({ dictionary, locale }: AboutScaffoldProps) {

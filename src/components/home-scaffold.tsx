@@ -78,7 +78,7 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 							<ArrowButton href={locale === 'zh' ? '/zh/consultation' : '/consultation'} variant="light">
 								{dictionary.hero.primaryCta}
 							</ArrowButton>
-							<ArrowButton href="/program" variant="outline">
+							<ArrowButton href={locale === 'zh' ? '/zh/about' : '/about'} variant="outline">
 								{dictionary.hero.secondaryCta}
 							</ArrowButton>
 						</div>
@@ -150,9 +150,13 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 						</h2>
 						<div>
 							<p className="home-roi-description mb-7">{dictionary.roi.description}</p>
-							<ArrowButton href="/majors-career" variant="outline">
-								{dictionary.roi.cta}
-							</ArrowButton>
+							<div className="home-roi-actions">
+								{dictionary.roi.ctas.map(cta => (
+									<ArrowButton href={cta.href} key={cta.href} variant="outline">
+										{cta.label}
+									</ArrowButton>
+								))}
+							</div>
 						</div>
 					</div>
 

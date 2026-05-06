@@ -572,6 +572,12 @@ body.home-menu-open {
 	}
 }
 
+.home-roi-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
 .home-roi-stat {
 	display: flex;
 	flex-direction: column;

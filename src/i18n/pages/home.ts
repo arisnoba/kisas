@@ -44,7 +44,10 @@ export type HomeDictionary = {
 		titleLines: string[];
 		description: string;
 		verificationNote?: string;
-		cta: string;
+		ctas: {
+			label: string;
+			href: string;
+		}[];
 		stats: {
 			prefix?: string;
 			value: string;
@@ -155,7 +158,10 @@ export const homeDictionaries = {
 		roi: {
 			titleLines: ['See Your ROI in', 'Numbers'],
 			description: 'From Tier 1 institutions to regionally specialized universities, we match each student with the right school based on their skills and goals.',
-			cta: 'Career & Salary',
+			ctas: [
+				{ label: 'Tuition', href: '/tuition' },
+				{ label: 'Majors & Career', href: '/majors-career' },
+			],
 			stats: [
 				{
 					prefix: '20-',
@@ -297,7 +303,10 @@ export const homeDictionaries = {
 			titleLines: ['用数字查看', '留学回报'],
 			description: '以标准情景展示学费、奖学金、回国起薪与投入回收周期。',
 			verificationNote: '以下为规划示例数据，最终学费、奖学金、薪资与回报周期仍待客户确认。',
-			cta: '职业与薪资',
+			ctas: [
+				{ label: '学费', href: '/zh/tuition' },
+				{ label: '专业与职业', href: '/zh/majors-career' },
+			],
 			stats: [
 				{
 					prefix: '20-',
