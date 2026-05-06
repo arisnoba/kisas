@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { HeroTitleEffect } from '@/components/hero-title-effect';
 import { TextLines } from '@/components/text-lines';
@@ -49,16 +50,17 @@ export function SubPageHero({
 	return (
 		<section className={sectionClassName}>
 			{backgroundImage ? (
-				<div
+				<Image
+					alt=""
 					aria-hidden="true"
-					className={backgroundImage.className}
+					className={`subpage-hero-background ${backgroundImage.className}`}
+					fill
+					priority
+					sizes="100vw"
+					src={backgroundImage.src}
 					style={{
-						position: 'absolute',
-						inset: 0,
-						backgroundImage: `url(${backgroundImage.src})`,
-						backgroundAttachment: 'fixed',
-						backgroundSize: 'cover',
-						backgroundPosition: backgroundImage.backgroundPosition ?? 'center',
+						objectFit: 'cover',
+						objectPosition: 'center center',
 					}}
 				/>
 			) : null}

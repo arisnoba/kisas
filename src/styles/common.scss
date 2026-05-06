@@ -48,6 +48,32 @@ h2.section-title {
 	max-width: none;
 }
 
+.subpage-hero-background {
+	position: absolute;
+	inset: 0;
+	animation: subpage-hero-image-reveal 3400ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes subpage-hero-image-reveal {
+	from {
+		filter: blur(3px);
+		transform: scale(1.12);
+	}
+
+	to {
+		filter: blur(0);
+		transform: scale(1);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.subpage-hero-background {
+		animation: none;
+		filter: none;
+		transform: none;
+	}
+}
+
 .kisas-button {
 	--kisas-button-bg: var(--home-blue, #10367d);
 	--kisas-button-bg-opacity: 1;

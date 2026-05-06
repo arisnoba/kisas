@@ -16,7 +16,7 @@ type ApplyScaffoldProps = {
 
 const assets = {
 	logo: '/assets/images/home/kisas-logo.svg',
-	heroBackground: '/assets/images/apply/hero-background.png',
+	heroBackground: '/assets/images/apply/hero-background.jpg',
 	beginnerBackground: '/assets/images/apply/beginner-background.png',
 };
 
