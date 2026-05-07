@@ -94,7 +94,7 @@
 	top: 140px;
 	display: flex;
 	flex-direction: column;
-	gap: 40px;
+	@include fluid-prop(gap, 24px, 40px);
 	margin-top: 140px;
 
 	h2 {
@@ -419,13 +419,6 @@
 		min-height: auto;
 	}
 
-	.about-steps-overview {
-		position: relative;
-		top: auto;
-		margin-top: 0;
-		padding-top: 100px;
-	}
-
 	.about-step-track {
 		padding-block: 40px 120px;
 	}
@@ -458,6 +451,15 @@
 	.about-package-card:nth-child(3),
 	.about-package-card-right {
 		border-radius: 0 0 96px;
+	}
+}
+
+@media (max-width: 1023px) {
+	.about-steps-overview {
+		position: relative;
+		top: auto;
+		margin-top: 0;
+		padding-top: 100px;
 	}
 }
 
