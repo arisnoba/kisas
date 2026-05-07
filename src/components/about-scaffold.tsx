@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Clapperboard, Languages, Music } from 'lucide-react';
+import aboutHeroBackground from '../../public/assets/images/about/hero-background.jpg';
 import { HomeFooter } from '@/components/home-footer';
 import { HomeHeader } from '@/components/home-header';
 import { SubPageHero } from '@/components/sub-page-hero';
@@ -15,7 +16,7 @@ type AboutScaffoldProps = {
 };
 
 const assets = {
-	heroBackground: '/assets/images/about/hero-background.jpg',
+	heroBackground: aboutHeroBackground,
 	pricingBackground: '/assets/images/about/pricing-background.png',
 	logo: '/assets/images/home/kisas-logo.svg',
 };

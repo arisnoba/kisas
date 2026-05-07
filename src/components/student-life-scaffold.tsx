@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import studentLifeHero from '../../public/assets/images/student-life/hero-opera.png';
 import { HomeFooter } from '@/components/home-footer';
 import { HomeHeader } from '@/components/home-header';
 import { StudentLifeActivityMarquee } from '@/components/student-life-activity-marquee';
@@ -15,7 +16,7 @@ type StudentLifeScaffoldProps = {
 };
 
 const assets = {
-	hero: '/assets/images/student-life/hero-opera.png',
+	hero: studentLifeHero,
 	logo: '/assets/images/home/kisas-logo.svg',
 };
 

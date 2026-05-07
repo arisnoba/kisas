@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useMemo, useState } from 'react';
+import universitiesHero from '../../public/assets/images/universities/hero-foreground.png';
 import { HomeFooter } from '@/components/home-footer';
 import { HomeHeader } from '@/components/home-header';
 import { SubPageHero } from '@/components/sub-page-hero';
@@ -17,7 +18,7 @@ type UniversitiesScaffoldProps = {
 };
 
 const assets = {
-	hero: '/assets/images/universities/hero-foreground.png',
+	hero: universitiesHero,
 	logo: '/assets/images/home/kisas-logo.svg',
 };
 

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { GraduationCap, Lightbulb, Medal, Palette } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import tuitionHeroBackground from '../../public/assets/images/tuition/hero-background.png';
 import { HomeFooter } from '@/components/home-footer';
 import { HomeHeader } from '@/components/home-header';
 import { SubPageHero } from '@/components/sub-page-hero';
@@ -18,7 +19,7 @@ type TuitionScaffoldProps = {
 
 const assets = {
 	logo: '/assets/images/home/kisas-logo.svg',
-	heroBackground: '/assets/images/tuition/hero-background.png',
+	heroBackground: tuitionHeroBackground,
 	paybackBackground: '/assets/images/tuition/payback-background.png',
 };
 

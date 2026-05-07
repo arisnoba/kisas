@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Check, ChevronRight } from 'lucide-react';
+import applyHeroBackground from '../../public/assets/images/apply/hero-background.jpg';
 import { HomeFooter } from '@/components/home-footer';
 import { HomeHeader } from '@/components/home-header';
 import { SubPageHero } from '@/components/sub-page-hero';
@@ -16,7 +17,7 @@ type ApplyScaffoldProps = {
 
 const assets = {
 	logo: '/assets/images/home/kisas-logo.svg',
-	heroBackground: '/assets/images/apply/hero-background.jpg',
+	heroBackground: applyHeroBackground,
 	beginnerBackground: '/assets/images/apply/beginner-background.jpg',
 };
 

@@ -1,12 +1,14 @@
 import Image from 'next/image';
+import type { StaticImageData } from 'next/image';
 import type { ReactNode } from 'react';
 import { HeroTitleEffect } from '@/components/hero-title-effect';
 import { TextLines } from '@/components/text-lines';
 
 type HeroImage = {
-	src: string;
+	src: string | StaticImageData;
 	className: string;
 	backgroundPosition?: string;
+	blurDataURL?: string;
 };
 
 type SubPageHeroProps = {
@@ -46,6 +48,7 @@ export function SubPageHero({
 			) : null}
 		</>
 	);
+	const blurDataURL = backgroundImage?.blurDataURL ?? (typeof backgroundImage?.src === 'string' ? undefined : backgroundImage?.src.blurDataURL);
 
 	return (
 		<section className={sectionClassName}>
@@ -55,12 +58,14 @@ export function SubPageHero({
 					aria-hidden="true"
 					className={`subpage-hero-background ${backgroundImage.className}`}
 					fill
+					placeholder={blurDataURL ? 'blur' : 'empty'}
+					blurDataURL={blurDataURL}
 					priority
 					sizes="100vw"
 					src={backgroundImage.src}
 					style={{
 						objectFit: 'cover',
-						objectPosition: 'center center',
+						objectPosition: backgroundImage.backgroundPosition ?? 'center center',
 					}}
 				/>
 			) : null}

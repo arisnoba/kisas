@@ -1,5 +1,6 @@
 import type { LucideIcon } from 'lucide-react';
 import { BriefcaseBusiness, Clapperboard, Cpu, Drama, Hotel, Lightbulb, Music, Paintbrush, Sparkles, Trophy, Video } from 'lucide-react';
+import majorsCareerHero from '../../public/assets/images/majors-career/hero-background.png';
 import { HomeFooter } from '@/components/home-footer';
 import { HomeHeader } from '@/components/home-header';
 import { CareerDistributionDonut, CareerSalaryBar } from '@/components/majors-career-motion';
@@ -15,7 +16,7 @@ type MajorsCareerScaffoldProps = {
 };
 
 const assets = {
-	hero: '/assets/images/majors-career/hero-background.png',
+	hero: majorsCareerHero,
 	logo: '/assets/images/home/kisas-logo.svg',
 };
 
