@@ -3,6 +3,7 @@ import { ArrowButton } from '@/components/ui/arrow-button';
 import { HeroTitleEffect } from '@/components/hero-title-effect';
 import { HomeFooter } from '@/components/home-footer';
 import { HomeHeader } from '@/components/home-header';
+import { BlurFade } from '@/components/ui/blur-fade';
 import { Marquee } from '@/components/ui/marquee';
 import { NumberTicker } from '@/components/ui/number-ticker';
 import { TextLines } from '@/components/text-lines';
@@ -78,7 +79,16 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 					</div>
 					<div className="home-why-grid">
 						{dictionary.why.items.map((item, index) => (
-							<article className={`home-why-item home-why-item-${index + 1}`} key={item.number}>
+							<BlurFade
+								as="article"
+								className={`home-why-item home-why-item-${index + 1}`}
+								delay={index * 0.08}
+								direction="up"
+								duration={0.68}
+								inView
+								inViewMargin="-80px"
+								key={item.number}
+								offset={20}>
 								<div className="home-why-number">{item.number}</div>
 								<h3>
 									<TextLines className="block" lines={item.titleLines} />
@@ -87,7 +97,7 @@ export function HomeScaffold({ dictionary, locale }: HomeScaffoldProps) {
 								<div className={`home-why-image home-why-image-${item.variant}`}>
 									<Image src={item.image} alt="" fill sizes="280px" />
 								</div>
-							</article>
+							</BlurFade>
 						))}
 					</div>
 				</div>
