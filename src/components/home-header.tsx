@@ -62,7 +62,7 @@ export function HomeHeader({ logo, nav, locale, activeHref, tone = 'dark' }: Hom
 				hasScrolled ? 'home-header-scrolled' : ''
 			} ${tone === 'light' ? 'home-header-light' : ''}`}>
 			<Link className="home-brand relative z-30 flex items-center gap-2" href={homeHref} onClick={closeMenu}>
-				<Image src={logo} alt="KISAS" width={156} height={48} />
+				<Image src={logo} alt="KISAS" width={156} height={48} preload decoding="sync" />
 				<span className="hidden min-[721px]:inline">
 					International
 					<br />
