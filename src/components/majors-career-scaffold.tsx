@@ -50,7 +50,7 @@ function MajorCard({ item }: { item: MajorCareerDictionary['majors']['items'][nu
 	const Icon = majorIcons[item.icon];
 
 	return (
-		<article className="majors-career-major-card">
+		<article className="majors-career-major-card col-span-1">
 			<Icon aria-hidden="true" size={24} strokeWidth={1.8} />
 			<div>
 				<h3>{item.title}</h3>
@@ -145,7 +145,7 @@ export function MajorsCareerScaffold({ dictionary, locale }: MajorsCareerScaffol
 					<h2 id="majors-career-fields-title">
 						<TextLines className="block" lines={dictionary.majors.titleLines} />
 					</h2>
-					<div className="majors-career-major-grid">
+					<div className="majors-career-major-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 						{dictionary.majors.items.map(item => (
 							<MajorCard item={item} key={item.title} />
 						))}

@@ -154,9 +154,10 @@
 
 .student-life-activities-heading {
 	display: grid;
-	grid-template-columns: minmax(0, 465px) minmax(280px, 360px);
+	// grid-template-columns: minmax(0, 465px) minmax(280px, 360px);
 	justify-content: space-between;
-	gap: 80px;
+	// @include fluid-prop(gap, 16px, 80px);
+	gap: 16px;
 	padding-top: 140px;
 
 	h2 {
@@ -284,7 +285,6 @@
 	}
 
 	.student-life-activities-heading {
-		gap: 32px;
 		padding-top: 84px;
 	}
 

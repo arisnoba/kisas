@@ -75,12 +75,6 @@
 	}
 }
 
-.majors-career-major-grid {
-	display: grid;
-	grid-template-columns: repeat(4, minmax(0, 1fr));
-	gap: 20px;
-}
-
 .majors-career-major-card {
 	display: flex;
 	min-height: 150px;
@@ -369,10 +363,6 @@
 		padding-bottom: 0;
 	}
 
-	.majors-career-major-grid {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-	}
-
 	.majors-career-outcomes-inner {
 		grid-template-columns: 1fr;
 	}
@@ -383,7 +373,6 @@
 		min-height: 640px;
 	}
 
-
 	.majors-career-hero-inner {
 		min-height: 640px;
 		padding-top: 112px;
@@ -392,10 +381,6 @@
 	.majors-career-fields-inner {
 		gap: 48px;
 		padding-block: 76px 88px;
-	}
-
-	.majors-career-major-grid {
-		grid-template-columns: 1fr;
 	}
 
 	.majors-career-major-card {

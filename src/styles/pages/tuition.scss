@@ -162,7 +162,7 @@
 	display: grid;
 	grid-template-columns: minmax(0, 550px) minmax(280px, 360px);
 	justify-content: space-between;
-	gap: 72px;
+	@include fluid-prop(gap, 24px, 80px);
 
 	h2 {
 		font-family: var(--font-kisas-heading);
@@ -504,7 +504,6 @@
 	.tuition-hero-inner {
 		min-height: 620px;
 	}
-
 
 	.tuition-comparison-inner,
 	.tuition-overview-inner,

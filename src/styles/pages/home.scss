@@ -355,7 +355,7 @@ body.home-menu-open {
 	justify-content: center;
 	// @include fluid-prop(gap, 24px, 64px);
 	@include fluid-prop(padding-top, 112px, 200px);
-	@include fluid-prop(padding-bottom, 112px, 200px);
+	@include fluid-prop(padding-bottom, 60px, 100px);
 	height: var(--home-hero-height);
 	min-height: var(--home-hero-height);
 }
@@ -374,7 +374,9 @@ body.home-menu-open {
 	max-width: 520px;
 	flex-direction: column;
 	gap: 24px;
-	padding-top: 320px;
+	height: 100%;
+	justify-content: end;
+	// padding-top: 320px;
 }
 
 .home-hero-subtitle {
@@ -398,10 +400,11 @@ body.home-menu-open {
 }
 
 .home-why-kisas {
-	@include fluid-prop(padding-block, 96px, 150px);
+	@include fluid-prop(padding-top, 96px, 150px);
+	@include fluid-prop(padding-bottom, 200px, 300px);
 
 	position: relative;
-	min-height: 2100px;
+	// min-height: 2100px;
 	overflow: clip;
 	background: #fff;
 	color: var(--home-blue);
@@ -431,8 +434,10 @@ body.home-menu-open {
 	position: absolute;
 	top: 60px;
 	left: 50%;
-	width: min(56vw, 685px);
-	height: auto;
+	width: auto;
+	max-width: 654px;
+	height: min(70vh, 854px);
+	// height: auto;
 	transform: translateX(-50%);
 }
 
@@ -443,7 +448,7 @@ body.home-menu-open {
 	grid-template-columns: repeat(2, minmax(0, 360px));
 	justify-content: center;
 	gap: 180px 210px;
-	padding-top: 220px;
+	@include fluid-prop(padding-top, 60px, 100px);
 	direction: rtl;
 }
 

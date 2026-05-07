@@ -130,7 +130,7 @@ export function TuitionScaffold({ dictionary, locale }: TuitionScaffoldProps) {
 
 								return (
 									<article className="tuition-scholarship-card" key={item.title}>
-										<Icon aria-hidden="true" size={24} strokeWidth={1.8} />
+										<Icon aria-hidden="true" size={32} strokeWidth={1.8} />
 										<div>
 											<h3>{item.title}</h3>
 											<p>

@@ -82,11 +82,11 @@ export function StudentLifeScaffold({ dictionary, locale }: StudentLifeScaffoldP
 			</section>
 
 			<section className="student-life-activities" aria-labelledby="student-life-activities-title">
-				<div className="container student-life-activities-heading">
-					<h2 id="student-life-activities-title">
+				<div className="container student-life-activities-heading grid grid-cols-1 md:grid-cols-3">
+					<h2 id="student-life-activities-title" className="md:col-span-2">
 						<TextLines className="block" lines={dictionary.activities.titleLines} />
 					</h2>
-					<div className="student-life-activities-copy">
+					<div className="student-life-activities-copy col-span-1">
 						<p>
 							<TextLines className="block" lines={dictionary.activities.descriptionLines} />
 						</p>
