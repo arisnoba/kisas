@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import studentLifeHero from '../../public/assets/images/student-life/hero-opera.png';
+import studentLifeHero from '../../public/assets/images/student-life/hero-opera.jpg';
 import { HomeFooter } from '@/components/home-footer';
 import { HomeHeader } from '@/components/home-header';
 import { StudentLifeActivityMarquee } from '@/components/student-life-activity-marquee';
