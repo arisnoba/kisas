@@ -275,7 +275,7 @@
 .apply-documents-inner {
 	display: flex;
 	flex-direction: column;
-	gap: 80px;
+	@include fluid-prop(gap, 40px, 80px);
 	padding-block: 120px 140px;
 
 	h2 {

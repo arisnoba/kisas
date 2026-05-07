@@ -220,6 +220,9 @@
 }
 
 .universities-spectrum {
+	--universities-spectrum-card-ratio: 264 / 304;
+	--universities-spectrum-card-width: 264px;
+
 	position: relative;
 	overflow: hidden;
 	background: var(--universities-blue);
@@ -297,13 +300,15 @@
 
 .universities-spectrum-grid {
 	display: grid;
-	grid-template-columns: repeat(4, minmax(0, 1fr));
+	grid-template-columns: repeat(4, minmax(0, min(100%, var(--universities-spectrum-card-width))));
 	gap: 20px;
+	justify-content: center;
 }
 
 .universities-spectrum-card {
 	display: grid;
-	min-height: 304px;
+	width: 100%;
+	aspect-ratio: var(--universities-spectrum-card-ratio);
 	place-items: center;
 	background: var(--universities-blue-soft);
 	clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
@@ -357,11 +362,11 @@
 
 	.universities-spectrum-inner {
 		min-height: auto;
-		gap: 86px;
+		// gap: 86px;
 	}
 
 	.universities-spectrum-grid {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
+		grid-template-columns: repeat(2, minmax(0, min(100%, var(--universities-spectrum-card-width))));
 	}
 }
 
@@ -395,10 +400,10 @@
 	}
 
 	.universities-spectrum-inner {
-		padding-block: 84px;
+		// padding-block: 84px;
 	}
 
 	.universities-spectrum-card {
-		min-height: 260px;
+		min-height: 0;
 	}
 }

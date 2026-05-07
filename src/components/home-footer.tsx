@@ -10,7 +10,7 @@ type HomeFooterProps = {
 
 export function HomeFooter({ footer, logo }: HomeFooterProps) {
 	return (
-		<footer className="home-footer grid grid-cols-1 gap-12 bg-[#1e1e1e] px-6 py-16 md:px-[52px] md:py-[100px] min-[1101px]:grid-cols-[minmax(280px,383px)_minmax(320px,415px)_minmax(240px,374px)] min-[1101px]:items-start min-[1101px]:gap-[52px] min-[1440px]:gap-[120px]">
+		<footer className="home-footer grid grid-cols-1 gap-12 bg-[#1e1e1e] min-[1101px]:grid-cols-[minmax(280px,383px)_minmax(320px,415px)_minmax(240px,374px)] min-[1101px]:items-start min-[1101px]:gap-[52px] min-[1440px]:gap-[120px]">
 			<div className="home-footer-brand flex w-full max-w-[383px] items-center gap-[18px]">
 				<Image src={logo} alt="KISAS" width={177} height={55} />
 				<p>

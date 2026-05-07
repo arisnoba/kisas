@@ -98,7 +98,7 @@ export const homeDictionaries = {
 				{ label: 'Student Life', href: '/student-life' },
 				{ label: 'Contact', href: '/contact' },
 			],
-			consultation: 'Get a Consultation',
+			consultation: 'Consultation',
 			localeSwitch: {
 				label: '中文',
 				href: '/zh',

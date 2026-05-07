@@ -84,8 +84,11 @@ body.home-menu-open {
 .home-brand {
 	color: #fff;
 	font-family: var(--font-kisas-sans);
-	@include fluid-prop(font-size, 14px, 16px);
-	line-height: 1.1;
+	@include fluid-prop(font-size, 10px, 12px);
+	line-height: 1.15;
+	span {
+		font-size: inherit;
+	}
 }
 
 .home-header-light .home-brand {
@@ -818,6 +821,8 @@ body.home-menu-open {
 .home-footer {
 	font-family: var(--font-kisas-sans);
 	color: #fff;
+	@include fluid-prop(padding-inline, 20px, 40px);
+	@include fluid-prop(padding-block, 60px, 100px);
 }
 
 .home-footer-brand {
