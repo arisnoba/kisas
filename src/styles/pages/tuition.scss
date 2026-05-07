@@ -160,9 +160,9 @@
 
 .tuition-section-heading {
 	display: grid;
-	grid-template-columns: minmax(0, 550px) minmax(280px, 360px);
+	// grid-template-columns: minmax(0, 550px) minmax(280px, 360px);
 	justify-content: space-between;
-	@include fluid-prop(gap, 24px, 80px);
+	gap: 16px;
 
 	h2 {
 		font-family: var(--font-kisas-heading);

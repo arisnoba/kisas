@@ -86,12 +86,12 @@ export function TuitionScaffold({ dictionary, locale }: TuitionScaffoldProps) {
 			</section>
 
 			<section className="tuition-overview" aria-labelledby="tuition-overview-title">
-				<div className="container tuition-overview-inner">
-					<div className="tuition-section-heading">
-						<h2 id="tuition-overview-title">
+				<div className="container tuition-overview-inner ">
+					<div className="tuition-section-heading grid grid-cols-1 md:grid-cols-3">
+						<h2 id="tuition-overview-title" className="col-span-1 md:col-span-2">
 							<TextLines className="block" lines={dictionary.overview.titleLines} />
 						</h2>
-						<p>
+						<p className="col-span-1">
 							<TextLines className="block" lines={dictionary.overview.descriptionLines} />
 						</p>
 					</div>
