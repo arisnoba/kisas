@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useMemo, useState } from 'react';
-import universitiesHero from '../../public/assets/images/universities/hero-foreground.png';
+import universitiesHero from '../../public/assets/images/universities/hero-background.jpg';
 import { HomeFooter } from '@/components/home-footer';
 import { HomeHeader } from '@/components/home-header';
 import { SubPageHero } from '@/components/sub-page-hero';
