@@ -86,6 +86,14 @@ body.home-menu-open {
 	font-family: var(--font-kisas-sans);
 	@include fluid-prop(font-size, 10px, 12px);
 	line-height: 1.15;
+
+	img {
+		width: clamp(128px, 12vw, 156px);
+		height: auto;
+		aspect-ratio: 156 / 48;
+		object-fit: contain;
+	}
+
 	span {
 		font-size: inherit;
 	}
@@ -434,10 +442,10 @@ body.home-menu-open {
 	position: absolute;
 	top: 60px;
 	left: 50%;
-	width: auto;
-	max-width: 654px;
-	height: min(70vh, 854px);
-	// height: auto;
+	width: min(86vw, calc(70svh * 685 / 854), 654px);
+	height: auto;
+	aspect-ratio: 685 / 854;
+	object-fit: contain;
 	transform: translateX(-50%);
 }
 
@@ -459,7 +467,7 @@ body.home-menu-open {
 	direction: ltr;
 
 	&:nth-child(even) {
-		transform: translateY(130px);
+		margin-top: 130px;
 	}
 
 	h3 {
@@ -833,6 +841,14 @@ body.home-menu-open {
 .home-footer-brand {
 	opacity: 0.6;
 
+	img {
+		flex: 0 0 auto;
+		width: min(177px, 45vw);
+		height: auto;
+		aspect-ratio: 156 / 48;
+		object-fit: contain;
+	}
+
 	p {
 		font-family: var(--font-kisas-sans);
 		@include fluid-prop(font-size, 16px, 18px);
@@ -947,15 +963,15 @@ body.home-menu-open {
 	}
 
 	.home-why-sticky {
-		position: relative;
-		top: auto;
-		height: auto;
-		margin-bottom: 48px;
+		position: sticky;
+		top: 72px;
+		height: 0;
+		margin-bottom: 0;
 	}
 
 	.home-why-logo {
-		top: 30px;
-		width: 100%;
+		top: 24px;
+		width: min(78vw, calc(58svh * 685 / 854), 360px);
 	}
 
 	.home-why-grid {
@@ -968,6 +984,7 @@ body.home-menu-open {
 	.home-why-item:nth-child(even),
 	.home-student-card:nth-child(even) {
 		transform: none;
+		margin-top: 0;
 	}
 
 	.home-student-track {
