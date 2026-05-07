@@ -3,6 +3,7 @@ import type { StaticImageData } from 'next/image';
 import type { ReactNode } from 'react';
 import { HeroTitleEffect } from '@/components/hero-title-effect';
 import { TextLines } from '@/components/text-lines';
+import { BlurFade } from '@/components/ui/blur-fade';
 
 type HeroImage = {
 	src: string | StaticImageData;
@@ -36,15 +37,16 @@ export function SubPageHero({
 	overlayClassName,
 	subtitleLines,
 }: SubPageHeroProps) {
+	const supportingCopyDelay = Math.min(0.72, 0.22 + titleLines.length * 0.12);
 	const heading = (
 		<>
 			<h1>
 				<HeroTitleEffect lines={titleLines} />
 			</h1>
 			{subtitleLines ? (
-				<p>
+				<BlurFade as="p" delay={supportingCopyDelay} direction="up" duration={0.72} offset={18} blur="8px">
 					<TextLines className="block" lines={subtitleLines} />
-				</p>
+				</BlurFade>
 			) : null}
 		</>
 	);
@@ -74,7 +76,11 @@ export function SubPageHero({
 
 			<div className={`container subpage-hero ${innerClassName}`}>
 				{headingClassName ? <div className={headingClassName}>{heading}</div> : heading}
-				{description ? <p className={descriptionClassName}>{description}</p> : null}
+				{description ? (
+					<BlurFade as="p" className={descriptionClassName} delay={supportingCopyDelay + (subtitleLines ? 0.14 : 0)} direction="up" duration={0.72} offset={18} blur="8px">
+						{description}
+					</BlurFade>
+				) : null}
 			</div>
 		</section>
 	);

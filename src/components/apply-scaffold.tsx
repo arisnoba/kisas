@@ -6,6 +6,7 @@ import { HomeFooter } from '@/components/home-footer';
 import { HomeHeader } from '@/components/home-header';
 import { SubPageHero } from '@/components/sub-page-hero';
 import { TextLines } from '@/components/text-lines';
+import { BlurFade } from '@/components/ui/blur-fade';
 import type { Locale } from '@/i18n/config';
 import type { ApplyDictionary } from '@/i18n/pages/apply';
 import { homeDictionaries } from '@/i18n/pages/home';
@@ -57,8 +58,17 @@ export function ApplyScaffold({ dictionary, locale }: ApplyScaffoldProps) {
 						<TextLines className="apply-timeline-title-line block" lines={dictionary.timeline.titleLines} />
 					</h2>
 					<div className="apply-timeline-track">
-						{dictionary.timeline.items.map(item => (
-							<article className="apply-timeline-item gap-x-6 gap-y-3" key={`${item.labelLines.join('-')}-${item.details.join('-')}`}>
+						{dictionary.timeline.items.map((item, index) => (
+							<BlurFade
+								as="article"
+								className="apply-timeline-item gap-x-6 gap-y-3"
+								delay={index * 0.08}
+								direction="up"
+								duration={0.65}
+								inView
+								inViewMargin="-80px"
+								key={`${item.labelLines.join('-')}-${item.details.join('-')}`}
+								offset={18}>
 								<span aria-hidden="true" className={`apply-timeline-marker apply-timeline-marker-${item.shape}`} />
 								<h3>
 									<TextLines className="block" lines={item.labelLines} />
@@ -68,7 +78,7 @@ export function ApplyScaffold({ dictionary, locale }: ApplyScaffoldProps) {
 										<li key={detail}>{detail}</li>
 									))}
 								</ul>
-							</article>
+							</BlurFade>
 						))}
 					</div>
 				</div>
@@ -80,8 +90,17 @@ export function ApplyScaffold({ dictionary, locale }: ApplyScaffoldProps) {
 						<TextLines className="block" lines={dictionary.process.titleLines} />
 					</h2>
 					<div className="apply-process-grid">
-						{dictionary.process.items.map(item => (
-							<article className="apply-process-card" key={item.number}>
+						{dictionary.process.items.map((item, index) => (
+							<BlurFade
+								as="article"
+								className="apply-process-card"
+								delay={index * 0.06}
+								direction="up"
+								duration={0.58}
+								inView
+								inViewMargin="-80px"
+								key={item.number}
+								offset={16}>
 								<span className="apply-process-number">{item.number}</span>
 								<div className="apply-process-copy">
 									<h3>
@@ -89,7 +108,7 @@ export function ApplyScaffold({ dictionary, locale }: ApplyScaffoldProps) {
 									</h3>
 									<p>{item.description}</p>
 								</div>
-							</article>
+							</BlurFade>
 						))}
 					</div>
 				</div>
@@ -168,7 +187,7 @@ export function ApplyScaffold({ dictionary, locale }: ApplyScaffoldProps) {
 						</h2>
 						<p>{dictionary.beginner.description}</p>
 					</div>
-					<div className="apply-beginner-universities">
+					<div className="apply-beginner-universities aign-center">
 						{dictionary.beginner.universities.map(university => (
 							<article className="apply-beginner-card" key={university.title}>
 								<h3 className="text-balance">{university.title}</h3>
