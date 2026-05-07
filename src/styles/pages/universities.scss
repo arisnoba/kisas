@@ -89,7 +89,7 @@
 	background: transparent;
 	color: #868e96;
 	font-family: var(--font-kisas-sans);
-	font-size: 20px;
+	@include fluid-prop(font-size, 15px, 20px);
 	font-weight: 700;
 	line-height: 1;
 	text-align: center;

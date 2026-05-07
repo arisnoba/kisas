@@ -84,7 +84,7 @@
 
 .about-steps-inner {
 	display: grid;
-	grid-template-columns: minmax(0, 465px) minmax(360px, 1fr);
+	// grid-template-columns: minmax(0, 465px) minmax(360px, 1fr);
 	gap: 24px;
 	align-items: start;
 }
@@ -337,7 +337,7 @@
 
 .about-package-grid {
 	display: grid;
-	grid-template-columns: repeat(4, minmax(0, 1fr));
+	// grid-template-columns: repeat(4, minmax(0, 1fr));
 	gap: 20px;
 }
 
@@ -362,7 +362,7 @@
 		font-family: var(--font-kisas-sans);
 		font-size: 16px;
 		line-height: 1.5;
-		letter-spacing: -0.16px;
+		letter-spacing: -0.01em;
 	}
 }
 
@@ -399,7 +399,7 @@
 
 @media (max-width: 1100px) {
 	.about-hero-inner,
-	.about-steps-inner,
+	// .about-steps-inner,
 	.about-packages-heading {
 		grid-template-columns: 1fr;
 	}
@@ -430,8 +430,7 @@
 		padding-block: 40px 120px;
 	}
 
-	.about-audience-grid,
-	.about-package-grid {
+	.about-audience-grid {
 		grid-template-columns: 1fr;
 	}
 
@@ -479,7 +478,7 @@
 	}
 
 	.about-package-card {
-		min-height: 320px;
+		// min-height: 320px;
 		padding: 72px 28px 32px;
 	}
 }

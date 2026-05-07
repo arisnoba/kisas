@@ -290,7 +290,7 @@
 .apply-documents-layout {
 	display: grid;
 	grid-template-columns: minmax(0, 1fr) minmax(320px, 1fr);
-	gap: 40px;
+	// gap: 40px;
 	align-items: stretch;
 }
 
@@ -548,16 +548,22 @@
 			display: none;
 		}
 	}
-
-	.apply-timeline-item::before {
-		position: absolute;
-		z-index: -1;
-		top: 46px;
-		right: -24px;
-		left: 0;
-		height: 2px;
-		background: rgba(255, 255, 255, 0.28);
-		content: '';
+	.apply-timeline-item {
+		&::before {
+			position: absolute;
+			z-index: -1;
+			top: 46px;
+			right: -24px;
+			left: 0;
+			height: 1px;
+			background: #2051ab;
+			content: '';
+		}
+		&:last-child {
+			&::before {
+				content: none;
+			}
+		}
 	}
 
 	.apply-timeline-item:nth-child(3n)::before {
@@ -608,9 +614,10 @@
 			top: 0;
 			bottom: 0;
 			left: 39px;
-			width: 2px;
+			width: 1px;
+			bottom: 24px;
 			height: auto;
-			background: rgba(255, 255, 255, 0.28);
+			background: #2051ab;
 		}
 	}
 

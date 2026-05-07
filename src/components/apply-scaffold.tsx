@@ -100,7 +100,7 @@ export function ApplyScaffold({ dictionary, locale }: ApplyScaffoldProps) {
 						<TextLines className="block" lines={dictionary.documents.titleLines} />
 					</h2>
 
-					<div className="apply-documents-layout">
+					<div className="apply-documents-layout gap-5 xl:gap-10">
 						<article className="apply-document-panel apply-document-panel-common">
 							<h3>
 								<TextLines className="block" lines={dictionary.documents.commonTitleLines} />

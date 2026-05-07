@@ -59,14 +59,14 @@ export function AboutScaffold({ dictionary, locale }: AboutScaffoldProps) {
 			/>
 
 			<section className="about-steps" aria-labelledby="about-steps-title">
-				<div className="container about-steps-inner">
-					<div className="about-steps-overview lg:mb-40">
+				<div className="container about-steps-inner grid grid-cols-1 lg:grid-cols-2">
+					<div className="about-steps-overview lg:mb-40 col-span-1">
 						<h2 id="about-steps-title">
 							<TextLines className="block" lines={dictionary.steps.titleLines} />
 						</h2>
 						<p>{dictionary.steps.description}</p>
 					</div>
-					<div className="about-step-track" aria-label="Program steps">
+					<div className="about-step-track col-span-1" aria-label="Program steps">
 						{dictionary.steps.items.map(step => (
 							<article className={`about-step-card about-step-card-${step.shape}`} key={step.number}>
 								<div className="about-step-card-content">
@@ -116,9 +116,9 @@ export function AboutScaffold({ dictionary, locale }: AboutScaffoldProps) {
 							</ArrowButton>
 						</div>
 					</div>
-					<div className="about-package-grid">
+					<div className="about-package-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
 						{dictionary.packages.items.map(item => (
-							<article className={`about-package-card about-package-card-${item.variant}`} key={item.label}>
+							<article className={`about-package-card about-package-card-${item.variant} col-span-1`} key={item.label}>
 								<p className="about-package-label">{item.label}</p>
 								<h3>
 									<TextLines className="block" lines={item.titleLines} />
