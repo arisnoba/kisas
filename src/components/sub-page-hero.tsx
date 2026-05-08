@@ -62,7 +62,7 @@ export function SubPageHero({
 					fill
 					placeholder={blurDataURL ? 'blur' : 'empty'}
 					blurDataURL={blurDataURL}
-					priority
+					preload
 					sizes="100vw"
 					src={backgroundImage.src}
 					style={{
