@@ -36,7 +36,7 @@ function getStudentLifeNav(locale: Locale) {
 
 function StudentProfileCard({ profile }: { profile: StudentProfile }) {
 	return (
-		<article className="student-life-profile-card">
+		<article className="student-life-profile-card border border-gray-200">
 			<div className="student-life-profile-image">
 				<Image src={profile.image} alt="" fill sizes="(min-width: 1101px) 360px, (min-width: 721px) 50vw, 100vw" />
 			</div>

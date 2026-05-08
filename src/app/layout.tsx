@@ -11,6 +11,8 @@ import "./globals.css";
 import "@/styles/index.scss";
 
 const metadataDictionary = homeDictionaries.en.metadata;
+const siteUrl = new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.kisas.kr");
+const ogImage = "/assets/images/common/og.png";
 
 const newsreader = Newsreader({
   subsets: ["latin"],
@@ -39,8 +41,54 @@ const notoSerifSc = Noto_Serif_SC({
 });
 
 export const metadata: Metadata = {
+  metadataBase: siteUrl,
   title: metadataDictionary.title,
   description: metadataDictionary.description,
+  manifest: "/assets/images/favicon/site.webmanifest",
+  icons: {
+    icon: [
+      { url: "/assets/images/favicon/favicon.ico" },
+      {
+        url: "/assets/images/favicon/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+      {
+        url: "/assets/images/favicon/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+    ],
+    apple: [
+      {
+        url: "/assets/images/favicon/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  },
+  openGraph: {
+    title: metadataDictionary.title,
+    description: metadataDictionary.description,
+    url: "/",
+    siteName: "KISAS",
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: "KISAS International Art Study Center",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: metadataDictionary.title,
+    description: metadataDictionary.description,
+    images: [ogImage],
+  },
   alternates: {
     canonical: "/",
     languages: {
